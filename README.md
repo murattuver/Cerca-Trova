@@ -10,15 +10,16 @@ Testing for pull request fun isn't it!
 
 
 # Group Members
-   Berk Yildiz
+  
+   Berk Yıldız
    
-   Can Savci
+   Can Savcı
    
-   Murat Tuver 
+   Murat Tüver 
    
    Pegah Soltani
    
-   Sera Firincioglu
+   Sera Fırıncıoğlu
 
 
 
