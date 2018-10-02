@@ -6,7 +6,7 @@ CS-319 Katamino Game
 
 ##  Group Name    : Cerca-Trova :art:
 
-### Group Members
+### Members
 * Berk Yıldız
 * Can Savcı
 * Murat Tüver
