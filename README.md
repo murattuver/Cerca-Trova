@@ -8,11 +8,11 @@ Testing for pull request fun isn't it!
 Description 
 
 Group Members
-  #Berk Yildiz
-  #Can Savci
-  #Murat Tuver 
-  #Pegah Soltani
-  #Sera Firincioglu
+  # Berk Yildiz
+  # Can Savci
+  # Murat Tuver 
+  # Pegah Soltani
+  # Sera Firincioglu
 
 yet another test
 Can was here
