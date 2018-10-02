@@ -4,14 +4,15 @@ testingBranch
 right now I'm testing branches. Cool isn't it. master
 
 Testing for pull request fun isn't it!
-Group Members 
 
-Can Savci
-Pegah Soltani 
-Murat Tuver
-Sera Firincioglu
-Berk Soyadini Bilmiyorum :DDD
+Description 
 
+Group Members
+  #Berk Yildiz
+  #Can Savci
+  #Murat Tuver 
+  #Pegah Soltani
+  #Sera Firincioglu
 
 yet another test
 Can was here
