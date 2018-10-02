@@ -1,18 +1,18 @@
 # Cerca-Trova
 CS-319 Katamino Game
-### Project Name : Katamino
+# Project Name : Katamino
 
 ##  Group Name    : Cerca-Trova :art:
 
-# Description
+## Description
 
-# Group Members
+## Group Members
 * Berk Yıldız
 * Can Savcı
 * Murat Tüver
 * Pegah Soltani
 * Sera Fırıncıoğlu
 
-# Meeting Hours
+## Meeting Hours
 * Tuesday   18:00 - 20:00
 * Thursday  18:00 - 20:00
