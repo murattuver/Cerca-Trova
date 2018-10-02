@@ -1,14 +1,13 @@
 # Cerca-Trova
-CS-319 Katamino Game
-testingBranch
-right now I'm testing branches. Cool isn't it. master
+# Aim of the Project
+Aim of the project is to create a software version of the board game Katamino while following the design patterns covered in the course CS 319. In addition to the board game itself, new features will be implemented in this project.
 
-Testing for pull request fun isn't it!
+# What is Katamino?
+Katamino is a board game designed to improve kids geometric perception. However, various levels of difficulties allows Katamino to be a game for people of all ages. Purpose of the game is to fill all slots with the given pieces of different shapes. Game gets more difficult as the number of pieces increase. It also contains a booklet showing how to set each level.
+
 # Group Members
-yet another test
-Can was here
-Sera was here!!!
-Masterda değişiklik 
-
-bir değişiklik daha -murat
-# Can 
+Sera Fırıncıoğlu
+Pegah Soltani
+Murat Tüver
+Can Savcı
+Berk Yıldız
