@@ -12,4 +12,4 @@ Masterda değişiklik
 
 bir değişiklik daha -murat
 # Can 
-..* Test
+* Test
