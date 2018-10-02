@@ -2,7 +2,7 @@
 CS-319 Katamino Game
 ### Project Name : Katamino
 
-##  Group Name    : Cerca-Trova :EMOJICODE::art:
+##  Group Name    : Cerca-Trova :art:
 
 # Description
 
