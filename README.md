@@ -9,7 +9,7 @@ Katamino is a board game designed to improve kids geometric perception. However,
 
 ##  Group Name    : Cerca-Trova :art:
 
-## Members
+### Members
 * Berk Yıldız
 * Can Savcı
 * Murat Tüver
