@@ -2,11 +2,11 @@
 CS-319 Katamino Game
 # Project Name : Katamino
 
-##  Group Name    : Cerca-Trova :art:
-
 ## Description
 
-## Group Members
+##  Group Name    : Cerca-Trova :art:
+
+### Group Members
 * Berk Yıldız
 * Can Savcı
 * Murat Tüver
