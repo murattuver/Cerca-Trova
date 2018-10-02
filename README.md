@@ -1,13 +1,18 @@
 # Cerca-Trova
 CS-319 Katamino Game
-testingBranch
-right now I'm testing branches. Cool isn't it. master
+### Project Name : Katamino
 
-Testing for pull request fun isn't it!
+##  Group Name    : Cerca-Trova :EMOJICODE::art:
 
-yet another test
-Can was here
-Sera was here!!!
-Masterda değişiklik 
+# Description
 
-bir değişiklik daha -murat
+# Group Members
+* Berk Yıldız
+* Can Savcı
+* Murat Tüver
+* Pegah Soltani
+* Sera Fırıncıoğlu
+
+# Meeting Hours
+* Tuesday   18:00 - 20:00
+* Thursday  18:00 - 20:00
