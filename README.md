@@ -1,6 +1,5 @@
 # Project Name : Katamino
 
-## Description
 # Aim of the Project
 Aim of the project is to create a software version of the board game Katamino while following the design patterns covered in the course CS 319. In addition to the board game itself, new features will be implemented in this project.
 
