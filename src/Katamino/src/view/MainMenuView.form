@@ -19,13 +19,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="optionsButton" min="-2" pref="104" max="-2" attributes="0"/>
                   <Component id="playButton" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                      <Component id="optionsButton" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="exitButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="leaderBoardButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="exitButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="leaderBoardButton" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="171" max="32767" attributes="0"/>
@@ -38,9 +36,9 @@
               <EmptySpace pref="64" max="32767" attributes="0"/>
               <Component id="playButton" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="optionsButton" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="leaderBoardButton" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="optionsButton" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="exitButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
