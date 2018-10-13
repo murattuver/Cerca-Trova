@@ -18,8 +18,9 @@ public class MainController {
     GameFrame gameFrame;
     MainMenuView mainMenu;
     OptionsView optionsView;
+    GameEngine gameEngine;
 
-    //private constructor for singeton design pattern.
+    //private constructor for singleton design pattern.
     private MainController() {}
     
     public static MainController getInstance() {
@@ -38,21 +39,43 @@ public class MainController {
         //initializing the mainframe.
         gameFrame = new GameFrame(this.getInstance());
         
-        //Initializng and showing the main menu.
+        showMainMenu();
+
+    }
+    
+    public void showMainMenu() {
         mainMenu = new MainMenuView(this.getInstance());
         gameFrame.getContentPane().add(mainMenu);
     }
     
     //Method that closes the game.
     public void closeGame() {
+        if(gameEngine.getInstance().isGameRunning())
+            gameEngine.getInstance().stop();
         gameFrame.dispose();
     }
     
     public void showGameOptions() {
         optionsView = new OptionsView(this.getInstance());
         gameFrame.remove(mainMenu);
-        gameFrame.repaint();
         gameFrame.getContentPane().add(optionsView);
+        gameFrame.revalidate();
+        gameFrame.repaint();
+    }
+    
+    public void optionsToMainMenu() {
+        gameFrame.remove(optionsView);
+        gameFrame.add(mainMenu);
+        gameFrame.revalidate();
+        gameFrame.repaint();
+    }
+    
+    public void startGame() {
+        gameFrame.remove(mainMenu);
+        gameFrame.add(gameEngine.getInstance());
+        if(!gameEngine.getInstance().isGameRunning())
+            gameEngine.getInstance().start();
+        gameFrame.revalidate();
         gameFrame.repaint();
     }
 }

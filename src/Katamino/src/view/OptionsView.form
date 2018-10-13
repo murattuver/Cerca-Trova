@@ -19,56 +19,69 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="resolutionTextLabel" pref="96" max="32767" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="musicTextLabel" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="soundTextLabel" min="-2" pref="98" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="themeComboBox" min="-2" max="-2" attributes="0"/>
-                  <Component id="resolutionComboBox" min="-2" max="-2" attributes="0"/>
-                  <Component id="musicCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="soundCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="resolutionTextLabel" pref="111" max="32767" attributes="0"/>
+                          <Component id="fullScreenTextLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="musicTextLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="soundTextLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="themeComboBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="fullScreenCheckBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="resolutionComboBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="soundCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="musicCheckBox" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                      <Component id="backToMainMenuButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="115" max="32767" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="resolutionComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="resolutionTextLabel" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="themeComboBox" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="musicTextLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="musicCheckBox" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="fullScreenCheckBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="soundCheckBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="musicCheckBox" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="soundTextLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="fullScreenTextLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="musicTextLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="soundTextLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="soundCheckBox" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="themeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="backToMainMenuButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,11 +95,10 @@
     <Component class="javax.swing.JComboBox" name="resolutionComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="3">
+            <StringItem index="0" value="800 x 600"/>
+            <StringItem index="1" value="1280 x 800"/>
+            <StringItem index="2" value="1920 &#xd7; 1080"/>
           </StringArray>
         </Property>
       </Properties>
@@ -133,6 +145,21 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="soundCheckBox">
+    </Component>
+    <Component class="javax.swing.JButton" name="backToMainMenuButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Back to Main Menu"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToMainMenuButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="fullScreenTextLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="FullScreen:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="fullScreenCheckBox">
     </Component>
   </SubComponents>
 </Form>
