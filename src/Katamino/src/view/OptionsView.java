@@ -6,16 +6,20 @@
 package view;
 
 import controller.MainController;
+import java.util.LinkedList;
+import java.util.Properties;
 
 /**
  *
- * @author Murat
+ * @author Cerca-Trova
  */
 public class OptionsView extends javax.swing.JPanel {
-
+    
+    //IMPORTANT NOTE: Change this if you add a resolution.
+    
     //Reference to the Controller.
     MainController gameController = null;
-    
+   
     /**
      * Creates new form OptionsView
      */
@@ -24,7 +28,6 @@ public class OptionsView extends javax.swing.JPanel {
         //Connecting view to the Controller.
         this.gameController = gameController.getInstance();
         initComponents();
-       
     }
 
     /**
@@ -47,8 +50,14 @@ public class OptionsView extends javax.swing.JPanel {
         backToMainMenuButton = new javax.swing.JButton();
         fullScreenTextLabel = new javax.swing.JLabel();
         fullScreenCheckBox = new javax.swing.JCheckBox();
+        saveOptionsButton = new javax.swing.JButton();
 
         setAutoscrolls(true);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         resolutionTextLabel.setText("Resolution:");
 
@@ -61,7 +70,7 @@ public class OptionsView extends javax.swing.JPanel {
 
         jLabel2.setText("Theme:");
 
-        themeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        themeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Classic Theme", "Item 2", "Item 3", "Item 4" }));
 
         musicTextLabel.setText("Music:");
 
@@ -82,14 +91,27 @@ public class OptionsView extends javax.swing.JPanel {
 
         fullScreenTextLabel.setText("FullScreen:");
 
+        fullScreenCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullScreenCheckBoxActionPerformed(evt);
+            }
+        });
+
+        saveOptionsButton.setText("Save Options");
+        saveOptionsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveOptionsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(101, 101, 101)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resolutionTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(fullScreenTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -104,9 +126,10 @@ public class OptionsView extends javax.swing.JPanel {
                             .addComponent(soundCheckBox)
                             .addComponent(musicCheckBox)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
+                        .addComponent(saveOptionsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(backToMainMenuButton)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +157,9 @@ public class OptionsView extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(themeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(backToMainMenuButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backToMainMenuButton)
+                    .addComponent(saveOptionsButton))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -148,9 +173,53 @@ public class OptionsView extends javax.swing.JPanel {
     }//GEN-LAST:event_musicCheckBoxActionPerformed
 
     private void backToMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMainMenuButtonActionPerformed
+        //Returns Values to initials.
+        gameController.getInstance().loadOptions();
+        
+        //Goes back to the mainMenu.
         gameController.getInstance().optionsToMainMenu();
     }//GEN-LAST:event_backToMainMenuButtonActionPerformed
 
+    private void fullScreenCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullScreenCheckBoxActionPerformed
+
+    }//GEN-LAST:event_fullScreenCheckBoxActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+
+    }//GEN-LAST:event_formKeyPressed
+
+    private void saveOptionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveOptionsButtonActionPerformed
+       
+        //Setting a save file to sent to the MainController.
+        Properties prop = new Properties();
+    
+        prop.setProperty("resolution", resolutionComboBox.getSelectedItem().toString());
+        prop.setProperty("isFullScreen", fullScreenCheckBox.isSelected() + "");
+        prop.setProperty("isMusicOn", musicCheckBox.isSelected() + "");
+        prop.setProperty("isSoundsOn", soundCheckBox.isSelected() + "");
+        prop.setProperty("theme", themeComboBox.getSelectedItem().toString());
+   
+        //Sending properties file to the MainController.
+        gameController.getInstance().saveOptions(prop);
+        
+        //Applying changes. TODO: other options needs to be implemented.
+        gameController.getInstance().setFullScreen(fullScreenCheckBox.isSelected());
+    }//GEN-LAST:event_saveOptionsButtonActionPerformed
+    
+    //Gets settings from the MainController and sets their values to the view.
+    public void setOptionsValues(LinkedList<String> list) {
+
+        resolutionComboBox.setSelectedItem(list.pop());
+        
+        fullScreenCheckBox.setSelected(Boolean.parseBoolean(list.pop()));
+        gameController.getInstance().setFullScreen(fullScreenCheckBox.isSelected());
+        
+        musicCheckBox.setSelected(Boolean.parseBoolean(list.pop()));
+        soundCheckBox.setSelected(Boolean.parseBoolean(list.pop()));
+        themeComboBox.setSelectedItem(list.pop());
+        
+                   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backToMainMenuButton;
@@ -161,6 +230,7 @@ public class OptionsView extends javax.swing.JPanel {
     private javax.swing.JLabel musicTextLabel;
     private javax.swing.JComboBox<String> resolutionComboBox;
     private javax.swing.JLabel resolutionTextLabel;
+    private javax.swing.JButton saveOptionsButton;
     private javax.swing.JCheckBox soundCheckBox;
     private javax.swing.JLabel soundTextLabel;
     private javax.swing.JComboBox<String> themeComboBox;

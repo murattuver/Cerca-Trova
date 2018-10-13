@@ -10,14 +10,12 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Murat
+ * @author Cerca-Trova
  */
 public class GameFrame extends JFrame {
     
-    final int WIDTH = 800;
-    final int HEIGHT = 600;
-    //final String GAME_NAME = "Katamino";
-    //final String LAYOUT = "";
+    int width = 800;
+    int height = 600;
     
     public GameFrame(MainController gameController) {
         
@@ -25,7 +23,7 @@ public class GameFrame extends JFrame {
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        setSize(WIDTH, HEIGHT);
+        setSize(width, height);
         
         setLocationRelativeTo(null);
         
@@ -33,5 +31,23 @@ public class GameFrame extends JFrame {
         
     }
     
+    //Makes frame full screen.
+    public void setFullScreen(boolean toFullScreen) {
+        if(toFullScreen) {
+            setExtendedState(JFrame.MAXIMIZED_BOTH);
+            setResizable(false);
+            
+        } else {
+            setSize(width, height);
+            
+
+        }
+    }
+    
+    //Repaints frames all components.
+    public void updateFrame() {
+        revalidate();
+        repaint(); 
+    }
     
 }

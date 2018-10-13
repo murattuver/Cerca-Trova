@@ -7,7 +7,7 @@ package controller;
 
 /**
  *
- * @author Murat
+ * @author Cerca-Trova
  */
 public class GameRunner {
     

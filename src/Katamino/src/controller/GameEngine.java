@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Murat
+ * @author Cerca-Trova
  */
 public class GameEngine extends Canvas implements Runnable {
 
