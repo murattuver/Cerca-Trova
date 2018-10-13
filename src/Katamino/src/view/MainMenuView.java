@@ -9,7 +9,7 @@ import controller.MainController;
 
 /**
  *
- * @author Murat
+ * @author Cerca-Trova
  */
 public class MainMenuView extends javax.swing.JPanel {
 
