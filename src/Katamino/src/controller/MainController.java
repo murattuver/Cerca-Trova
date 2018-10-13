@@ -5,11 +5,21 @@
  */
 package controller;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.LinkedList;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.*;
 
 /**
  *
- * @author Murat
+ * @author Cerca-Trova
  */
 public class MainController {
     
@@ -19,6 +29,14 @@ public class MainController {
     MainMenuView mainMenu;
     OptionsView optionsView;
     GameEngine gameEngine;
+    OutputStream output = null;
+    
+    //gameOptions with default values in case of the missing config.properties files.
+    String resolution = "800 x 600";
+    boolean isFullScreen = true;
+    boolean isMusicOn = true;
+    boolean isSoundsOn = true;
+    String theme = "Classic Theme";
 
     //private constructor for singleton design pattern.
     private MainController() {}
@@ -45,7 +63,10 @@ public class MainController {
     
     public void showMainMenu() {
         mainMenu = new MainMenuView(this.getInstance());
+        optionsView = new OptionsView(this.getInstance());
+        loadOptions();
         gameFrame.getContentPane().add(mainMenu);
+        gameFrame.updateFrame();
     }
     
     //Method that closes the game.
@@ -53,29 +74,107 @@ public class MainController {
         if(gameEngine.getInstance().isGameRunning())
             gameEngine.getInstance().stop();
         gameFrame.dispose();
+        System.exit(0);
     }
     
     public void showGameOptions() {
-        optionsView = new OptionsView(this.getInstance());
         gameFrame.remove(mainMenu);
         gameFrame.getContentPane().add(optionsView);
-        gameFrame.revalidate();
-        gameFrame.repaint();
+        gameFrame.updateFrame();
     }
     
     public void optionsToMainMenu() {
         gameFrame.remove(optionsView);
         gameFrame.add(mainMenu);
-        gameFrame.revalidate();
-        gameFrame.repaint();
+        gameFrame.updateFrame();
     }
     
     public void startGame() {
         gameFrame.remove(mainMenu);
         gameFrame.add(gameEngine.getInstance());
-        if(!gameEngine.getInstance().isGameRunning())
+        if(!GameEngine.getInstance().isGameRunning())
             gameEngine.getInstance().start();
-        gameFrame.revalidate();
-        gameFrame.repaint();
+        gameFrame.updateFrame();
+    }
+    
+    public void setFullScreen(boolean toFullScreen) {
+        gameFrame.setFullScreen(toFullScreen);
+        gameFrame.updateFrame();
+    }
+    
+    public void saveOptions(Properties prop ) {
+        
+        //Setting internal properties first in case of a change.
+        resolution = prop.getProperty("resolution");
+        isFullScreen = Boolean.parseBoolean(prop.getProperty("isFullScreen"));
+        isMusicOn = Boolean.parseBoolean(prop.getProperty("isMusicOn"));
+        isSoundsOn = Boolean.parseBoolean(prop.getProperty("isSoundsOn"));
+        theme = prop.getProperty("theme");
+        
+        //Saving properties to a file.
+        try {
+            output = new FileOutputStream("config.properties");
+            prop.store(output, null);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if(output != null) {
+                try {
+                    output.close();
+                } catch (IOException err) {
+                    err.printStackTrace();
+                }
+            }
+        }
+    }
+    
+    /* Brings data from the local file "config.properties" and sets it to relevant
+     * variables. If file does not exit, then it uses default values put in the 
+     * decleration.
+    */
+    public void loadOptions() {
+        Properties prop = new Properties();
+        InputStream input = null;
+        
+        //Link list to hold and send variables to the OptionsView.
+        LinkedList<String> list = new LinkedList<String>();
+        
+        //First, getting Options from the local file
+        try {
+            input = new FileInputStream("config.properties");
+            
+            prop.load(input);
+            
+            resolution = prop.getProperty("resolution");
+            isFullScreen = Boolean.parseBoolean(prop.getProperty("isFullScreen"));
+            isMusicOn = Boolean.parseBoolean(prop.getProperty("isMusicOn"));
+            isSoundsOn = Boolean.parseBoolean(prop.getProperty("isSoundsOn"));
+            theme = prop.getProperty("theme");
+            
+            
+        } catch (IOException err) {
+            err.printStackTrace();
+        } finally {
+            if(input != null) {
+                try {
+                    input.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } 
+        }
+        
+        //Second, setting values to the OptionsView
+        list.add(resolution);
+        list.add(isFullScreen + "");
+        list.add(isMusicOn + "");
+        list.add(isSoundsOn + "");
+        list.add(theme);
+        
+        //local variables are set, now showing them in the view.
+        optionsView.setOptionsValues(list);
+        gameFrame.updateFrame();
     }
 }
