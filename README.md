@@ -9,6 +9,7 @@ Katamino is a strategic and educational board game. It helps kids to understand 
 A pentomino is a part of the game which is basically the combination of 5 squares and there are 12 different pentominos in the game. How to play the game Katamino is with the given specific pentaminos, the user tries to put all the given parts to the specified 2D area called slider. The area of slider must be either a square or a rectangle. If the user succeeds to put all of the specified pentominos without any blanks, the area is considered as "Pento" and the user finishes the game. After that, the slider moves one unit and the game starts again with the new difficulty level. The game starts with a 3 x 5 slider up to 12 x 5 slider.
 
 ##  Group Name    : Cerca-Trova :art:
+##  Group Number  : 3C
 
 ### Members
 * Berk Yıldız
