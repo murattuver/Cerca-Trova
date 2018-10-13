@@ -20,15 +20,14 @@ public class GameFrame extends JFrame {
     //final String LAYOUT = "";
     
     public GameFrame(MainController gameController) {
-        //super(GAME_NAME, LAYOUT);
         
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super("Katamino");
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         setSize(WIDTH, HEIGHT);
-        setDefaultLookAndFeelDecorated(true);
-
-        //setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        //setUndecorated(true);
+        
+        setLocationRelativeTo(null);
         
         setVisible(true);
         
