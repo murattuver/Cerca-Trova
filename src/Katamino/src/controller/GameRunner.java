@@ -15,6 +15,7 @@ public class GameRunner {
         MainController.getInstance().start();
         System.out.println("test");
         System.out.println("think as making changes");
+        System.out.println("think as making changes");
     }
     
 }
