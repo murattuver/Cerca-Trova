@@ -12,6 +12,7 @@ Katamino is a strategic and educational board game. It helps kids to understand 
 
 A pentomino is a part of the game which is basically the combination of 5 squares and there are 12 different pentominos in the game. How to play the game Katamino is with the given specific pentaminos, the user tries to put all the given parts to the specified 2D area called slider. The area of slider must be either a square or a rectangle. If the user succeeds to put all of the specified pentominos without any blanks, the area is considered as "Pento" and the user finishes the game. After that, the slider moves one unit and the game starts again with the new difficulty level. The game starts with a 3 x 5 slider up to 12 x 5 slider.
 
+# Description
 In our project, we will implement a Katamino game on 2D platform. The game will consist of different stages, each stage will be more difficult. We will use the solutions guide book to implement each stage. For example, we give the specific pentominos to the user and we will expect user to solve the Pento problem. 
 
 In addition to this, we will have two modes: one of these will be called "Arcade Mode". The Arcade Mode will be more challenging and user-rewarding mode. It will have a timer, and if the user finishes before the timer stops, he/she will earn to coins to buy an extra pentomino from the item menu which consists of all kinds of pentominos, so that the user may seek an original solution, other than repeating the same approach. However, the coins will be harder to get, we assure you! Also, if you're good enough you will raise among the best in the leaderboard proving your dedication for Katamino.
@@ -24,7 +25,7 @@ In short, we are implementing a real table game, in the perspective of PC games.
 
 
 
-### Group Members (Group 3C)
+## Group Members (Group 3C)
 * Berk Yıldız
 * Can Savcı
 * Murat Tüver
