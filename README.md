@@ -2,7 +2,7 @@
 
 # Project Topic : Katamino
 
-# Group Number: 3C
+##  Group Name    : Cerca-Trova(3C) :art:
 
 # Aim of the Project
 Aim of the project is to create a software version of the board game Katamino while following the design patterns covered in the course CS 319. In addition to the board game itself, new features will be implemented in this project.
@@ -16,11 +16,13 @@ In our project, we will implement a Katamino game on 2D platform. The game will 
 
 In addition to this, we will have two mods: one of these will be called "Arcade Mode". The Arcade Mode will be more challenging and user-rewarding mode. It will have a timer, and if the user finishes before the timer stops, he/she will earn to coins to buy an extra pentomino from the item menu which consists of all kinds of pentominos, so that the user may seek an original solution, other than repeating the same approach. However, the coins will be harder to get, we assure you !
 
+Also, hint system will be there for you when you need it most. It will help you to solve puzzles by giving you little tips. Despite being useful, you need to earn them by showing your best on previous levels! 
+
 The other mode is called "Normal Mode". The aim of this mode will be the offer of brain exercising for the users without driving to the competition. There will be no timer and no stress on this mode. The user can find a way to exercise his/her brain and practice for the Arcade Mode.
 
-In short, we are implementing a real table game, in the perspective of PC games. We will try to use appropriate approaches of addictive games to make Katamino more interesting and more addictive. Because, table games are not appealing and usually boring. Therefore, we want to make a game that is more competitive, more rewarding and more aesthetic. Competitive, because people's nature is full of competition. Rewarding, because if a person has no aim to do anything, the one will lose its interest. Aesthetic, because people love the beauty with the harmony. Our game will be harmonized by the three terms and combined to serve the users. Stay tuned !  
+In short, we are implementing a real table game, in the perspective of PC games. We will try to use appropriate approaches of addictive games to make Katamino more interesting and more addictive. Also, we want to make a game that is more competitive, more rewarding and more aesthetic. Competitive, because people's nature is full of competition. Rewarding, because if a person has no aim to do anything, the one will lose its interest. Aesthetic, because people love the beauty with the harmony. Our game will be harmonized by the three terms and combined to serve the users. Stay tuned !  
 
-##  Group Name    : Cerca-Trova :art:
+
 
 ### Members
 * Berk Yıldız
