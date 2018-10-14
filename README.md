@@ -30,7 +30,7 @@ In short, we are implementing a real table game, in the perspective of PC games.
 * Can Savcı
 * Murat Tüver
 * Pegah Soltani
-* Sera Fırıncıoğlu
+* Sera Fırıncıoğlu - 21401803
 
 ## Meeting Hours
 * Tuesday   18:00 - 20:00
