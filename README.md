@@ -2,7 +2,7 @@
 
 # Project Topic : Katamino
 
-##  Group Name    : Cerca-Trova(3C) :art:
+##  Group Name    : Cerca-Trova :art:
 
 # Aim of the Project
 Aim of the project is to create a software version of the board game Katamino while following the design patterns covered in the course CS 319. In addition to the board game itself, new features will be implemented in this project.
@@ -14,7 +14,7 @@ A pentomino is a part of the game which is basically the combination of 5 square
 
 In our project, we will implement a Katamino game on 2D platform. The game will consist of different stages, each stage will be more difficult. We will use the solutions guide book to implement each stage. For example, we give the specific pentominos to the user and we will expect user to solve the Pento problem. 
 
-In addition to this, we will have two mods: one of these will be called "Arcade Mode". The Arcade Mode will be more challenging and user-rewarding mode. It will have a timer, and if the user finishes before the timer stops, he/she will earn to coins to buy an extra pentomino from the item menu which consists of all kinds of pentominos, so that the user may seek an original solution, other than repeating the same approach. However, the coins will be harder to get, we assure you! Also, if you're good enough you will raise among the best in the leaderboard proving your dedication for Katamino.
+In addition to this, we will have two modes: one of these will be called "Arcade Mode". The Arcade Mode will be more challenging and user-rewarding mode. It will have a timer, and if the user finishes before the timer stops, he/she will earn to coins to buy an extra pentomino from the item menu which consists of all kinds of pentominos, so that the user may seek an original solution, other than repeating the same approach. However, the coins will be harder to get, we assure you! Also, if you're good enough you will raise among the best in the leaderboard proving your dedication for Katamino.
 
 The other mode is called "Normal Mode". The aim of this mode will be the offer of brain exercising for the users without driving to the competition. There will be no timer and no stress on this mode. The user can find a way to exercise his/her brain and practice for the Arcade Mode.
 
@@ -24,7 +24,7 @@ In short, we are implementing a real table game, in the perspective of PC games.
 
 
 
-### Members
+### Group Members (Group 3C)
 * Berk Yıldız
 * Can Savcı
 * Murat Tüver
