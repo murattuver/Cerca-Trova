@@ -26,10 +26,10 @@ In short, we are implementing a real table game, in the perspective of PC games.
 
 
 ## Group Members (Group 3C)
-* Berk Yıldız
+* Berk Yıldız - 21502040
 * Can Savcı - 21300803
 * Murat Tüver      - 21602388
-* Pegah Soltani
+* Pegah Soltani - 21500559
 * Sera Fırıncıoğlu - 21401803
 
 ## Meeting Hours
