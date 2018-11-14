@@ -55,7 +55,7 @@ public class GameRunner {
         b.printColor();
         Pentomino p3 = b.getPentomino(0, 0);
            
-        System.out.println(p3.getColor());
+       // System.out.println(p3.getColor());
         
     }
     
