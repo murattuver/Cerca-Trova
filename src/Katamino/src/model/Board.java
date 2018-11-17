@@ -12,13 +12,11 @@ import java.awt.Color;
  * @author Murat
  */
 public class Board extends GameObject {
-    private boolean isBoardFull;
     private Theme theme;
     private BoardLocation[][] locations;
     private int maxCol;
     
     public Board(int col) {
-        isBoardFull = false;
         maxCol = col;
         locations = new BoardLocation[5][col];
         
@@ -35,6 +33,17 @@ public class Board extends GameObject {
     
     public void setTheme(Theme theme) {
         this.theme = theme;
+    }
+    
+    public boolean isBoardFull(){
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < maxCol; j++){
+                if(!locations[i][j].isOccupied())
+                    return false;
+            }
+        }
+        
+        return true;
     }
     
     public boolean placePentomino(Pentomino pento, int x, int y){
@@ -62,7 +71,6 @@ public class Board extends GameObject {
                     locations[row + y][col + x].setPentomino(pento);
             }
         }
-        
         return true;
 
     }
@@ -90,6 +98,7 @@ public class Board extends GameObject {
         }
     }
     
+    //TESTING PURPOSE!!!
     public void printColor(){
         for(int i = 4; i >= 0; i--){
             for(int j = 0; j < maxCol; j++) {

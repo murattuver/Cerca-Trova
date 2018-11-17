@@ -10,5 +10,34 @@ package model;
  * @author Murat
  */
 public class Level {
+    private PentominoesSet pSet;
+    private boolean isLevelUnlocked = false;
+    private int difficultyLevel;
+    private int time;
     
+    public Level(PentominoesSet set, boolean isUnlocked, int time){
+        pSet = set;
+        isLevelUnlocked = isUnlocked;
+        this.time = time;
+    }
+    
+    public void setDifficulty(int diff){
+        difficultyLevel = diff;
+    }
+    
+    public void setTime(int time){
+        this.time = time;
+    }
+    
+    public int getTime(){
+        return time;
+    }
+    
+    public int getDifficultyLevel(){
+        return difficultyLevel;
+    }
+    
+    public void setUnlocked(boolean b){
+        isLevelUnlocked = b;
+    }
 }

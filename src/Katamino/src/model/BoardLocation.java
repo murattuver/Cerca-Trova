@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.awt.Color;
-
 /**
  *
  * @author Murat

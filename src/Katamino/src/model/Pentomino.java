@@ -26,21 +26,57 @@ public class Pentomino extends GameObject{
         
         for(int i = 0; i < 5;i++){
             for(int j = 0; j < 5; j++){
-                this.shape[i][j] = false;
+                  this.shape[i][j] = false;
             }
         }
     }
     
     public void rotate() {
+        int maxCol = findMaxCol();
+        boolean[][] newShape = new boolean[5][5];
+        int x = 0;
+        int y = 0;
         
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++) {
+                if(shape[i][j]){
+                    x = j;
+                    y = i;
+                    
+                    x = x - maxCol;
+                    int temp = x;
+                    x = y;
+                    y = -1 * temp - 1;
+                    
+                    newShape[y][x] = true;
+                                                      
+                }
+            }
+        }
+        
+        shape = newShape;
+    }
+    
+    private int findMaxCol() {
+        int maxSoFar = -1;
+        
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++){
+                if(shape[i][j] && j > maxSoFar - 1){
+                    maxSoFar = j + 1;
+                }
+            }
+        }
+        
+        return maxSoFar;
     }
     
     public boolean[][] getShape() {
         return shape;
     }
     
-    public Color getColor(){
-        return color;
+    public Color getColor(){ 
+        return color;   
     }
     
     public void setShape(int x, int y, boolean b){
