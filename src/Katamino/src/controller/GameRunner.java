@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class GameRunner {
     
     public static void main(String[] args) {
-         //MainController.getInstance().start();
+        MainController.getInstance().start();
         /*
         Board b = new Board(3);
 
@@ -82,7 +82,7 @@ public class GameRunner {
 
         b.print();
         */
-        
+        /*
         Pentomino p1 = new Pentomino(Color.green);
         Pentomino p2 = new Pentomino(Color.blue);
         
@@ -105,8 +105,7 @@ public class GameRunner {
         
         p2.setX(42);
         p2.setY(47);
-        p2.setDeltaX(3);
-        p2.setDeltaY(3);
+        p2.setDelta(3);
         
         
         List<Pentomino> list = new ArrayList<>();
@@ -123,7 +122,7 @@ public class GameRunner {
         Pentomino p3 = gm.getGameObject(43, 48);
         
         p3.print();
-       
+       */
         /*
         p1.print();
         System.out.println("");

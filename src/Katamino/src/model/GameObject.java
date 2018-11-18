@@ -5,32 +5,34 @@
  */
 package model;
 
+import java.awt.*;
+
 /**
  *
  * @author Murat
  */
-public abstract class GameObject {
-    private int locX;
-    private int locY;
+public abstract class GameObject implements Drawable{
+    private int xLoc;
+    private int yLoc;
     private String id;
     private int deltaX;
     private int deltaY;
     
     
     public int getX(){
-        return locX;
+        return xLoc;
     }
     
     public int getY(){
-        return locY;
+        return yLoc;
     }
     
     public void setY(int y){
-        locY = y;
+        yLoc = y;
     }
     
     public void setX(int x){
-        locX = x;
+        xLoc = x;
     }
     
     public int getDeltaX(){
@@ -40,4 +42,12 @@ public abstract class GameObject {
     public int getDeltaY(){
         return deltaY;
     }
+    
+    public void setDelta(int delta){
+        deltaX = delta;
+        deltaY = delta;
+    }
+    
+ 
 }
+

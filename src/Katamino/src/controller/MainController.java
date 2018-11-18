@@ -71,8 +71,8 @@ public class MainController {
     
     //Method that closes the game.
     public void closeGame() {
-        if(gameEngine.getInstance().isGameRunning())
-            gameEngine.getInstance().stop();
+        if(gameEngine.isGameRunning())
+            gameEngine.stopGameEngine();
         gameFrame.dispose();
         System.exit(0);
     }
@@ -91,9 +91,9 @@ public class MainController {
     
     public void startGame() {
         gameFrame.remove(mainMenu);
-        gameFrame.add(gameEngine.getInstance());
-        if(!GameEngine.getInstance().isGameRunning())
-            gameEngine.getInstance().start();
+        gameFrame.add(gameEngine);
+        if(!gameEngine.isGameRunning())
+            gameEngine.startGameEngine();
         gameFrame.updateFrame();
     }
     

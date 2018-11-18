@@ -6,6 +6,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
@@ -15,10 +16,6 @@ public class Pentomino extends GameObject{
     private boolean[][] shape = new boolean[5][5];
     private Color color;
     private Theme theme;
-    private int xLoc;
-    private int yLoc;
-    private int deltaX;
-    private int deltaY;
     
     public Pentomino(boolean[][] shape, Color color){
         this.shape = shape;
@@ -87,38 +84,6 @@ public class Pentomino extends GameObject{
         shape[y][x] = b;
     }
     
-    public int getX(){
-        return xLoc;
-    }
-    
-    public int getY(){
-        return yLoc;
-    }
-    
-    public void setX(int x){
-        xLoc = x;
-    }
-    
-    public void setY(int y){
-        yLoc = y;
-    }
-    
-    public int getDeltaX(){
-        return deltaX;
-    }
-    
-    public int getDeltaY(){
-        return deltaY;
-    }
-    
-    public void setDeltaX(int x){
-        deltaX = x;
-    }
-    
-    public void setDeltaY(int y){
-        deltaY = y;
-    }
-    
     //FOR TESTING PURPOSE!!!
     public void print(){
         for(int i = 4; i >= 0; i--){
@@ -133,4 +98,15 @@ public class Pentomino extends GameObject{
             System.out.println("");
         }
     } 
+    
+
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        
+    }
 }

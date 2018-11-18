@@ -19,23 +19,41 @@ public class GameManager {
     private SoundManager soundManager;
     private Board board;
     private List<Pentomino> pentos;
+    private List<GameObject> objectsOnScreen;
     private Level level;
     private OptionsView settingsView;
     private GameFrame gameFrame;
     private GameEngine gameEngine;
     private boolean isGameRunning = false;
+    private GamePanel gamePanel;
     
     public GameManager(Level level) {
         pentos = new ArrayList<>();
         this.level = level;
+        
+        initPentominoes();
+        createBoard(level.getDifficultyLevel());
+        
+        board.setX(40);
+        board.setY(55);
+        
+        objectsOnScreen = new ArrayList<GameObject>();
+        
+        objectsOnScreen.add(board);
+        
+        for(int i = 0; i < pentos.size(); i++){
+            objectsOnScreen.add(pentos.get(i));
+        }
+        
+        gamePanel = new GamePanel(objectsOnScreen);
     }
     
     public void startGameEngine(){
         gameFrame.removeAll();
-        gameFrame.add(GameEngine.getInstance());
-        if(!GameEngine.getInstance().isGameRunning())
-            gameEngine.getInstance().start();
-        gameFrame.updateFrame();
+        gameFrame.dispose();
+        gameEngine = new GameEngine(gamePanel);
+        if(!gameEngine.isGameRunning())
+            gameEngine.startGameEngine();
     }
     
     public void createBoard(int col){
@@ -52,7 +70,7 @@ public class GameManager {
     }
     
     public void stopGameEngine(){
-        gameEngine.stop();
+        gameEngine.stopGameEngine();
     }
     
     public boolean isGameRunning(){
