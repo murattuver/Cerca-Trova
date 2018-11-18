@@ -39,200 +39,189 @@ public class OptionsView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        resolutionTextLabel = new javax.swing.JLabel();
-        resolutionComboBox = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        themeComboBox = new javax.swing.JComboBox<>();
-        musicTextLabel = new javax.swing.JLabel();
-        musicCheckBox = new javax.swing.JCheckBox();
-        soundTextLabel = new javax.swing.JLabel();
-        soundCheckBox = new javax.swing.JCheckBox();
-        backToMainMenuButton = new javax.swing.JButton();
-        fullScreenTextLabel = new javax.swing.JLabel();
-        fullScreenCheckBox = new javax.swing.JCheckBox();
-        saveOptionsButton = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox8 = new javax.swing.JCheckBox();
 
         setAutoscrolls(true);
+        setPreferredSize(new java.awt.Dimension(800, 600));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
             }
         });
 
-        resolutionTextLabel.setText("Resolution:");
-
-        resolutionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "800 x 600", "1280 x 800", "1920 × 1080" }));
-        resolutionComboBox.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resolutionComboBoxActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Theme:");
+        jLabel1.setText("                          OPTIONS");
 
-        themeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Classic Theme", "Item 2", "Item 3", "Item 4" }));
+        jLabel2.setText("                           Sound");
 
-        musicTextLabel.setText("Music:");
-
-        musicCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox1.setText("ON");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                musicCheckBoxActionPerformed(evt);
+                jCheckBox1ActionPerformed(evt);
             }
         });
 
-        soundTextLabel.setText("Sound:");
+        jCheckBox2.setSelected(true);
+        jCheckBox2.setText("OFF");
 
-        backToMainMenuButton.setText("Back to Main Menu");
-        backToMainMenuButton.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox3.setText("OFF");
+
+        jLabel3.setText("                           Music");
+
+        jCheckBox4.setSelected(true);
+        jCheckBox4.setText("ON");
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backToMainMenuButtonActionPerformed(evt);
+                jCheckBox4ActionPerformed(evt);
             }
         });
 
-        fullScreenTextLabel.setText("FullScreen:");
+        jCheckBox5.setText("ME");
 
-        fullScreenCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("                           Theme");
+
+        jCheckBox6.setSelected(true);
+        jCheckBox6.setText("ARCH");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullScreenCheckBoxActionPerformed(evt);
+                jCheckBox6ActionPerformed(evt);
             }
         });
 
-        saveOptionsButton.setText("Save Options");
-        saveOptionsButton.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox7.setText("CS");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveOptionsButtonActionPerformed(evt);
+                jCheckBox7ActionPerformed(evt);
             }
         });
+
+        jCheckBox8.setText("MAN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(resolutionTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(fullScreenTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(musicTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(soundTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(themeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fullScreenCheckBox)
-                            .addComponent(resolutionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(soundCheckBox)
-                            .addComponent(musicCheckBox)))
+                        .addGap(11, 11, 11)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveOptionsButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(backToMainMenuButton)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addGap(300, 300, 300)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jCheckBox4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox3)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jCheckBox1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox2)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jCheckBox6)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(jCheckBox7)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(jCheckBox8)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(jCheckBox5))))))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(resolutionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resolutionTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(fullScreenCheckBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(musicCheckBox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(fullScreenTextLabel)
-                        .addGap(20, 20, 20)
-                        .addComponent(musicTextLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(soundTextLabel)
-                    .addComponent(soundCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(themeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox2))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backToMainMenuButton)
-                    .addComponent(saveOptionsButton))
-                .addContainerGap(61, Short.MAX_VALUE))
+                    .addComponent(jCheckBox4)
+                    .addComponent(jCheckBox3))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox6)
+                    .addComponent(jCheckBox5)
+                    .addComponent(jCheckBox7)
+                    .addComponent(jCheckBox8))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void resolutionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resolutionComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resolutionComboBoxActionPerformed
-
-    private void musicCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_musicCheckBoxActionPerformed
-
-    private void backToMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMainMenuButtonActionPerformed
-        //Returns Values to initials.
-        gameController.getInstance().loadOptions();
-        
-        //Goes back to the mainMenu.
-        gameController.getInstance().optionsToMainMenu();
-    }//GEN-LAST:event_backToMainMenuButtonActionPerformed
-
-    private void fullScreenCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullScreenCheckBoxActionPerformed
-
-    }//GEN-LAST:event_fullScreenCheckBoxActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
 
     }//GEN-LAST:event_formKeyPressed
 
-    private void saveOptionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveOptionsButtonActionPerformed
-       
-        //Setting a save file to sent to the MainController.
-        Properties prop = new Properties();
-    
-        prop.setProperty("resolution", resolutionComboBox.getSelectedItem().toString());
-        prop.setProperty("isFullScreen", fullScreenCheckBox.isSelected() + "");
-        prop.setProperty("isMusicOn", musicCheckBox.isSelected() + "");
-        prop.setProperty("isSoundsOn", soundCheckBox.isSelected() + "");
-        prop.setProperty("theme", themeComboBox.getSelectedItem().toString());
-   
-        //Sending properties file to the MainController.
-        gameController.getInstance().saveOptions(prop);
-        
-        //Applying changes. TODO: other options needs to be implemented.
-        gameController.getInstance().setFullScreen(fullScreenCheckBox.isSelected());
-    }//GEN-LAST:event_saveOptionsButtonActionPerformed
-    
-    //Gets settings from the MainController and sets their values to the view.
-    public void setOptionsValues(LinkedList<String> list) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        resolutionComboBox.setSelectedItem(list.pop());
-        
-        fullScreenCheckBox.setSelected(Boolean.parseBoolean(list.pop()));
-        gameController.getInstance().setFullScreen(fullScreenCheckBox.isSelected());
-        
-        musicCheckBox.setSelected(Boolean.parseBoolean(list.pop()));
-        soundCheckBox.setSelected(Boolean.parseBoolean(list.pop()));
-        themeComboBox.setSelectedItem(list.pop());
-        
-                   
-    }
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backToMainMenuButton;
-    private javax.swing.JCheckBox fullScreenCheckBox;
-    private javax.swing.JLabel fullScreenTextLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JCheckBox musicCheckBox;
-    private javax.swing.JLabel musicTextLabel;
-    private javax.swing.JComboBox<String> resolutionComboBox;
-    private javax.swing.JLabel resolutionTextLabel;
-    private javax.swing.JButton saveOptionsButton;
-    private javax.swing.JCheckBox soundCheckBox;
-    private javax.swing.JLabel soundTextLabel;
-    private javax.swing.JComboBox<String> themeComboBox;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
