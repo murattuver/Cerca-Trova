@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.awt.Component;
 import java.awt.Graphics;
 
 /**
@@ -13,6 +14,6 @@ import java.awt.Graphics;
  */
 interface Drawable {
     public void update();
-    public void draw(Graphics g);
+    public void draw(Graphics g, Component view);
     
 }

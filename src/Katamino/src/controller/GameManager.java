@@ -5,6 +5,11 @@
  */
 package controller;
 
+import com.sun.java.accessibility.util.AWTEventMonitor;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 import model.*;
@@ -14,7 +19,7 @@ import view.*;
  *
  * @author murattuver
  */
-public class GameManager {
+public class GameManager{
     
     private SoundManager soundManager;
     private Board board;
@@ -26,9 +31,14 @@ public class GameManager {
     private GameEngine gameEngine;
     private boolean isGameRunning = false;
     private GamePanel gamePanel;
+    private int initialX;
+    private int initialY;
+    private int releasedOnX;
+    private int releasedOnY;
     
     public GameManager(Level level) {
         pentos = new ArrayList<>();
+        objectsOnScreen = new ArrayList<GameObject>();
         this.level = level;
         
         initPentominoes();
@@ -36,32 +46,48 @@ public class GameManager {
         
         board.setX(40);
         board.setY(55);
-        
-        objectsOnScreen = new ArrayList<GameObject>();
+        board.setDeltaX(720);
+        board.setDeltaY(300);
+        board.setImgURL("/assets/board.png");
         
         objectsOnScreen.add(board);
         
+        for(int i =0; i < 5; i++){
+            Pentomino p = pentos.get(i);
+            
+            objectsOnScreen.add(p);
+
+        }
+        
+        /* Actual code to be used.
         for(int i = 0; i < pentos.size(); i++){
             objectsOnScreen.add(pentos.get(i));
         }
+        */
         
         gamePanel = new GamePanel(objectsOnScreen);
+        
     }
+  
     
     public void startGameEngine(){
-        gameFrame.removeAll();
-        gameFrame.dispose();
-        gameEngine = new GameEngine(gamePanel);
-        if(!gameEngine.isGameRunning())
+        //gameFrame.removeAll();
+        //gameFrame.dispose();
+        gameEngine = new GameEngine(gamePanel, this);
+        if(!gameEngine.isGameRunning()){
             gameEngine.startGameEngine();
+            isGameRunning = true;
+
+        }
+
     }
     
-    public void createBoard(int col){
+    private void createBoard(int col){
         board = new Board(col);
         
     }
     
-    public void initPentominoes(){
+    private void initPentominoes(){
         PentominoesSet pSet = level.getPentominoes();
         
         for(int i = 0; i < pSet.getNumberOfPentominoes(); i++){
@@ -70,6 +96,7 @@ public class GameManager {
     }
     
     public void stopGameEngine(){
+        boolean gameRunning = false;
         gameEngine.stopGameEngine();
     }
     
@@ -82,6 +109,7 @@ public class GameManager {
     }
     
     public Pentomino getGameObject(int x, int y){
+        System.out.println("Get object:" + x + ", " + y);
         for(int k = 0; k < pentos.size(); k++){
             Pentomino p = pentos.get(k);
             boolean[][] shape = pentos.get(k).getShape();
@@ -89,26 +117,54 @@ public class GameManager {
             for(int i = 0; i < 5; i++){
                 for(int j = 0; j < 5; j++){
                     if(shape[i][j]){
-                        if( (x >= p.getX() + j * p.getDeltaX() //Checking x interval.
+                        if( (x >= p.getX() + (j * p.getDeltaX()) //Checking x interval.
                                 && x <= p.getX() + (j + 1) * p.getDeltaX() )
-                                && (y >= p.getY() + i * p.getDeltaY() //Checking y interval.
-                                && y <= p.getY() + (i + 1) * p.getDeltaY())){
+                                && (y <= p.getY() - i * p.getDeltaY() //Checking y interval.
+                                && y >= p.getY() - (i + 1) * p.getDeltaY())){
                             return p;
                         }
                     }
                 }
             }
-            
-
         }
         
         System.err.println("No pentomino in the coordinate.");
         return null;
     }
     
-    public void movePentomino(Pentomino pent, int x, int y){
-        pent.setX(x);
-        pent.setY(y);
+    public void coorClicked(int x, int y){
+        Pentomino p = getGameObject(x, y);
+        if(p != null){
+            p.setX(x - 30);
+            p.setY(y + 30);
+            
+            //System.out.println("x: " + x + " y: " + y);
+        }
     }
+    
+    public void setInitialPoints(int x, int y){
+        initialX = x;
+        initialY = y;
+    }
+    
+    public void releasedOn(int x, int y){
+        releasedOnX = x;
+        releasedOnY = y;
+    }
+    
+    public void checkOnBoard(int x, int y){
+        Pentomino p = getGameObject(x, y);
+        if(p != null){
+            if(releasedOnX < board.getX() || releasedOnX > board.getX() + board.getDeltaX() ||
+                    releasedOnY < board.getY() - board.getDeltaY() || releasedOnY > board.getY()){
+                p.setX(initialX);
+                p.setX(initialY);
+            } else{
+                p.setX(x);
+                p.setX(y);
+            }
+        }
+    }
+   
     
 }

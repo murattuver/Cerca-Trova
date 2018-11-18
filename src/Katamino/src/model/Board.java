@@ -6,7 +6,9 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,8 +18,12 @@ public class Board extends GameObject {
     private Theme theme;
     private BoardLocation[][] locations;
     private int maxCol;
+    private String imgURL;
     
     public Board(int col) {
+        setDeltaX(420);
+        setDeltaY(175);
+        
         maxCol = col;
         locations = new BoardLocation[5][col];
         
@@ -116,11 +122,19 @@ public class Board extends GameObject {
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void draw(Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void draw(Graphics g, Component view) {
+        //System.out.println("Drawing board.");
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ImageIcon i = new ImageIcon(
+            Pentomino.class.getResource(imgURL));
+        i.paintIcon(view, g, this.getX(), this.getY());
+    }
+    
+    public void setImgURL(String s){
+        imgURL = s;
     }
 }

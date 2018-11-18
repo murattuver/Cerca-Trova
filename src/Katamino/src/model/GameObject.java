@@ -14,7 +14,6 @@ import java.awt.*;
 public abstract class GameObject implements Drawable{
     private int xLoc;
     private int yLoc;
-    private String id;
     private int deltaX;
     private int deltaY;
     
@@ -43,9 +42,12 @@ public abstract class GameObject implements Drawable{
         return deltaY;
     }
     
-    public void setDelta(int delta){
-        deltaX = delta;
-        deltaY = delta;
+    public void setDeltaX(int x){
+        deltaX = x;
+    }
+    
+    public void setDeltaY(int y){
+        deltaY = y;
     }
     
  

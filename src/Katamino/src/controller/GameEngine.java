@@ -7,16 +7,21 @@ package controller;
 
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import view.*;
 
 /**
  *
  * @author Cerca-Trova
  */
-public class GameEngine extends JFrame implements ActionListener {
+public class GameEngine extends JFrame {
     
     private GameManager gameManager;
     private GamePanel gamePanel;
@@ -26,18 +31,50 @@ public class GameEngine extends JFrame implements ActionListener {
     private int frameCount = 0;
     private int widht = 800;
     private int height = 600;
+
     
-    public GameEngine(GamePanel gamePanel){
+    public GameEngine(GamePanel gamePanel, GameManager gm){
         super("Katamino");
         
+        gameManager = gm;
         this.gamePanel = gamePanel;
         this.setLayout(new BorderLayout());
-        this.add(gamePanel,BorderLayout.CENTER);
-        this.setSize(800, 600);
+        this.add(this.gamePanel,BorderLayout.CENTER);
         
+        MouseAdapter mAdap = new MouseAdapter() { 
+            public void mouseDragged(MouseEvent e) {
+                System.out.println("Dragging: " + e.getX()+ ", " + e.getY());
+                gameManager.coorClicked(e.getX(), e.getY());
+   
+            } 
+            
+            @Override
+            public void mousePressed(MouseEvent e){
+                gameManager.setInitialPoints(e.getX(), e.getY());
+            }
+            
+            @Override
+            public void mouseReleased(MouseEvent e){
+                gameManager.releasedOn(e.getX(), e.getY());
+                //gameManager.checkOnBoard(e.getX(), e.getY());
+            }
+        };
+        
+        addMouseListener(mAdap);
+        addMouseMotionListener(mAdap);
+        
+        this.setSize(800, 600);
+        pack();
+        setVisible(true);
+        
+        this.setResizable(false);
+        repaint();
+        
+ 
     }
 
     public void startGameEngine(){
+        running = true;
         Thread loop = new Thread() { 
             public void run(){
                 gameLoop();
@@ -59,6 +96,7 @@ public class GameEngine extends JFrame implements ActionListener {
         int lastSecondTime = (int) (lastUpdateTime / 1000000000);
         
         while(running){
+            //System.out.println("hi");
             double now = System.nanoTime();
             int updateCount = 0;
          
@@ -83,7 +121,7 @@ public class GameEngine extends JFrame implements ActionListener {
             //Update the fraes got so far.
             int thisSecond = (int) (lastUpdateTime / 1000000000);
             if (thisSecond > lastSecondTime){
-                System.out.println("NEW SECOND " + thisSecond + " " + frameCount);
+                //System.out.println("NEW SECOND " + thisSecond + " " + frameCount);
                 fps = frameCount;
                 frameCount = 0;
                 lastSecondTime = thisSecond;
@@ -103,7 +141,7 @@ public class GameEngine extends JFrame implements ActionListener {
         }
         
     }
-   
+    
     public void drawGame(float interpolation){
         gamePanel.setInterpolation(interpolation);
         gamePanel.repaint();
@@ -120,11 +158,6 @@ public class GameEngine extends JFrame implements ActionListener {
     
     public void stopGameEngine(){
         running = false;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

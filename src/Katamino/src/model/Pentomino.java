@@ -6,7 +6,9 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,14 +18,11 @@ public class Pentomino extends GameObject{
     private boolean[][] shape = new boolean[5][5];
     private Color color;
     private Theme theme;
+    private String imgURL;
     
-    public Pentomino(boolean[][] shape, Color color){
-        this.shape = shape;
-        this.color = color;
-    }
-    
-    public Pentomino(Color color){
-        this.color = color;
+    public Pentomino(){
+        setDeltaX(35);
+        setDeltaY(35);       
         
         for(int i = 0; i < 5;i++){
             for(int j = 0; j < 5; j++){
@@ -58,6 +57,10 @@ public class Pentomino extends GameObject{
         shape = newShape;
     }
     
+    public void setImgURL(String s){
+        imgURL = s;
+    }
+    
     private int findMaxCol() {
         int maxSoFar = -1;
         
@@ -65,6 +68,20 @@ public class Pentomino extends GameObject{
             for(int j = 0; j < 5; j++){
                 if(shape[i][j] && j > maxSoFar - 1){
                     maxSoFar = j + 1;
+                }
+            }
+        }
+        
+        return maxSoFar;
+    }
+    
+    private int findMaxRow(){
+        int maxSoFar = -1;
+        
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++){
+                if(shape[i][j] && i > maxSoFar - 1){
+                    maxSoFar = i + 1;
                 }
             }
         }
@@ -102,11 +119,14 @@ public class Pentomino extends GameObject{
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void draw(Graphics g) {
+    public void draw(Graphics g, Component view) {
+        ImageIcon i = new ImageIcon(
+            Pentomino.class.getResource(imgURL));
+        i.paintIcon(view, g, this.getX(), this.getY() -(getDeltaY() * findMaxRow()));
         
     }
 }
