@@ -24,11 +24,21 @@ public class PentominoesSet {
     
     public boolean removePentomino(Pentomino pent){
         if(!pentominoes.contains(pent)){
-            System.err.println("Peice is not in the list for remove operation.");
+            System.err.println("Piece is not in the list for remove operation.");
             return false;
         } else {
             pentominoes.remove(pent);
             return true;
         }
     }
+    
+    public int getNumberOfPentominoes(){
+        return pentominoes.size();
+    }
+    
+    public Pentomino getPentomino(int index){
+        return pentominoes.get(index);
+    }
+    
+    
 }

@@ -10,27 +10,27 @@ package model;
  * @author Murat
  */
 public abstract class GameObject {
-    private int LocX;
-    private int LocY;
+    private int locX;
+    private int locY;
     private String id;
     private int deltaX;
     private int deltaY;
     
     
     public int getX(){
-        return LocX;
+        return locX;
     }
     
     public int getY(){
-        return LocY;
+        return locY;
     }
     
     public void setY(int y){
-        LocY = y;
+        locY = y;
     }
     
     public void setX(int x){
-        LocX = x;
+        locX = x;
     }
     
     public int getDeltaX(){

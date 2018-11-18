@@ -15,6 +15,10 @@ public class Pentomino extends GameObject{
     private boolean[][] shape = new boolean[5][5];
     private Color color;
     private Theme theme;
+    private int xLoc;
+    private int yLoc;
+    private int deltaX;
+    private int deltaY;
     
     public Pentomino(boolean[][] shape, Color color){
         this.shape = shape;
@@ -81,6 +85,38 @@ public class Pentomino extends GameObject{
     
     public void setShape(int x, int y, boolean b){
         shape[y][x] = b;
+    }
+    
+    public int getX(){
+        return xLoc;
+    }
+    
+    public int getY(){
+        return yLoc;
+    }
+    
+    public void setX(int x){
+        xLoc = x;
+    }
+    
+    public void setY(int y){
+        yLoc = y;
+    }
+    
+    public int getDeltaX(){
+        return deltaX;
+    }
+    
+    public int getDeltaY(){
+        return deltaY;
+    }
+    
+    public void setDeltaX(int x){
+        deltaX = x;
+    }
+    
+    public void setDeltaY(int y){
+        deltaY = y;
     }
     
     //FOR TESTING PURPOSE!!!

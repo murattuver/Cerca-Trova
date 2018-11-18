@@ -11,6 +11,7 @@ import java.awt.image.BufferStrategy;
 import java.nio.Buffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *

@@ -11,7 +11,7 @@ import java.awt.Color;
  *
  * @author Murat
  */
-public class Board extends GameObject {
+public class Board {
     private Theme theme;
     private BoardLocation[][] locations;
     private int maxCol;

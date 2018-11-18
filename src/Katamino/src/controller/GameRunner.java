@@ -7,6 +7,8 @@ package controller;
 
 import java.awt.Color;
 import model.*;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +17,8 @@ import model.*;
 public class GameRunner {
     
     public static void main(String[] args) {
-        // MainController.getInstance().start();
+         //MainController.getInstance().start();
+        /*
         Board b = new Board(3);
 
 
@@ -78,7 +81,56 @@ public class GameRunner {
 
 
         b.print();
+        */
+        
+        Pentomino p1 = new Pentomino(Color.green);
+        Pentomino p2 = new Pentomino(Color.blue);
+        
+        p1.setShape(0, 0, true);
+        p1.setShape(0, 1, true);
+        p1.setShape(1, 1, true);
+        p1.setShape(1, 2, true);
+        p1.setShape(1, 3, true);
 
+        p2.setShape(0, 0, true);
+        p2.setShape(1, 0, true);
+        p2.setShape(1, 1, true);
+        p2.setShape(1, 2, true);
+        p2.setShape(1, 3, true);
+        
+        p1.setX(21);
+        p1.setY(28);
+        p1.setDeltaX(3);
+        p1.setDeltaY(3);
+        
+        p2.setX(42);
+        p2.setY(47);
+        p2.setDeltaX(3);
+        p2.setDeltaY(3);
+        
+        
+        List<Pentomino> list = new ArrayList<>();
+        
+        list.add(p1);
+        list.add(p2);
+        
+        PentominoesSet ps = new PentominoesSet(list);
+        
+        Level level = new Level(ps, true, 60);
+        
+        GameManager gm = new GameManager(level);
+        gm.initPentominoes();
+        Pentomino p3 = gm.getGameObject(43, 48);
+        
+        p3.print();
+       
+        /*
+        p1.print();
+        System.out.println("");
+        p2.print();
+        */
+        //Level level = new Level();
+        //GameManager gm = new GameManager();
         
     }
     
