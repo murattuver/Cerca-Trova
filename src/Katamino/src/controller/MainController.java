@@ -174,7 +174,8 @@ public class MainController {
         list.add(theme);
         
         //local variables are set, now showing them in the view.
-        optionsView.setOptionsValues(list);
+        //optionsView.setOptionsValues(list);
         gameFrame.updateFrame();
     }
 }
+
