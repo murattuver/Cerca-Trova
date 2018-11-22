@@ -14,6 +14,6 @@ import java.awt.Graphics;
  */
 interface Drawable {
     public void update();
-    public void draw(Graphics g, Component view);
+    public void draw(Graphics g);
     
 }

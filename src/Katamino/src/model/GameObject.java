@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.awt.*;
-
 /**
  *
  * @author Murat

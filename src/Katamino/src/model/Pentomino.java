@@ -6,9 +6,7 @@
 package model;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,9 +14,10 @@ import javax.swing.ImageIcon;
  */
 public class Pentomino extends GameObject{
     private boolean[][] shape = new boolean[5][5];
-    private Color color;
+    private Color color = Color.red;
     private Theme theme;
-    private String imgURL;
+    private int defaultX;
+    private int defaultY;
     
     public Pentomino(){
         setDeltaX(35);
@@ -29,6 +28,19 @@ public class Pentomino extends GameObject{
                   this.shape[i][j] = false;
             }
         }
+    }
+    
+    public void setDefault(int x, int y){
+        defaultX = x;
+        defaultY = y;
+    }
+    
+    public int getDefaultX(){
+        return defaultX;
+    }
+    
+    public int getDefaultY(){
+        return defaultY;
     }
     
     public void rotate() {
@@ -55,10 +67,6 @@ public class Pentomino extends GameObject{
         }
         
         shape = newShape;
-    }
-    
-    public void setImgURL(String s){
-        imgURL = s;
     }
     
     private int findMaxCol() {
@@ -93,17 +101,21 @@ public class Pentomino extends GameObject{
         return shape;
     }
     
+    public void setColor(Color color){
+        this.color = color;
+    }
+    
     public Color getColor(){ 
         return color;   
     }
     
     public void setShape(int x, int y, boolean b){
-        shape[y][x] = b;
+        shape[x][y] = b;
     }
     
     //FOR TESTING PURPOSE!!!
     public void print(){
-        for(int i = 4; i >= 0; i--){
+        for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++) {
                 if(shape[i][j]){
                     System.out.print("[x]");
@@ -123,10 +135,18 @@ public class Pentomino extends GameObject{
     }
 
     @Override
-    public void draw(Graphics g, Component view) {
-        ImageIcon i = new ImageIcon(
-            Pentomino.class.getResource(imgURL));
-        i.paintIcon(view, g, this.getX(), this.getY() -(getDeltaY() * findMaxRow()));
+    public void draw(Graphics g) {
         
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++){
+                if(shape[i][j]){
+                    g.setColor(this.color);
+                    g.fillRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
+                    g.setColor(Color.black);
+                    g.drawRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
+
+                }
+            }
+        }
     }
 }

@@ -5,15 +5,8 @@
  */
 package view;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-import java.awt.BorderLayout;
-import java.awt.Canvas;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.LayoutManager;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JPanel;
 import model.GameObject;
@@ -30,16 +23,11 @@ public class GamePanel extends JPanel implements View {
     public GamePanel(List<GameObject> objectsList){
         objectsOnScreen = objectsList;
         
-        
-        
         setSize(800, 600);
         setPreferredSize(new Dimension(800, 600));
         
         setVisible(true);
-        repaint();
-
-        
-        
+        repaint();   
     }
     
     
@@ -50,12 +38,10 @@ public class GamePanel extends JPanel implements View {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-  
         
         for(int i = 0; i < objectsOnScreen.size(); i++){
-            objectsOnScreen.get(i).draw(g, this);
+            objectsOnScreen.get(i).draw(g);
         }
-       
     }
     
     public void update(){

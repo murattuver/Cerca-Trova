@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.awt.Color;
+
 /**
  *
  * @author Murat
@@ -12,7 +14,7 @@ package model;
 public class BoardLocation {
     private boolean isOccupied;
     private Pentomino pento;
-    
+
     public BoardLocation(){
         pento = null;
         isOccupied = false;

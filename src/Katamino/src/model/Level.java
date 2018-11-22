@@ -15,10 +15,11 @@ public class Level {
     private int difficultyLevel;
     private int time;
     
-    public Level(PentominoesSet set, boolean isUnlocked, int time){
+    public Level(PentominoesSet set, boolean isUnlocked, int time, int difficulty){
         pSet = set;
         isLevelUnlocked = isUnlocked;
         this.time = time;
+        difficultyLevel = difficulty;
     }
     
     public void setDifficulty(int diff){

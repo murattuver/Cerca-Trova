@@ -5,13 +5,9 @@
  */
 package controller;
 
-import com.sun.java.accessibility.util.AWTEventMonitor;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.*;
 import view.*;
 
@@ -33,8 +29,11 @@ public class GameManager{
     private GamePanel gamePanel;
     private int initialX;
     private int initialY;
-    private int releasedOnX;
-    private int releasedOnY;
+    private int draggingX;
+    private int draggingY;
+    private boolean wasOnBoard = false;
+    private Pentomino pentominoBeingDragged = null;
+
     
     public GameManager(Level level) {
         pentos = new ArrayList<>();
@@ -46,9 +45,7 @@ public class GameManager{
         
         board.setX(40);
         board.setY(55);
-        board.setDeltaX(720);
-        board.setDeltaY(300);
-        board.setImgURL("/assets/board.png");
+        
         
         objectsOnScreen.add(board);
         
@@ -109,7 +106,6 @@ public class GameManager{
     }
     
     public Pentomino getGameObject(int x, int y){
-        System.out.println("Get object:" + x + ", " + y);
         for(int k = 0; k < pentos.size(); k++){
             Pentomino p = pentos.get(k);
             boolean[][] shape = pentos.get(k).getShape();
@@ -119,8 +115,9 @@ public class GameManager{
                     if(shape[i][j]){
                         if( (x >= p.getX() + (j * p.getDeltaX()) //Checking x interval.
                                 && x <= p.getX() + (j + 1) * p.getDeltaX() )
-                                && (y <= p.getY() - i * p.getDeltaY() //Checking y interval.
-                                && y >= p.getY() - (i + 1) * p.getDeltaY())){
+                                && (y >= p.getY() + i * p.getDeltaY() //Checking y interval.
+                                && y <= p.getY() + (i + 1) * p.getDeltaY())){
+                            setDraggingCoor(i, j);
                             return p;
                         }
                     }
@@ -128,18 +125,28 @@ public class GameManager{
             }
         }
         
-        System.err.println("No pentomino in the coordinate.");
         return null;
     }
     
-    public void coorClicked(int x, int y){
-        Pentomino p = getGameObject(x, y);
-        if(p != null){
-            p.setX(x - 30);
-            p.setY(y + 30);
-            
-            //System.out.println("x: " + x + " y: " + y);
+    public void setDraggingCoor(int x, int y){
+        draggingX = x;
+        draggingY = y;
+    }
+    
+    public void dragPentomino(int x, int y){
+        
+        if(board.isOnBoard(pentominoBeingDragged)){
+            wasOnBoard = true;
+            board.savePreviousLoc(pentominoBeingDragged);
+            board.removePentomino(pentominoBeingDragged);
         }
+        
+        movePentomino(pentominoBeingDragged, pentominoBeingDragged.getX() + (x - initialX), pentominoBeingDragged.getY() + (y - initialY));
+    }
+    
+    public void movePentomino(Pentomino p, int x, int y){
+        p.setX(x);
+        p.setY(y);
     }
     
     public void setInitialPoints(int x, int y){
@@ -147,23 +154,61 @@ public class GameManager{
         initialY = y;
     }
     
-    public void releasedOn(int x, int y){
-        releasedOnX = x;
-        releasedOnY = y;
+    public void setSelected(boolean b, int x, int y){
+        Pentomino p = getGameObject(x, y);
+        
+        if(b && ( p != null )){
+            pentominoBeingDragged = p;
+        }else{   
+            pentominoBeingDragged = null; 
+        } 
+    }
+    
+    public boolean getSelected(){
+        return pentominoBeingDragged != null;
     }
     
     public void checkOnBoard(int x, int y){
-        Pentomino p = getGameObject(x, y);
-        if(p != null){
-            if(releasedOnX < board.getX() || releasedOnX > board.getX() + board.getDeltaX() ||
-                    releasedOnY < board.getY() - board.getDeltaY() || releasedOnY > board.getY()){
-                p.setX(initialX);
-                p.setX(initialY);
-            } else{
-                p.setX(x);
-                p.setX(y);
+        
+        if(pentominoBeingDragged == null)
+            return;
+        
+        if(board.isPointOnBoard(x, y)){
+            int rowOnBoard = ( y - board.getY() ) / board.getDeltaY();
+            int colOnBoard = ( x - board.getX() ) / board.getDeltaX();
+            
+            int rowToPlace = rowOnBoard - draggingX;
+            int colToPlace = colOnBoard - draggingY;
+            
+            boolean isPlaced = board.placePentomino(pentominoBeingDragged, rowToPlace, colToPlace);
+            
+            if(isPlaced){
+                movePentomino(pentominoBeingDragged, colToPlace * board.getDeltaY() + board.getX(), rowToPlace * board.getDeltaX() + board.getY());
+                
             }
+            else if(wasOnBoard){
+                board.placePrevPento();
+                movePentomino(pentominoBeingDragged, board.getPrevCol() * board.getDeltaY() + board.getX(), board.getPrevRow() * board.getDeltaX() + board.getY());
+
+              
+
+            } else{
+                movePentomino(pentominoBeingDragged, pentominoBeingDragged.getDefaultX(), pentominoBeingDragged.getDefaultY());
+                
+
+            }
+            wasOnBoard = false;
+            
+            if(board.isBoardFull()){
+                //Game finished will be implemented.
+                JOptionPane.showMessageDialog(gamePanel, "Game is Over");
+                System.out.println("Done.");
+            }
+        } else {
+            movePentomino(pentominoBeingDragged, pentominoBeingDragged.getDefaultX(), pentominoBeingDragged.getDefaultY());
+            wasOnBoard =false;
         }
+        
     }
    
     

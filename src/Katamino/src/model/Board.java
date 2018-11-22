@@ -6,9 +6,7 @@
 package model;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,11 +16,14 @@ public class Board extends GameObject {
     private Theme theme;
     private BoardLocation[][] locations;
     private int maxCol;
-    private String imgURL;
+    private Color color = Color.white;
+    private int prevRow;
+    private int prevCol;
+    private Pentomino prevPento;
     
     public Board(int col) {
-        setDeltaX(420);
-        setDeltaY(175);
+        setDeltaX(35);
+        setDeltaY(35);
         
         maxCol = col;
         locations = new BoardLocation[5][col];
@@ -42,6 +43,25 @@ public class Board extends GameObject {
         this.theme = theme;
     }
     
+    public boolean isOnBoard(Pentomino pento){
+        for(int row = 0; row < 5; row++){
+            for(int col = 0; col < maxCol; col++){
+                if(getPentomino(row, col) == pento)
+                    return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public boolean isPointOnBoard(int x, int y){
+        if(x < getX() || y < getY())
+            return false;
+        if(x > getX() + (maxCol * getDeltaX()) || y > getY() + ( 5 * getDeltaY()))
+            return false;
+        return true;
+    }
+    
     public boolean isBoardFull(){
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < maxCol; j++){
@@ -54,45 +74,98 @@ public class Board extends GameObject {
     }
     
     public boolean placePentomino(Pentomino pento, int x, int y){
+        if(x < 0 || y < 0)
+            return false;
         
         boolean[][] pentLocs = pento.getShape();
         
         for(int row = 0; row < 5; row++) {
             for(int col = 0; col < 5; col++) {
                 
-                //Checking if the location is in the boundary
-                if(pentLocs[row][col] && (col + x) >= maxCol){
-                    System.err.println("Err: couldn't add the piece.");
+                
+                if(pentLocs[row][col] && ( (row + x > 4) || (col + y > 4) ) )
                     return false;
+                
+                if(!( (row + x > 4) || (col + y > 4))){
+                    if(locations[x + row][y + col].isOccupied() && pentLocs[row][col])
+                        return false;
                 }
-                else if(pentLocs[row][col] && locations[row + y][col + x].isOccupied()){
-                    System.err.println("Err: couldn't add the peice.");
-                    return false;    
-                } 
             }
         }
+       
         
         for(int row = 0; row < 5; row++) {
             for(int col = 0; col < 5; col++) {
+                
                 if(pentLocs[row][col])
-                    locations[row + y][col + x].setPentomino(pento);
+                    locations[x + row][y + col].setPentomino(pento); 
             }
         }
+        
         return true;
-
+    }
+    
+    public void removePentomino(Pentomino pento){
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < maxCol; j++){
+                if(getPentomino(i, j) == pento){
+                    locations[i][j].removePentomino();
+                }
+            }
+        }
     }
     
     public Pentomino getPentomino(int x, int y){
-        if(locations[y][x].isOccupied())
-            return locations[y][x].getPentomino();
-        else
-            System.err.println("Error: There is no Pentomino in the slot.");
+        if(locations[x][y].isOccupied())
+            return locations[x][y].getPentomino(); 
         return null;
+    }
+    
+    public void savePreviousLoc(Pentomino pento){
+        boolean[][] shape = pento.getShape();
+        int rowOnShape = -1;
+        int colOnShape = -1;
+        int rowOnBoard = -1;
+        int colOnBoard = -1;
+        
+        for(int row = 0; row < 5; row++){
+            for(int col = 0; col < 5; col++){
+                if(shape[row][col]){
+                    rowOnShape = row;
+                    colOnShape = col;
+                }
+            }
+        }
+        
+        for(int row = 0; row < 5; row++){
+            for(int col = 0; col < 5; col++){
+                if(getPentomino(row, col) == pento){
+                    rowOnBoard = row;
+                    colOnBoard = col;
+                }
+            }
+        }
+        
+        prevRow = rowOnBoard - rowOnShape;
+        prevCol = colOnBoard - colOnShape;  
+        prevPento = pento;
+    }
+    
+    public void placePrevPento(){
+        placePentomino(prevPento, prevRow, prevCol);
+    }
+    
+    public int getPrevRow(){
+        return prevRow;
+    }
+    
+    public int getPrevCol(){
+        return prevCol;
     }
     
     //FOR TESTING PURPOSE!!!
     public void print(){
-        for(int i = 4; i >= 0; i--){
+        for(int i = 0; i < 5; i++){
             for(int j = 0; j < maxCol; j++) {
                 if(locations[i][j].isOccupied()){
                     System.out.print("[x]");
@@ -126,15 +199,23 @@ public class Board extends GameObject {
     }
 
     @Override
-    public void draw(Graphics g, Component view) {
-        //System.out.println("Drawing board.");
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        ImageIcon i = new ImageIcon(
-            Pentomino.class.getResource(imgURL));
-        i.paintIcon(view, g, this.getX(), this.getY());
-    }
-    
-    public void setImgURL(String s){
-        imgURL = s;
+    public void draw(Graphics g) {
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < maxCol; j++){
+                if(!locations[i][j].isOccupied()){
+                    g.setColor(this.color);
+                    g.fillRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
+                    g.setColor(Color.black);
+                    g.drawRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
+
+                }
+                else {
+                    g.setColor(getPentomino(i, j).getColor());
+                    g.fillRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
+                    g.setColor(Color.black);
+                    g.drawRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
+                }
+            }
+        }
     }
 }

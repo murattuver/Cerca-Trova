@@ -7,14 +7,9 @@ package controller;
 
 
 import java.awt.BorderLayout;
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import view.*;
 
 /**
@@ -29,7 +24,7 @@ public class GameEngine extends JFrame {
     private boolean paused = false;
     private int fps = 60;
     private int frameCount = 0;
-    private int widht = 800;
+    private int width = 800;
     private int height = 600;
 
     
@@ -40,30 +35,37 @@ public class GameEngine extends JFrame {
         this.gamePanel = gamePanel;
         this.setLayout(new BorderLayout());
         this.add(this.gamePanel,BorderLayout.CENTER);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setUndecorated(true);
         
         MouseAdapter mAdap = new MouseAdapter() { 
+            
+            @Override
             public void mouseDragged(MouseEvent e) {
-                System.out.println("Dragging: " + e.getX()+ ", " + e.getY());
-                gameManager.coorClicked(e.getX(), e.getY());
-   
+                if(gameManager.getSelected()){
+                    gameManager.dragPentomino(e.getX(), e.getY());
+                    gameManager.setInitialPoints(e.getX(), e.getY());
+                }
             } 
             
             @Override
             public void mousePressed(MouseEvent e){
                 gameManager.setInitialPoints(e.getX(), e.getY());
+                gameManager.setSelected(true, e.getX(), e.getY());
             }
             
             @Override
             public void mouseReleased(MouseEvent e){
-                gameManager.releasedOn(e.getX(), e.getY());
-                //gameManager.checkOnBoard(e.getX(), e.getY());
+                gameManager.checkOnBoard(e.getX(), e.getY());
+                gameManager.setSelected(false, e.getX(), e.getY());
             }
         };
         
         addMouseListener(mAdap);
         addMouseMotionListener(mAdap);
         
-        this.setSize(800, 600);
+        this.setSize(width, height);
         pack();
         setVisible(true);
         
@@ -96,7 +98,6 @@ public class GameEngine extends JFrame {
         int lastSecondTime = (int) (lastUpdateTime / 1000000000);
         
         while(running){
-            //System.out.println("hi");
             double now = System.nanoTime();
             int updateCount = 0;
          
