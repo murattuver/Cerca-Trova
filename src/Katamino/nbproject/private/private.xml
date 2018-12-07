@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/model/GameObject.java</file>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/controller/GameEngine.java</file>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/controller/GameManager.java</file>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/controller/GameRunner.java</file>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/view/GamePanel.java</file>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/model/Board.java</file>
-            <file>file:/Users/murattuver/Desktop/project/Cerca-Trova/src/Katamino/src/model/Pentomino.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
