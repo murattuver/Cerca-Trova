@@ -5,10 +5,12 @@
  */
 package view;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author murattuver
  */
-public interface View {
+public interface View{
     
 }

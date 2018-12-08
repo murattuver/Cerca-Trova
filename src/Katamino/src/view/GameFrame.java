@@ -17,7 +17,7 @@ public class GameFrame extends JFrame {
     int width = 800;
     int height = 600;
     
-    public GameFrame(MainController gameController) {
+    public GameFrame() {
         
         super("Katamino");
         

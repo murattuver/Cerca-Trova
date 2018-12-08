@@ -55,15 +55,15 @@ public class MainController {
     //This method is Called my the GameRunner which contains the main method.
     public void start() {
         //initializing the mainframe.
-        gameFrame = new GameFrame(this.getInstance());
+        gameFrame = new GameFrame();
         
         showMainMenu();
 
     }
     
     public void showMainMenu() {
-        mainMenu = new MainMenuView(this.getInstance());
-        optionsView = new OptionsView(this.getInstance());
+        //mainMenu = new MainMenuView();
+        //optionsView = new OptionsView();
         loadOptions();
         gameFrame.getContentPane().add(mainMenu);
         gameFrame.updateFrame();

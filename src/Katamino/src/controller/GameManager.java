@@ -32,7 +32,7 @@ public class GameManager{
     private int draggingX;
     private int draggingY;
     private boolean wasOnBoard = false;
-    private Pentomino pentominoBeingDragged = null;
+    private Pentomino pentoDragged = null;
 
     
     public GameManager(Level level) {
@@ -135,18 +135,18 @@ public class GameManager{
     
     public void dragPentomino(int x, int y){
         
-        if(board.isOnBoard(pentominoBeingDragged)){
+        if(board.isOnBoard(pentoDragged)){
             wasOnBoard = true;
-            board.savePreviousLoc(pentominoBeingDragged);
-            board.removePentomino(pentominoBeingDragged);
+            board.savePreviousLoc(pentoDragged);
+            board.removePentomino(pentoDragged);
         }
         
-        movePentomino(pentominoBeingDragged, pentominoBeingDragged.getX() + (x - initialX), pentominoBeingDragged.getY() + (y - initialY));
+        movePentomino(pentoDragged.getX() + (x - initialX), pentoDragged.getY() + (y - initialY));
     }
     
-    public void movePentomino(Pentomino p, int x, int y){
-        p.setX(x);
-        p.setY(y);
+    public void movePentomino(int x, int y){
+        pentoDragged.setX(x);
+        pentoDragged.setY(y);
     }
     
     public void setInitialPoints(int x, int y){
@@ -158,19 +158,24 @@ public class GameManager{
         Pentomino p = getGameObject(x, y);
         
         if(b && ( p != null )){
-            pentominoBeingDragged = p;
+            pentoDragged = p;
         }else{   
-            pentominoBeingDragged = null; 
+            pentoDragged = null; 
         } 
     }
     
     public boolean getSelected(){
-        return pentominoBeingDragged != null;
+        return pentoDragged != null;
+    }
+    
+    public void rotateSelected(){
+        pentoDragged.rotate();
+        System.out.println(pentoDragged.getX());
     }
     
     public void checkOnBoard(int x, int y){
         
-        if(pentominoBeingDragged == null)
+        if(pentoDragged == null)
             return;
         
         if(board.isPointOnBoard(x, y)){
@@ -180,20 +185,20 @@ public class GameManager{
             int rowToPlace = rowOnBoard - draggingX;
             int colToPlace = colOnBoard - draggingY;
             
-            boolean isPlaced = board.placePentomino(pentominoBeingDragged, rowToPlace, colToPlace);
+            boolean isPlaced = board.placePentomino(pentoDragged, rowToPlace, colToPlace);
             
             if(isPlaced){
-                movePentomino(pentominoBeingDragged, colToPlace * board.getDeltaY() + board.getX(), rowToPlace * board.getDeltaX() + board.getY());
+                movePentomino(colToPlace * board.getDeltaY() + board.getX(), rowToPlace * board.getDeltaX() + board.getY());
                 
             }
             else if(wasOnBoard){
                 board.placePrevPento();
-                movePentomino(pentominoBeingDragged, board.getPrevCol() * board.getDeltaY() + board.getX(), board.getPrevRow() * board.getDeltaX() + board.getY());
+                movePentomino(board.getPrevCol() * board.getDeltaY() + board.getX(), board.getPrevRow() * board.getDeltaX() + board.getY());
 
               
 
             } else{
-                movePentomino(pentominoBeingDragged, pentominoBeingDragged.getDefaultX(), pentominoBeingDragged.getDefaultY());
+                movePentomino(pentoDragged.getDefaultX(), pentoDragged.getDefaultY());
                 
 
             }
@@ -205,8 +210,8 @@ public class GameManager{
                 System.out.println("Done.");
             }
         } else {
-            movePentomino(pentominoBeingDragged, pentominoBeingDragged.getDefaultX(), pentominoBeingDragged.getDefaultY());
-            wasOnBoard =false;
+            movePentomino(pentoDragged.getDefaultX(), pentoDragged.getDefaultY());
+            wasOnBoard = false;
         }
         
     }

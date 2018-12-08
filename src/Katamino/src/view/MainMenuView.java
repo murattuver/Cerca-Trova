@@ -5,23 +5,23 @@
  */
 package view;
 
-import controller.MainController;
+import controller.MainMenuController;
 
 /**
  *
  * @author Cerca-Trova
  */
-public class MainMenuView extends javax.swing.JPanel {
+public class MainMenuView extends javax.swing.JPanel implements View{
 
     //Reference of the gameController.
-    MainController gameController = null;
+    MainMenuController menuManager = null;
     
     /**
      * Creates new form MainMenuView
      */
-    public MainMenuView(MainController gameController) {
+    public MainMenuView(MainMenuController gameController) {
         
-        this.gameController = gameController.getInstance();
+        this.menuManager = gameController;
         
         //Inilializing the components.
         initComponents();
@@ -122,11 +122,11 @@ public class MainMenuView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
-        gameController.getInstance().startGame();
+        menuManager.showView("numberofplayer");
     }//GEN-LAST:event_playButtonActionPerformed
 
     private void optionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButtonActionPerformed
-        gameController.getInstance().showGameOptions();
+        //gameController.getInstance().showGameOptions();
     }//GEN-LAST:event_optionsButtonActionPerformed
 
     private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButtonActionPerformed
@@ -135,15 +135,15 @@ public class MainMenuView extends javax.swing.JPanel {
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         //Controller closes the game.
-        gameController.getInstance().closeGame();
+        //gameController.getInstance().closeGame();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void exitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButton1ActionPerformed
-        // TODO add your handling code here:
+        menuManager.closeGame();
     }//GEN-LAST:event_exitButton1ActionPerformed
 
     private void optionsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButton1ActionPerformed
-        // TODO add your handling code here:
+        menuManager.showView("options");
     }//GEN-LAST:event_optionsButton1ActionPerformed
 
 

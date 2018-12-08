@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.Color;
 import model.*;
+import view.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -90,9 +91,14 @@ public class GameRunner {
         
         Level level = new Level(pSet, true, 60, 5);
         
-        GameManager gm = new GameManager(level);
+        MainMenuController menuC = new MainMenuController();
         
-        gm.startGameEngine();
+        MainMenuView mw = new MainMenuView(menuC);
+        
+        
+        //GameManager gm = new GameManager(level);
+        
+        //gm.startGameEngine();
     }
     
 }

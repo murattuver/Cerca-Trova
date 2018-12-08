@@ -7,6 +7,9 @@ package controller;
 
 
 import java.awt.BorderLayout;
+import java.awt.MouseInfo;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
@@ -53,6 +56,7 @@ public class GameEngine extends JFrame {
             public void mousePressed(MouseEvent e){
                 gameManager.setInitialPoints(e.getX(), e.getY());
                 gameManager.setSelected(true, e.getX(), e.getY());
+                System.out.println("x from e: " + e.getX());
             }
             
             @Override
@@ -62,8 +66,19 @@ public class GameEngine extends JFrame {
             }
         };
         
+        KeyAdapter kAdap = new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e){
+                if(e.getKeyCode() == KeyEvent.VK_R && gameManager.getSelected()){
+                    System.out.println("R pressed.");
+                    gameManager.rotateSelected();
+                }
+            }
+        };
+        
         addMouseListener(mAdap);
         addMouseMotionListener(mAdap);
+        addKeyListener(kAdap);
         
         this.setSize(width, height);
         pack();

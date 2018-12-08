@@ -44,7 +44,7 @@ public class Pentomino extends GameObject{
     }
     
     public void rotate() {
-        int maxCol = findMaxCol();
+        int maxRow = findMaxRow();
         boolean[][] newShape = new boolean[5][5];
         int x = 0;
         int y = 0;
@@ -53,14 +53,11 @@ public class Pentomino extends GameObject{
             for(int j = 0; j < 5; j++) {
                 if(shape[i][j]){
                     x = j;
-                    y = i;
+                    y = -1 * i -1;
                     
-                    x = x - maxCol;
-                    int temp = x;
-                    x = y;
-                    y = -1 * temp - 1;
+                    y = y + maxRow;
                     
-                    newShape[y][x] = true;
+                    newShape[x][y] = true;
                                                       
                 }
             }
