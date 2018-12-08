@@ -34,6 +34,7 @@ public class Level {
         return time;
     }
     
+    //test
     public int getDifficultyLevel(){
         return difficultyLevel;
     }
