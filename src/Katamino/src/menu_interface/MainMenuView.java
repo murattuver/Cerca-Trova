@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package menu_interface;
 
-import controller.MainMenuController;
+import menu_management.MainMenuController;
+import view.View;
 
 /**
  *

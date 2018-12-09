@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package game_management;
 
+import game_interface.GamePanel;
+import menu_interface.OptionsView;
+import menu_interface.MenuFrame;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import model.*;
 import view.*;
 
 /**
@@ -23,7 +25,7 @@ public class GameManager{
     private List<GameObject> objectsOnScreen;
     private Level level;
     private OptionsView settingsView;
-    private GameFrame gameFrame;
+    private MenuFrame menuFrame;
     private GameEngine gameEngine;
     private boolean isGameRunning = false;
     private GamePanel gamePanel;

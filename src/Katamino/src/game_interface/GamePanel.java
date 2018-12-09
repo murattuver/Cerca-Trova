@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package game_interface;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.List;
 import javax.swing.JPanel;
-import model.GameObject;
+import game_management.GameObject;
+import view.View;
 
 /**
  *

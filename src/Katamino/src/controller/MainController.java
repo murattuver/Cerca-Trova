@@ -5,6 +5,10 @@
  */
 package controller;
 
+import game_management.GameEngine;
+import menu_interface.MainMenuView;
+import menu_interface.OptionsView;
+import menu_interface.MenuFrame;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -25,7 +29,7 @@ public class MainController {
     
     //reference for the controller.
     private static volatile MainController gameController = null;
-    GameFrame gameFrame;
+    MenuFrame menuFrame;
     MainMenuView mainMenu;
     OptionsView optionsView;
     GameEngine gameEngine;
@@ -55,7 +59,7 @@ public class MainController {
     //This method is Called my the GameRunner which contains the main method.
     public void start() {
         //initializing the mainframe.
-        gameFrame = new GameFrame();
+        menuFrame = new MenuFrame();
         
         showMainMenu();
 
@@ -65,41 +69,41 @@ public class MainController {
         //mainMenu = new MainMenuView();
         //optionsView = new OptionsView();
         loadOptions();
-        gameFrame.getContentPane().add(mainMenu);
-        gameFrame.updateFrame();
+        menuFrame.getContentPane().add(mainMenu);
+        menuFrame.updateFrame();
     }
     
     //Method that closes the game.
     public void closeGame() {
         if(gameEngine.isGameRunning())
             gameEngine.stopGameEngine();
-        gameFrame.dispose();
+        menuFrame.dispose();
         System.exit(0);
     }
     
     public void showGameOptions() {
-        gameFrame.remove(mainMenu);
-        gameFrame.getContentPane().add(optionsView);
-        gameFrame.updateFrame();
+        menuFrame.remove(mainMenu);
+        menuFrame.getContentPane().add(optionsView);
+        menuFrame.updateFrame();
     }
     
     public void optionsToMainMenu() {
-        gameFrame.remove(optionsView);
-        gameFrame.add(mainMenu);
-        gameFrame.updateFrame();
+        menuFrame.remove(optionsView);
+        menuFrame.add(mainMenu);
+        menuFrame.updateFrame();
     }
     
     public void startGame() {
-        gameFrame.remove(mainMenu);
-        gameFrame.add(gameEngine);
+        menuFrame.remove(mainMenu);
+        menuFrame.add(gameEngine);
         if(!gameEngine.isGameRunning())
             gameEngine.startGameEngine();
-        gameFrame.updateFrame();
+        menuFrame.updateFrame();
     }
     
     public void setFullScreen(boolean toFullScreen) {
-        gameFrame.setFullScreen(toFullScreen);
-        gameFrame.updateFrame();
+        menuFrame.setFullScreen(toFullScreen);
+        menuFrame.updateFrame();
     }
     
     public void saveOptions(Properties prop ) {
@@ -175,7 +179,7 @@ public class MainController {
         
         //local variables are set, now showing them in the view.
         //optionsView.setOptionsValues(list);
-        gameFrame.updateFrame();
+        menuFrame.updateFrame();
     }
 }
 

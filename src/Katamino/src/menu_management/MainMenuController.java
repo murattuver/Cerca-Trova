@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package menu_management;
 
+import game_management.GameManager;
+import menu_interface.MainMenuView;
+import menu_interface.LevelScreen;
+import menu_interface.OptionsView;
+import menu_interface.MenuFrame;
+import menu_interface.NumberOfPlayerView;
+import menu_interface.GameModeScreen;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JPanel;
-import model.Level;
-import model.Pentomino;
-import model.PentominoesSet;
-import view.*;
+import game_management.Level;
+import game_management.Pentomino;
+import game_management.PentominoesSet;
 
 /**
  *
@@ -20,39 +25,39 @@ import view.*;
  */
 public class MainMenuController {
     
-    private GameFrame gameFrame;
+    private MenuFrame menuFrame;
     private Level level;
     private int numberOfPlayers = 0;
     private String gameMode = "";
     private int levelNo = -1;
     
     public MainMenuController(){
-        gameFrame = new GameFrame();
-        gameFrame.add(new MainMenuView(this));
-        gameFrame.updateFrame();
+        menuFrame = new MenuFrame();
+        menuFrame.add(new MainMenuView(this));
+        menuFrame.updateFrame();
     }
     
    public void showView(String type){
-       gameFrame.getContentPane().removeAll();
+       menuFrame.getContentPane().removeAll();
 
        if(type.equals("mainmenu")){
-           gameFrame.getContentPane().add(new MainMenuView(this));
+           menuFrame.getContentPane().add(new MainMenuView(this));
        }
        else if(type.equals("numberofplayer")){
-           gameFrame.getContentPane().add(new NumberOfPlayerView(this));
+           menuFrame.getContentPane().add(new NumberOfPlayerView(this));
        }
        else if(type.equals("options")){
-           gameFrame.getContentPane().add(new OptionsView(this));
+           menuFrame.getContentPane().add(new OptionsView(this));
        }
        else if(type.equals("gamemode")){
-           gameFrame.getContentPane().add(new GameModeScreen(this));
+           menuFrame.getContentPane().add(new GameModeScreen(this));
        }
        else if(type.equals("level")){
-           gameFrame.getContentPane().add(new LevelScreen(this));
+           menuFrame.getContentPane().add(new LevelScreen(this));
 
        }
        
-       gameFrame.updateFrame();
+       menuFrame.updateFrame();
    }
    
    public void setNumberOfPlayers(int number){
@@ -141,14 +146,14 @@ public class MainMenuController {
         
        level = new Level(pSet, true, -1, 5);
        
-       gameFrame.dispose();
+       menuFrame.dispose();
        GameManager gm = new GameManager(level);
        gm.startGameEngine();
        
    }
    
    public void closeGame(){
-       gameFrame.dispose();
+       menuFrame.dispose();
        System.exit(0);
    }
 }

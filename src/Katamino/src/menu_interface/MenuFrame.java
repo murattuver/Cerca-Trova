@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package menu_interface;
 
 import controller.MainController;
 import javax.swing.JFrame;
@@ -12,12 +12,12 @@ import javax.swing.JFrame;
  *
  * @author Cerca-Trova
  */
-public class GameFrame extends JFrame {
+public class MenuFrame extends JFrame {
     
     int width = 800;
     int height = 600;
     
-    public GameFrame() {
+    public MenuFrame() {
         
         super("Katamino");
         

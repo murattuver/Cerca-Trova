@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package menu_management;
 
+import game_management.Level;
+import game_management.PentominoesSet;
+import game_management.Pentomino;
+import menu_interface.MainMenuView;
 import java.awt.Color;
-import model.*;
 import view.*;
 import java.util.List;
 import java.util.ArrayList;
