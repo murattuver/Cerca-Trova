@@ -20,8 +20,8 @@ public class Pentomino extends GameObject{
     private int defaultY;
     
     public Pentomino(){
-        setDeltaX(35);
-        setDeltaY(35);       
+        setDeltaX(30);
+        setDeltaY(30);       
         
         for(int i = 0; i < 5;i++){
             for(int j = 0; j < 5; j++){

@@ -58,6 +58,7 @@ public class GameEngine extends JFrame {
                 gameManager.setInitialPoints(e.getX(), e.getY());
                 gameManager.setSelected(true, e.getX(), e.getY());
                 System.out.println("x from e: " + e.getX());
+                System.out.println("y from e: " + e.getY());
             }
             
             @Override
@@ -175,6 +176,7 @@ public class GameEngine extends JFrame {
     
     public void stopGameEngine(){
         running = false;
+        dispose();
     }
     
 }

@@ -27,8 +27,8 @@ public class Board extends GameObject {
     
     public Board(int col, boolean isOpponent) {
         this.isOpponent = isOpponent;
-        setDeltaX(35);
-        setDeltaY(35);
+        setDeltaX(30);
+        setDeltaY(30);
         maxCol = col;
         locations = new BoardLocation[5][col];
         

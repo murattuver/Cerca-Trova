@@ -83,6 +83,13 @@ public class MainMenuController {
        menuFrame.updateFrame();
    }
    
+   public void backFromMulti(NetworkManager nm){
+       numberOfPlayers = 2;
+       this.network = nm;
+       playerNo = 0;
+       showView("multimenu");
+   }
+   
    public void initNetwork(){
        network = new NetworkManager(this);
    }

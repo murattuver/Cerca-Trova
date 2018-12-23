@@ -13,7 +13,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import menu_interface.MainMenuView;
+import menu_management.MainMenuController;
 import network_management.NetworkManager;
 import view.*;
 
@@ -43,6 +47,7 @@ public class GameManager{
     private NetworkManager network = null;
     private boolean isMultiplayer;
     private int playerNo = 1;
+    private int gameWinner = 0;
 
     
     public GameManager(Level level, boolean isMultiplayer, int playerNo) {
@@ -57,7 +62,7 @@ public class GameManager{
         myBoard = new Board(level.getDifficultyLevel(), false);
         
         myBoard.setX(40);
-        myBoard.setY(55);
+        myBoard.setY(230);
         objectsOnScreen.add(myBoard);
         
                 
@@ -73,7 +78,7 @@ public class GameManager{
         if(isMultiplayer){
             yourBoard = new Board(level.getDifficultyLevel(), true);
             
-            yourBoard.setX(300);
+            yourBoard.setX(40);
             yourBoard.setY(55);
             objectsOnScreen.add(yourBoard);
             
@@ -228,8 +233,12 @@ public class GameManager{
             
             if(myBoard.isBoardFull()){
                 //Game finished will be implemented.
-                JOptionPane.showMessageDialog(gamePanel, "Game is Over");
-                System.out.println("Done.");
+                
+                if(isMultiplayer){
+                    gameWinner = playerNo;
+                    announceWinner();
+                }
+                
             }
         } else {
             movePentomino(pentoDragged.getDefaultX(), pentoDragged.getDefaultY());
@@ -251,8 +260,52 @@ public class GameManager{
             newColors = (ArrayList<Long>)data.get("p1Colors");
         }
         
+        System.out.println(data.get("winner").getClass().getName());
         
-        yourBoard.setFromDB(newLocations, newColors);   
+        gameWinner = ((Long)data.get("winner")).intValue();
+        yourBoard.setFromDB(newLocations, newColors);
+        
+        if(gameWinner != playerNo  && gameWinner != 0){
+            announceWinner();
+        }
+    }
+    
+    public void announceWinner(){
+        
+        int n = -1;
+        if(gameWinner == playerNo){
+            Object[] options = {"Thank You!"};
+            n = JOptionPane.showOptionDialog((JFrame)SwingUtilities.windowForComponent(gameEngine),
+            "You won the game!\nCongratulations! ",
+            "You Won!",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,     //do not use a custom Icon
+            options,  //the titles of buttons
+            options[0]); //default button title
+        }
+        
+        else{
+            Object[] options = {"Accept Defeat"};
+            n = JOptionPane.showOptionDialog((JFrame)SwingUtilities.windowForComponent(gameEngine),
+            "Opponent finished the level faster than you.\nGood Luck Next Time ",
+            "You Lost",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,     //do not use a custom Icon
+            options,  //the titles of buttons
+            options[0]); //default button title
+        }
+        
+        if(n == 0){
+            network.destroyOnlineGame();
+            
+            gameEngine.stopGameEngine();
+            network.stopDatabaseListener();
+            MainMenuController menuCont = new MainMenuController();
+            menuCont.backFromMulti(network);
+        }
+            
     }
     
     public void setNetworkManager(NetworkManager nm){
@@ -278,6 +331,10 @@ public class GameManager{
         } else if(playerNo == 2){
             dataToSet.put("p2Board", locs);
             dataToSet.put("p2Colors", colors);
+        }
+        
+        if(gameWinner == playerNo){
+            dataToSet.put("winner", playerNo);
         }
         network.sendBoardData(dataToSet);
         

@@ -99,6 +99,7 @@ public class NetworkManager {
         data.put("level", difficultyLevel);
         data.put("lobbyName", lobbyName);
         data.put("isMatched", Boolean.FALSE);
+        data.put("winner", 0);
 
 
         ApiFuture<DocumentReference> addedDocRef = db.collection("games").add(data);
@@ -267,6 +268,22 @@ public class NetworkManager {
         } catch (FirebaseAuthException ex) {
             Logger.getLogger(NetworkManager.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+        }
+    }
+    
+    public void setWinner(int winnerPlayer){
+        try {
+
+            DocumentReference docRef = db.collection("games").document(currentGameID);
+            
+            ApiFuture<WriteResult> future = docRef.update("winner", winnerPlayer);
+            
+            WriteResult result = future.get();
+            System.out.println("Write result: " + result);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(NetworkManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(NetworkManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
