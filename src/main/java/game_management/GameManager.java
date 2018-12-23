@@ -65,7 +65,7 @@ public class GameManager{
         
         if(isMultiplayer){
             myBoard.setX(40);
-            myBoard.setY(230);
+            myBoard.setY(55);
         }
         else{
             myBoard.setX(40);
@@ -86,7 +86,7 @@ public class GameManager{
         if(isMultiplayer){
             yourBoard = new Board(level.getDifficultyLevel(), true);
             
-            yourBoard.setX(40);
+            yourBoard.setX(370);
             yourBoard.setY(55);
             objectsOnScreen.add(yourBoard);
             

@@ -19,6 +19,8 @@ import game_management.Level;
 import game_management.Pentomino;
 import game_management.PentominoesSet;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import menu_interface.CreateLobbyScreen;
 import menu_interface.JoinLobbyScreen;
 import menu_interface.LoginScreen;
@@ -47,9 +49,12 @@ public class MainMenuController {
         
         if(showFrame){
             menuFrame = new MenuFrame();
+
             menuFrame.add(new MainMenuView(this));
             menuFrame.updateFrame();
         }
+        
+        
     }
     
    public void showView(String type){
@@ -423,7 +428,50 @@ public class MainMenuController {
 
                 level9 = new Level(pSet9, false, -1, 12);
        
-                 
+        if(numberOfPlayers == 2){
+            pentomino2.setX(16);
+                pentomino2.setY(283);
+                pentomino2.setDefault(16, 283);
+
+                pentomino3.setX(172);
+                pentomino3.setY(283);
+                pentomino3.setDefault(172, 283);
+
+                pentomino6.setX(328);
+                pentomino6.setY(283);
+                pentomino6.setDefault(328, 283);
+
+                pentomino11.setX(484);
+                pentomino11.setY(283);
+                pentomino11.setDefault(484, 283);
+
+                pentomino7.setX(640);
+                pentomino7.setY(283);
+                pentomino7.setDefault(640, 283);
+
+                pentomino4.setX(16);
+                pentomino4.setY(441);
+                pentomino4.setDefault(16, 441);
+
+                pentomino5.setX(172);
+                pentomino5.setY(441);
+                pentomino5.setDefault(172, 441);
+
+                pentomino8.setX(328);
+                pentomino8.setY(441);
+                pentomino8.setDefault(328, 441);
+
+                pentomino12.setX(484);
+                pentomino12.setY(441);
+                pentomino12.setDefault(484, 441);
+            menuFrame.dispose();
+            gm = new GameManager("classic", level5, true, 1);
+            gm.startGameEngine();
+        } 
+        
+        else{
+            
+        
 
 
         if (levelNo==1 ) {
@@ -794,6 +842,8 @@ public class MainMenuController {
             gm = new GameManager("classic", level9, false, 1);
             gm.startGameEngine();
             
+        }
+        
         }
         
        return gm;
