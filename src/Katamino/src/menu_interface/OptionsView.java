@@ -52,6 +52,9 @@ public class OptionsView extends javax.swing.JPanel {
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setAutoscrolls(true);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -60,6 +63,7 @@ public class OptionsView extends javax.swing.JPanel {
                 formKeyPressed(evt);
             }
         });
+        setLayout(null);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -67,10 +71,23 @@ public class OptionsView extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton);
+        backButton.setBounds(11, 11, 100, 50);
 
-        jLabel1.setText("                          OPTIONS");
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Settings");
+        add(jLabel1);
+        jLabel1.setBounds(240, 80, 330, 60);
 
-        jLabel2.setText("                           Sound");
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("           Sound");
+        add(jLabel2);
+        jLabel2.setBounds(300, 200, 200, 50);
 
         jCheckBox1.setText("ON");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,13 +95,23 @@ public class OptionsView extends javax.swing.JPanel {
                 jCheckBox1ActionPerformed(evt);
             }
         });
+        add(jCheckBox1);
+        jCheckBox1.setBounds(340, 260, 44, 20);
 
         jCheckBox2.setSelected(true);
         jCheckBox2.setText("OFF");
+        add(jCheckBox2);
+        jCheckBox2.setBounds(440, 260, 48, 20);
 
         jCheckBox3.setText("OFF");
+        add(jCheckBox3);
+        jCheckBox3.setBounds(440, 360, 48, 20);
 
-        jLabel3.setText("                           Music");
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("           Music");
+        add(jLabel3);
+        jLabel3.setBounds(300, 300, 200, 50);
 
         jCheckBox4.setSelected(true);
         jCheckBox4.setText("ON");
@@ -93,10 +120,18 @@ public class OptionsView extends javax.swing.JPanel {
                 jCheckBox4ActionPerformed(evt);
             }
         });
+        add(jCheckBox4);
+        jCheckBox4.setBounds(340, 360, 44, 20);
 
         jCheckBox5.setText("ME");
+        add(jCheckBox5);
+        jCheckBox5.setBounds(500, 460, 42, 20);
 
-        jLabel4.setText("                           Theme");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("          Theme");
+        add(jLabel4);
+        jLabel4.setBounds(300, 400, 200, 50);
 
         jCheckBox6.setSelected(true);
         jCheckBox6.setText("ARCH");
@@ -105,6 +140,8 @@ public class OptionsView extends javax.swing.JPanel {
                 jCheckBox6ActionPerformed(evt);
             }
         });
+        add(jCheckBox6);
+        jCheckBox6.setBounds(290, 460, 60, 20);
 
         jCheckBox7.setText("CS");
         jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
@@ -112,74 +149,32 @@ public class OptionsView extends javax.swing.JPanel {
                 jCheckBox7ActionPerformed(evt);
             }
         });
+        add(jCheckBox7);
+        jCheckBox7.setBounds(370, 460, 40, 20);
 
         jCheckBox8.setText("MAN");
+        add(jCheckBox8);
+        jCheckBox8.setBounds(430, 460, 54, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(300, 300, 300)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jCheckBox4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox3)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jCheckBox1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCheckBox2)))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jCheckBox6)
-                                .addGap(5, 5, 5)
-                                .addComponent(jCheckBox7)
-                                .addGap(5, 5, 5)
-                                .addComponent(jCheckBox8)
-                                .addGap(5, 5, 5)
-                                .addComponent(jCheckBox5)))))
-                .addContainerGap(300, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
-                .addGap(40, 40, 40)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox3))
-                .addGap(40, 40, 40)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8))
-                .addContainerGap(136, Short.MAX_VALUE))
-        );
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon("/Users/sera/Desktop/outside.jpeg")); // NOI18N
+        jLabel6.setText("jLabel6");
+        jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel6);
+        jLabel6.setBounds(190, 60, 430, 110);
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/sera/Desktop/white.jpeg")); // NOI18N
+        jLabel7.setText("jLabel7");
+        jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel7);
+        jLabel7.setBounds(260, 180, 310, 350);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/sera/Desktop/backGround.png")); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5);
+        jLabel5.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -222,5 +217,8 @@ public class OptionsView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

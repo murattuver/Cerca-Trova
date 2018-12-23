@@ -30,65 +30,80 @@ public class GameModeScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         classicButton = new javax.swing.JButton();
         arcadeButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        jLabel4.setText("jLabel4");
 
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
+        backButton.setBackground(new java.awt.Color(255, 255, 255));
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setText("BACK");
+        backButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton);
+        backButton.setBounds(10, 10, 100, 50);
 
-        jLabel1.setText("                      GAME MODES");
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Select Mode");
+        add(jLabel1);
+        jLabel1.setBounds(300, 90, 200, 50);
 
+        classicButton.setBackground(new java.awt.Color(255, 255, 255));
+        classicButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        classicButton.setForeground(new java.awt.Color(0, 0, 0));
         classicButton.setText("Classic");
+        classicButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         classicButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 classicButtonActionPerformed(evt);
             }
         });
+        add(classicButton);
+        classicButton.setBounds(300, 210, 200, 100);
 
+        arcadeButton.setBackground(new java.awt.Color(255, 255, 255));
+        arcadeButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        arcadeButton.setForeground(new java.awt.Color(0, 0, 0));
         arcadeButton.setText("Arcade");
+        arcadeButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         arcadeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 arcadeButtonActionPerformed(evt);
             }
         });
+        add(arcadeButton);
+        arcadeButton.setBounds(300, 376, 200, 100);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(300, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(arcadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(classicButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(300, 300, 300))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(classicButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(arcadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
-        );
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/sera/Desktop/outside.jpeg")); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 204), 3));
+        jLabel3.setPreferredSize(new java.awt.Dimension(500, 100));
+        add(jLabel3);
+        jLabel3.setBounds(190, 60, 430, 110);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/sera/Desktop/backGround.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 800, 600);
+        add(jLabel5);
+        jLabel5.setBounds(610, 10, 0, 0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void classicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classicButtonActionPerformed
@@ -112,5 +127,9 @@ public class GameModeScreen extends javax.swing.JPanel {
     private javax.swing.JButton backButton;
     private javax.swing.JButton classicButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

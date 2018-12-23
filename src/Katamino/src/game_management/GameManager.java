@@ -51,7 +51,7 @@ public class GameManager{
         
         objectsOnScreen.add(board);
         
-        for(int i =0; i < 5; i++){
+        for(int i =0; i < level.getDifficultyLevel(); i++){
             Pentomino p = pentos.get(i);
             
             objectsOnScreen.add(p);
