@@ -449,6 +449,7 @@ public class MainMenuController {
         pentomino11.setX(640);
         pentomino11.setY(383);
         pentomino11.setDefault(640, 383);
+        
             menuFrame.dispose();
             gm = new GameManager("classic", level1, false, 1);
             gm.startGameEngine();
