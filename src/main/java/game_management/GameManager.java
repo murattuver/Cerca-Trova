@@ -48,10 +48,12 @@ public class GameManager{
     private boolean isMultiplayer;
     private int playerNo = 1;
     private int gameWinner = 0;
+    private String gameMode;
 
     
-    public GameManager(Level level, boolean isMultiplayer, int playerNo) {
+    public GameManager(String gMode, Level level, boolean isMultiplayer, int playerNo) {
         
+        this.gameMode = gMode;
         this.playerNo = playerNo;
         this.isMultiplayer = isMultiplayer;
         pentos = new ArrayList<>();
@@ -61,8 +63,14 @@ public class GameManager{
         initPentominoes();
         myBoard = new Board(level.getDifficultyLevel(), false);
         
-        myBoard.setX(40);
-        myBoard.setY(230);
+        if(isMultiplayer){
+            myBoard.setX(40);
+            myBoard.setY(230);
+        }
+        else{
+            myBoard.setX(40);
+            myBoard.setY(55);
+        }
         objectsOnScreen.add(myBoard);
         
                 
@@ -236,13 +244,37 @@ public class GameManager{
                 
                 if(isMultiplayer){
                     gameWinner = playerNo;
+                    sendMultiData();
                     announceWinner();
+                    
+                } else {
+                    finishLevel();
                 }
                 
             }
         } else {
             movePentomino(pentoDragged.getDefaultX(), pentoDragged.getDefaultY());
             wasOnBoard = false;
+        }
+        
+    }
+    
+    public void finishLevel(){
+        
+        Object[] options = {"Next Level"};
+        int n = JOptionPane.showOptionDialog((JFrame)SwingUtilities.windowForComponent(gameEngine),
+        "Level Finished!\nCongratulations! ",
+        "Level Finished!",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,     //do not use a custom Icon
+        options,  //the titles of buttons
+        options[0]); //default button title
+        
+        if(n == 0){
+            gameEngine.stopGameEngine();
+            MainMenuController menuCont = new MainMenuController(false);
+            menuCont.initNextLevel(gameMode, level.getDifficultyLevel());
         }
         
     }
@@ -301,8 +333,8 @@ public class GameManager{
             network.destroyOnlineGame();
             
             gameEngine.stopGameEngine();
-            network.stopDatabaseListener();
-            MainMenuController menuCont = new MainMenuController();
+            //network.stopDatabaseListener();
+            MainMenuController menuCont = new MainMenuController(true);
             menuCont.backFromMulti(network);
         }
             

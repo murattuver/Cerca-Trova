@@ -96,7 +96,7 @@ public class GameRunner {
         
         Level level = new Level(pSet, true, 60, 5);
         
-        MainMenuController menuC = new MainMenuController();
+        MainMenuController menuC = new MainMenuController(true);
         
         MainMenuView mw = new MainMenuView(menuC);
         

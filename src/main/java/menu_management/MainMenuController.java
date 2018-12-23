@@ -39,11 +39,16 @@ public class MainMenuController {
     private int levelNo = -1;
     private NetworkManager network = null;
     private int playerNo;
+    private boolean showFrame;
     
-    public MainMenuController(){
-        menuFrame = new MenuFrame();
-        menuFrame.add(new MainMenuView(this));
-        menuFrame.updateFrame();
+    public MainMenuController(boolean showFrame){
+        this.showFrame = showFrame;
+        
+        if(showFrame){
+            menuFrame = new MenuFrame();
+            menuFrame.add(new MainMenuView(this));
+            menuFrame.updateFrame();
+        }
     }
     
    public void showView(String type){
@@ -88,6 +93,17 @@ public class MainMenuController {
        this.network = nm;
        playerNo = 0;
        showView("multimenu");
+   }
+   
+   public void backFromSingle(){
+   //    numberOfPlayers =
+   }
+   
+   public void initNextLevel(String gMode, int levelNo){
+       numberOfPlayers = 1;
+       gameMode = gMode;
+       this.levelNo = levelNo;
+       initLevel();
    }
    
    public void initNetwork(){
@@ -236,16 +252,18 @@ public class MainMenuController {
         
        level = new Level(pSet, true, -1, 5);
        
-       menuFrame.dispose();
+       if(showFrame){
+        menuFrame.dispose();
+       }
        
        GameManager gameManager;
        
        if (numberOfPlayers == 2){
-           gameManager = new GameManager(level, true, playerNo);
+           gameManager = new GameManager(gameMode, level, true, playerNo);
            gameManager.startGameEngine();
 
        } else {
-              gameManager = new GameManager(level, false, 1);
+           gameManager = new GameManager(gameMode, level, false, 1);
            gameManager.startGameEngine();
        }
        
