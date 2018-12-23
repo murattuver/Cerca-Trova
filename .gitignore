@@ -1,4 +1,2 @@
-/src/Katamino/dist
-/src/Katamino/build
-/src/Katamino/nbproject
-/src/Katamino/test
+/target
+/.DS_Store
