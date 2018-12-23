@@ -88,10 +88,10 @@ public class Board extends GameObject {
             for(int col = 0; col < 5; col++) {
                 
                 
-                if(pentLocs[row][col] && ( (row + x > 4) || (col + y > 4) ) )
+                if(pentLocs[row][col] && ( (row + x > 4) || (col + y > maxCol-1) ) )
                     return false;
                 
-                if(!( (row + x > 4) || (col + y > 4))){
+                if(!( (row + x > 4) || (col + y > maxCol-1))){
                     if(locations[x + row][y + col].isOccupied() && pentLocs[row][col])
                         return false;
                 }

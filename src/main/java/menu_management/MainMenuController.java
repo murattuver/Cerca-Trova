@@ -182,7 +182,7 @@ public class MainMenuController {
    
    public GameManager initLevel(){
        
-        GameManager gm;
+        GameManager gm = null;
        
         Pentomino pentomino1 = new Pentomino();
         Pentomino pentomino2 = new Pentomino();
@@ -282,7 +282,7 @@ public class MainMenuController {
         pentomino12.setColor(Color.pink);
 
         
-
+        
         List<Pentomino> list1 = new ArrayList<>();
 
         list1.add(pentomino2);
@@ -450,8 +450,14 @@ public class MainMenuController {
         pentomino11.setY(383);
         pentomino11.setDefault(640, 383);
             menuFrame.dispose();
-            gm = new GameManager("classic", level1, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level1, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level1, false, 1);   
+            }
             gm.startGameEngine();
+            
             
             
 
@@ -481,12 +487,17 @@ public class MainMenuController {
                 pentomino8.setY(441);
                 pentomino8.setDefault(16, 441);
             menuFrame.dispose();
-            gm = new GameManager("classic", level2, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level2, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level2, false, 1);   
+            }
             gm.startGameEngine();
             
            
 
-        } else if (levelNo == 3 ) {
+        } else if (levelNo == 3) {
              //Level 3
                 pentomino3.setX(16);
                 pentomino3.setY(283);
@@ -516,7 +527,12 @@ public class MainMenuController {
                 pentomino9.setY(441);
                 pentomino9.setDefault(172, 441);
             menuFrame.dispose();
-            gm = new GameManager("classic", level3, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level3, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level3, false, 1);   
+            }
             gm.startGameEngine();
            
         } else if (levelNo == 4 && level4.getUnlocked()) {
@@ -552,9 +568,13 @@ public class MainMenuController {
                 pentomino10.setY(441);
                 pentomino10.setDefault(328, 441);
             menuFrame.dispose();
-            gm = new GameManager("classic", level4, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level4, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level4, false, 1);   
+            }
             gm.startGameEngine();
-           
         } else if (levelNo == 5 && level5.getUnlocked()) {
             pentomino2.setX(16);
                 pentomino2.setY(283);
@@ -592,7 +612,12 @@ public class MainMenuController {
                 pentomino12.setY(441);
                 pentomino12.setDefault(484, 441);
             menuFrame.dispose();
-            gm = new GameManager("classic", level5, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level5, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level5, false, 1);   
+            }
             gm.startGameEngine();
             
         } else if (levelNo == 6 && level6.getUnlocked()) {
@@ -636,7 +661,12 @@ public class MainMenuController {
                 pentomino3.setY(441);
                 pentomino3.setDefault(640, 441);
             menuFrame.dispose();
-            gm = new GameManager("classic", level6, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level6, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level6, false, 1);   
+            }
             gm.startGameEngine();
            
         } else if (levelNo == 7 && level7.getUnlocked()) {
@@ -686,7 +716,12 @@ public class MainMenuController {
                 pentomino10.setY(125);
                 pentomino10.setDefault(456, 125);
             menuFrame.dispose();
-            gm = new GameManager("classic", level7, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level7, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level7, false, 1);   
+            }
             gm.startGameEngine();
             
         } else if (levelNo == 8 && level8.getUnlocked()) {
@@ -735,11 +770,16 @@ public class MainMenuController {
                 pentomino9.setY(125);
                 pentomino9.setDefault(456, 125);
             menuFrame.dispose();
-            gm = new GameManager("classic", level8, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level8, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level8, false, 1);   
+            }
             gm.startGameEngine();
             
             
-        } else {
+        } else if(levelNo == 9 && level9.getUnlocked()) {
             //Level9
              pentomino1.setX(16);
                 pentomino1.setY(283);
@@ -790,7 +830,12 @@ public class MainMenuController {
                 pentomino12.setY(125);
                 pentomino12.setDefault(647, 125);
             menuFrame.dispose();
-            gm = new GameManager("classic", level9, false, 1);
+            if(numberOfPlayers == 2){
+            gm = new GameManager("classic", level1, true, playerNo);
+            }
+            else{
+                 gm = new GameManager("classic", level1, false, 1);   
+            }
             gm.startGameEngine();
             
         }

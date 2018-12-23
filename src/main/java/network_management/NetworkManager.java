@@ -211,6 +211,8 @@ public class NetworkManager {
                         HashMap newData = (HashMap) snapshot.getData();
                         
                         if((boolean)newData.get("isMatched")){
+                            menuController.setLevelNo(((Long)newData.get("level")).intValue());
+                            
                             menuController.startMultiGame();
                         }
                     }
