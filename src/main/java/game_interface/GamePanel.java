@@ -10,7 +10,11 @@ import java.awt.Graphics;
 import java.util.List;
 import javax.swing.JPanel;
 import game_management.GameObject;
+import javax.swing.JButton;
 import view.View;
+package menu_interface;
+
+
 
 /**
  *
@@ -19,6 +23,9 @@ import view.View;
 public class GamePanel extends JPanel implements View {
     private float interpolation;
     private List<GameObject> objectsOnScreen;
+    private JButton backButton = new JButton();
+    
+    
     
     
     public GamePanel(List<GameObject> objectsList){
@@ -26,9 +33,15 @@ public class GamePanel extends JPanel implements View {
         
         setSize(800, 600);
         setPreferredSize(new Dimension(800, 600));
+        backButton.setLayout(null);
+        add(backButton);
+        backButton.setText("Back");
         
+        backButton.setLocation(40,40);
+        backButton.setSize(100,100);
         setVisible(true);
-        repaint();   
+        repaint(); 
+        
     }
     
     

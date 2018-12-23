@@ -37,12 +37,15 @@ public class MainMenuView extends javax.swing.JPanel implements View{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         playButton = new javax.swing.JButton();
         optionsButton = new javax.swing.JButton();
         leaderBoardButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         exitButton1 = new javax.swing.JButton();
         optionsButton1 = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -151,6 +154,7 @@ public class MainMenuView extends javax.swing.JPanel implements View{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
     private javax.swing.JButton exitButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton leaderBoardButton;
     private javax.swing.JButton optionsButton;
     private javax.swing.JButton optionsButton1;
