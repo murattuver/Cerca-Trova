@@ -37,7 +37,9 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
         multiPlayerButton = new javax.swing.JButton();
         singlePlayerButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -45,8 +47,12 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton);
+        backButton.setBounds(11, 11, 100, 50);
 
         title.setText("                 Select Player");
+        add(title);
+        title.setBounds(300, 99, 200, 50);
 
         multiPlayerButton.setText("Multiplayer");
         multiPlayerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +60,8 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
                 multiPlayerButtonActionPerformed(evt);
             }
         });
+        add(multiPlayerButton);
+        multiPlayerButton.setBounds(300, 376, 200, 100);
 
         singlePlayerButton.setText("Single Player");
         singlePlayerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,37 +69,8 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
                 singlePlayerButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(300, 300, 300)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(multiPlayerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(singlePlayerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(302, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(singlePlayerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(multiPlayerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
-        );
+        add(singlePlayerButton);
+        singlePlayerButton.setBounds(300, 206, 200, 100);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

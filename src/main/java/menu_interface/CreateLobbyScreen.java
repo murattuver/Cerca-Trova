@@ -70,9 +70,13 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        setBackground(new java.awt.Color(0, 102, 102));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11", "Level 12" }));
+        add(levelBox);
+        levelBox.setBounds(294, 220, 112, 23);
 
         createLobbyButton.setText("Create Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,12 +84,20 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
                 createLobbyButtonActionPerformed(evt);
             }
         });
+        add(createLobbyButton);
+        createLobbyButton.setBounds(206, 273, 109, 24);
 
         jLabel1.setText("LobbyName:");
+        add(jLabel1);
+        jLabel1.setBounds(206, 167, 70, 14);
 
         jLabel2.setText("Level:");
+        add(jLabel2);
+        jLabel2.setBounds(206, 220, 70, 14);
 
         lobbyName.setText("LobbyName");
+        add(lobbyName);
+        lobbyName.setBounds(294, 165, 112, 18);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,45 +105,8 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(levelBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lobbyName, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(createLobbyButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(392, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lobbyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(levelBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createLobbyButton)
-                    .addComponent(backButton))
-                .addContainerGap(284, Short.MAX_VALUE))
-        );
+        add(backButton);
+        backButton.setBounds(320, 273, 86, 24);
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed

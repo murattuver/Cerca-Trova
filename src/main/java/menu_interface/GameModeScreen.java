@@ -35,7 +35,9 @@ public class GameModeScreen extends javax.swing.JPanel {
         classicButton = new javax.swing.JButton();
         arcadeButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 255));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -43,8 +45,13 @@ public class GameModeScreen extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton);
+        backButton.setBounds(11, 11, 100, 50);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("                      GAME MODES");
+        add(jLabel1);
+        jLabel1.setBounds(190, 100, 340, 50);
 
         classicButton.setText("Classic");
         classicButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +59,8 @@ public class GameModeScreen extends javax.swing.JPanel {
                 classicButtonActionPerformed(evt);
             }
         });
+        add(classicButton);
+        classicButton.setBounds(300, 210, 200, 100);
 
         arcadeButton.setText("Arcade");
         arcadeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -59,36 +68,8 @@ public class GameModeScreen extends javax.swing.JPanel {
                 arcadeButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(300, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(arcadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(classicButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(300, 300, 300))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(classicButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(arcadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
-        );
+        add(arcadeButton);
+        arcadeButton.setBounds(300, 376, 200, 100);
     }// </editor-fold>//GEN-END:initComponents
 
     private void classicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classicButtonActionPerformed

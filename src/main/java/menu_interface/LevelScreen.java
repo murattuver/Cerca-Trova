@@ -42,7 +42,9 @@ public class LevelScreen extends javax.swing.JPanel {
         level1Button = new javax.swing.JButton();
         level9Button = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 102));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,8 +52,12 @@ public class LevelScreen extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton);
+        backButton.setBounds(11, 11, 100, 50);
 
         jLabel1.setText("           LEVELS");
+        add(jLabel1);
+        jLabel1.setBounds(350, 99, 100, 50);
 
         level2Button.setText("Level 2");
         level2Button.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +65,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level2ButtonActionPerformed(evt);
             }
         });
+        add(level2Button);
+        level2Button.setBounds(300, 190, 200, 50);
 
         level3Button.setText("Level 3");
         level3Button.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +74,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level3ButtonActionPerformed(evt);
             }
         });
+        add(level3Button);
+        level3Button.setBounds(550, 190, 200, 50);
 
         Level4Button.setText("Level 4");
         Level4Button.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +83,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 Level4ButtonActionPerformed(evt);
             }
         });
+        add(Level4Button);
+        Level4Button.setBounds(50, 310, 200, 50);
 
         level5Button.setText("Level 5");
         level5Button.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +92,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level5ButtonActionPerformed(evt);
             }
         });
+        add(level5Button);
+        level5Button.setBounds(300, 310, 200, 50);
 
         level6Button.setText("Level 6");
         level6Button.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +101,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level6ButtonActionPerformed(evt);
             }
         });
+        add(level6Button);
+        level6Button.setBounds(550, 310, 200, 50);
 
         level7Button.setText("Level 7");
         level7Button.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +110,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level7ButtonActionPerformed(evt);
             }
         });
+        add(level7Button);
+        level7Button.setBounds(50, 430, 200, 50);
 
         level8Button.setText("Level 8");
         level8Button.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +119,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level8ButtonActionPerformed(evt);
             }
         });
+        add(level8Button);
+        level8Button.setBounds(300, 430, 200, 50);
 
         level1Button.setText("Level 1");
         level1Button.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +128,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level1ButtonActionPerformed(evt);
             }
         });
+        add(level1Button);
+        level1Button.setBounds(50, 190, 200, 50);
 
         level9Button.setText("Level 9");
         level9Button.addActionListener(new java.awt.event.ActionListener() {
@@ -115,63 +137,8 @@ public class LevelScreen extends javax.swing.JPanel {
                 level9ButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Level4Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level7Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(level2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level5Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level8Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(level3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level6Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level9Button, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(level2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Level4Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level5Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level6Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(level7Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(level8Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(level9Button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
-        );
+        add(level9Button);
+        level9Button.setBounds(550, 430, 200, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

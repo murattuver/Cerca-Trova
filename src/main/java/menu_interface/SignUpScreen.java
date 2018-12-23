@@ -47,6 +47,9 @@ public class SignUpScreen extends javax.swing.JPanel {
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jFormattedTextField4 = new javax.swing.JFormattedTextField();
 
+        setBackground(new java.awt.Color(204, 153, 255));
+        setLayout(null);
+
         passwordField1.setText("jPasswordField1");
         passwordField1.setMaximumSize(new java.awt.Dimension(134, 22));
         passwordField1.setMinimumSize(new java.awt.Dimension(134, 22));
@@ -55,6 +58,8 @@ public class SignUpScreen extends javax.swing.JPanel {
                 passwordField1FocusGained(evt);
             }
         });
+        add(passwordField1);
+        passwordField1.setBounds(333, 131, 155, 18);
 
         passwordField2.setText("jPasswordField2");
         passwordField2.setMaximumSize(new java.awt.Dimension(134, 22));
@@ -64,6 +69,8 @@ public class SignUpScreen extends javax.swing.JPanel {
                 passwordField2FocusGained(evt);
             }
         });
+        add(passwordField2);
+        passwordField2.setBounds(333, 191, 155, 18);
 
         mailAdressField.setText("example@mail.com");
         mailAdressField.setMaximumSize(new java.awt.Dimension(72, 26));
@@ -78,6 +85,8 @@ public class SignUpScreen extends javax.swing.JPanel {
                 mailAdressFieldActionPerformed(evt);
             }
         });
+        add(mailAdressField);
+        mailAdressField.setBounds(333, 95, 155, 18);
 
         signupButton.setText("Sign Up");
         signupButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +94,8 @@ public class SignUpScreen extends javax.swing.JPanel {
                 signupButtonActionPerformed(evt);
             }
         });
+        add(signupButton);
+        signupButton.setBounds(333, 281, 78, 24);
 
         notMatchedField.setEditable(false);
         notMatchedField.setText("Passwords do not match.");
@@ -95,10 +106,16 @@ public class SignUpScreen extends javax.swing.JPanel {
                 notMatchedFieldActionPerformed(evt);
             }
         });
+        add(notMatchedField);
+        notMatchedField.setBounds(231, 316, 317, 18);
 
         nickNameField.setText("NickName");
+        add(nickNameField);
+        nickNameField.setBounds(333, 237, 155, 18);
 
         jTextField5.setText("At least 6 characters long.");
+        add(jTextField5);
+        jTextField5.setBounds(333, 155, 155, 18);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,81 +123,28 @@ public class SignUpScreen extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton);
+        backButton.setBounds(11, 11, 100, 50);
 
         jFormattedTextField1.setEditable(false);
         jFormattedTextField1.setText("Password:");
+        add(jFormattedTextField1);
+        jFormattedTextField1.setBounds(207, 131, 120, 18);
 
         jFormattedTextField2.setEditable(false);
         jFormattedTextField2.setText("Email Address:");
+        add(jFormattedTextField2);
+        jFormattedTextField2.setBounds(207, 95, 120, 18);
 
         jFormattedTextField3.setEditable(false);
         jFormattedTextField3.setText("re-Password:");
+        add(jFormattedTextField3);
+        jFormattedTextField3.setBounds(207, 191, 120, 18);
 
         jFormattedTextField4.setEditable(false);
         jFormattedTextField4.setText("NickName:");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(notMatchedField, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(jFormattedTextField3)
-                            .addComponent(jFormattedTextField1)
-                            .addComponent(jFormattedTextField4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(signupButton)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(passwordField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nickNameField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(mailAdressField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passwordField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addGap(266, 266, 266))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mailAdressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nickNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
-                .addComponent(signupButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(notMatchedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(229, 229, 229))
-        );
+        add(jFormattedTextField4);
+        jFormattedTextField4.setBounds(207, 237, 120, 18);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mailAdressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailAdressFieldActionPerformed

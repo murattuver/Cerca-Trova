@@ -44,7 +44,9 @@ public class MainMenuView extends javax.swing.JPanel implements View{
         exitButton1 = new javax.swing.JButton();
         optionsButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(153, 255, 204));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         playButton.setText("Play");
         playButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +54,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
                 playButtonActionPerformed(evt);
             }
         });
+        add(playButton);
+        playButton.setBounds(300, 42, 200, 50);
 
         optionsButton.setText("Tutorial");
         optionsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +63,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
                 optionsButtonActionPerformed(evt);
             }
         });
+        add(optionsButton);
+        optionsButton.setBounds(300, 134, 200, 50);
 
         leaderBoardButton.setText("Leaderboard");
         leaderBoardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +72,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
                 leaderBoardButtonActionPerformed(evt);
             }
         });
+        add(leaderBoardButton);
+        leaderBoardButton.setBounds(300, 226, 200, 50);
 
         exitButton.setText("Credits");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +81,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
                 exitButtonActionPerformed(evt);
             }
         });
+        add(exitButton);
+        exitButton.setBounds(300, 502, 200, 50);
 
         exitButton1.setText("Exit");
         exitButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +90,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
                 exitButton1ActionPerformed(evt);
             }
         });
+        add(exitButton1);
+        exitButton1.setBounds(300, 410, 200, 50);
 
         optionsButton1.setText("Options");
         optionsButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,39 +99,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
                 optionsButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(optionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(optionsButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(leaderBoardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(300, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(optionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(leaderBoardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(optionsButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(exitButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
+        add(optionsButton1);
+        optionsButton1.setBounds(300, 318, 200, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed

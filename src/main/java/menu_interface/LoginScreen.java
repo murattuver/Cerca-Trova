@@ -37,9 +37,16 @@ public class LoginScreen extends javax.swing.JPanel {
         signUpButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 153, 255));
+        setLayout(null);
+
         passwordField.setText("pasdasdasdas");
+        add(passwordField);
+        passwordField.setBounds(316, 202, 179, 18);
 
         mailAddressField.setText("MailAdress");
+        add(mailAddressField);
+        mailAddressField.setBounds(316, 166, 179, 18);
 
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +54,8 @@ public class LoginScreen extends javax.swing.JPanel {
                 loginButtonActionPerformed(evt);
             }
         });
+        add(loginButton);
+        loginButton.setBounds(316, 238, 64, 24);
 
         signUpButton.setText("SignUp");
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +63,8 @@ public class LoginScreen extends javax.swing.JPanel {
                 signUpButtonActionPerformed(evt);
             }
         });
+        add(signUpButton);
+        signUpButton.setBounds(421, 238, 74, 24);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,42 +72,8 @@ public class LoginScreen extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(mailAddressField)
-                            .addComponent(passwordField)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(loginButton)
-                                .addGap(41, 41, 41)
-                                .addComponent(signUpButton))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(304, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105)
-                .addComponent(mailAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginButton)
-                    .addComponent(signUpButton))
-                .addContainerGap(318, Short.MAX_VALUE))
-        );
+        add(backButton);
+        backButton.setBounds(11, 11, 100, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed

@@ -36,12 +36,17 @@ public class MultiMenu extends javax.swing.JPanel {
         joinButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 255));
+        setLayout(null);
+
         signOutButton.setText("SignOut");
         signOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signOutButtonActionPerformed(evt);
             }
         });
+        add(signOutButton);
+        signOutButton.setBounds(333, 257, 177, 49);
 
         createLobbyButton.setText("Create a Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +54,8 @@ public class MultiMenu extends javax.swing.JPanel {
                 createLobbyButtonActionPerformed(evt);
             }
         });
+        add(createLobbyButton);
+        createLobbyButton.setBounds(333, 130, 177, 49);
 
         joinButton.setText("Join a Game");
         joinButton.addActionListener(new java.awt.event.ActionListener() {
@@ -56,36 +63,14 @@ public class MultiMenu extends javax.swing.JPanel {
                 joinButtonActionPerformed(evt);
             }
         });
+        add(joinButton);
+        joinButton.setBounds(333, 190, 177, 49);
 
+        jLabel1.setBackground(new java.awt.Color(0, 51, 51));
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 2, 20)); // NOI18N
         jLabel1.setText("Katamino-Online");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(333, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                    .addComponent(joinButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createLobbyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(signOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(290, 290, 290))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(createLobbyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(joinButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(signOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(293, Short.MAX_VALUE))
-        );
+        add(jLabel1);
+        jLabel1.setBounds(333, 70, 177, 48);
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed
