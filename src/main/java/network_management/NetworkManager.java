@@ -210,8 +210,8 @@ public class NetworkManager {
                     } else{
                         HashMap newData = (HashMap) snapshot.getData();
                         
-                        if((boolean)newData.get("isMatched")){
-                            menuController.setLevelNo(((Long)newData.get("level")).intValue());
+                        if(Boolean.TRUE.equals(newData.get("isMatched"))){
+                            //menuController.setLevelNo(((Long)newData.get("level")).intValue());
                             menuController.startMultiGame();
                         }
                     }
