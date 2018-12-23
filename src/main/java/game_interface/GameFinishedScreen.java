@@ -27,21 +27,49 @@ public class GameFinishedScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Level Completed!");
+        add(jLabel3);
+        jLabel3.setBounds(220, 180, 280, 60);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/1white.jpeg")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(170, 140, 350, 130);
+
+        jButton1.setText("Next!");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1);
+        jButton1.setBounds(560, 90, 81, 24);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/BilkentCourses/Fall2018/CS319/BackGroundMainPage.jpeg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(-110, 40, 1409, 877);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
