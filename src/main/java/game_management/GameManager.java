@@ -6,11 +6,15 @@
 package game_management;
 
 import game_interface.GamePanel;
+import java.awt.Color;
 import menu_interface.OptionsView;
 import menu_interface.MenuFrame;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import network_management.NetworkManager;
 import view.*;
 
 /**
@@ -20,13 +24,14 @@ import view.*;
 public class GameManager{
     
     private SoundManager soundManager;
-    private Board board;
+    private Board myBoard;
+    private Board yourBoard;
     private List<Pentomino> pentos;
     private List<GameObject> objectsOnScreen;
     private Level level;
     private OptionsView settingsView;
     private MenuFrame menuFrame;
-    private GameEngine gameEngine;
+    private GameEngine gameEngine ;
     private boolean isGameRunning = false;
     private GamePanel gamePanel;
     private int initialX;
@@ -35,29 +40,45 @@ public class GameManager{
     private int draggingY;
     private boolean wasOnBoard = false;
     private Pentomino pentoDragged = null;
+    private NetworkManager network = null;
+    private boolean isMultiplayer;
+    private int playerNo = 1;
 
     
-    public GameManager(Level level) {
+    public GameManager(Level level, boolean isMultiplayer, int playerNo) {
+        
+        this.playerNo = playerNo;
+        this.isMultiplayer = isMultiplayer;
         pentos = new ArrayList<>();
         objectsOnScreen = new ArrayList<GameObject>();
         this.level = level;
         
         initPentominoes();
-        createBoard(level.getDifficultyLevel());
+        myBoard = new Board(level.getDifficultyLevel(), false);
         
-        board.setX(40);
-        board.setY(55);
+        myBoard.setX(40);
+        myBoard.setY(55);
+        objectsOnScreen.add(myBoard);
         
-        
-        objectsOnScreen.add(board);
-        
-        for(int i =0; i < level.getDifficultyLevel(); i++){
+                
+        for(int i =0; i < 5; i++){
             Pentomino p = pentos.get(i);
             
             objectsOnScreen.add(p);
 
         }
         
+        
+        //Logic related to multiplater game creation.
+        if(isMultiplayer){
+            yourBoard = new Board(level.getDifficultyLevel(), true);
+            
+            yourBoard.setX(300);
+            yourBoard.setY(55);
+            objectsOnScreen.add(yourBoard);
+            
+        }
+
         /* Actual code to be used.
         for(int i = 0; i < pentos.size(); i++){
             objectsOnScreen.add(pentos.get(i));
@@ -67,7 +88,6 @@ public class GameManager{
         gamePanel = new GamePanel(objectsOnScreen);
         
     }
-  
     
     public void startGameEngine(){
         //gameFrame.removeAll();
@@ -79,11 +99,6 @@ public class GameManager{
 
         }
 
-    }
-    
-    private void createBoard(int col){
-        board = new Board(col);
-        
     }
     
     private void initPentominoes(){
@@ -137,10 +152,10 @@ public class GameManager{
     
     public void dragPentomino(int x, int y){
         
-        if(board.isOnBoard(pentoDragged)){
+        if(myBoard.isOnBoard(pentoDragged)){
             wasOnBoard = true;
-            board.savePreviousLoc(pentoDragged);
-            board.removePentomino(pentoDragged);
+            myBoard.savePreviousLoc(pentoDragged);
+            myBoard.removePentomino(pentoDragged);
         }
         
         movePentomino(pentoDragged.getX() + (x - initialX), pentoDragged.getY() + (y - initialY));
@@ -180,23 +195,24 @@ public class GameManager{
         if(pentoDragged == null)
             return;
         
-        if(board.isPointOnBoard(x, y)){
-            int rowOnBoard = ( y - board.getY() ) / board.getDeltaY();
-            int colOnBoard = ( x - board.getX() ) / board.getDeltaX();
+        if(myBoard.isPointOnBoard(x, y)){
+            int rowOnBoard = ( y - myBoard.getY() ) / myBoard.getDeltaY();
+            int colOnBoard = ( x - myBoard.getX() ) / myBoard.getDeltaX();
             
             int rowToPlace = rowOnBoard - draggingX;
             int colToPlace = colOnBoard - draggingY;
             
-            boolean isPlaced = board.placePentomino(pentoDragged, rowToPlace, colToPlace);
+            boolean isPlaced = myBoard.placePentomino(pentoDragged, rowToPlace, colToPlace);
             
             if(isPlaced){
-                movePentomino(colToPlace * board.getDeltaY() + board.getX(), rowToPlace * board.getDeltaX() + board.getY());
+                movePentomino(colToPlace * myBoard.getDeltaY() + myBoard.getX(), rowToPlace * myBoard.getDeltaX() + myBoard.getY());
+                
+      
                 
             }
             else if(wasOnBoard){
-                board.placePrevPento();
-                movePentomino(board.getPrevCol() * board.getDeltaY() + board.getX(), board.getPrevRow() * board.getDeltaX() + board.getY());
-
+                myBoard.placePrevPento();
+                movePentomino(myBoard.getPrevCol() * myBoard.getDeltaY() + myBoard.getX(), myBoard.getPrevRow() * myBoard.getDeltaX() + myBoard.getY());
               
 
             } else{
@@ -206,7 +222,11 @@ public class GameManager{
             }
             wasOnBoard = false;
             
-            if(board.isBoardFull()){
+            if(isMultiplayer){
+                sendMultiData();
+            }
+            
+            if(myBoard.isBoardFull()){
                 //Game finished will be implemented.
                 JOptionPane.showMessageDialog(gamePanel, "Game is Over");
                 System.out.println("Done.");
@@ -215,6 +235,51 @@ public class GameManager{
             movePentomino(pentoDragged.getDefaultX(), pentoDragged.getDefaultY());
             wasOnBoard = false;
         }
+        
+    }
+    
+    public void setMultiData(HashMap data){
+        
+        ArrayList<Boolean> newLocations = new ArrayList<>();
+        ArrayList<Long> newColors = new ArrayList<>();
+
+        if(playerNo == 1){
+            newLocations = (ArrayList<Boolean>)data.get("p2Board");
+            newColors = (ArrayList<Long>)data.get("p2Colors");
+        } else if(playerNo == 2){
+            newLocations = (ArrayList<Boolean>)data.get("p1Board");
+            newColors = (ArrayList<Long>)data.get("p1Colors");
+        }
+        
+        
+        yourBoard.setFromDB(newLocations, newColors);   
+    }
+    
+    public void setNetworkManager(NetworkManager nm){
+        network = nm;
+    }
+    
+    public void sendMultiData(){
+        
+        Map<String, Object> dataToSet = new HashMap<>();
+        
+        ArrayList<Boolean> locs = new ArrayList<>();
+        ArrayList<Integer> colors = new ArrayList<>();
+        
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < level.getDifficultyLevel(); j++){
+                locs.add( myBoard.getShape(i, j));
+                colors.add(myBoard.getColor(i, j));
+            }
+        }
+        if(playerNo == 1){
+            dataToSet.put("p1Board", locs);
+            dataToSet.put("p1Colors", colors);
+        } else if(playerNo == 2){
+            dataToSet.put("p2Board", locs);
+            dataToSet.put("p2Colors", colors);
+        }
+        network.sendBoardData(dataToSet);
         
     }
    

@@ -22,14 +22,14 @@ import view.*;
  */
 public class GameEngine extends JFrame {
     
-    private GameManager gameManager;
-    private GamePanel gamePanel;
-    private boolean running = false;
-    private boolean paused = false;
-    private int fps = 60;
-    private int frameCount = 0;
-    private int width = 800;
-    private int height = 600;
+    protected GameManager gameManager;
+    protected GamePanel gamePanel;
+    protected boolean running = false;
+    protected boolean paused = false;
+    protected int fps = 60;
+    protected int frameCount = 0;
+    protected int width = 800;
+    protected int height = 600;
 
     
     public GameEngine(GamePanel gamePanel, GameManager gm){

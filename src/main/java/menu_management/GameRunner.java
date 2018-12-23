@@ -13,6 +13,8 @@ import java.awt.Color;
 import view.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import network_management.NetworkManager;
 
 /**
  *
@@ -20,7 +22,7 @@ import java.util.ArrayList;
  */
 public class GameRunner {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         
         Pentomino p1 = new Pentomino();
         Pentomino p2 = new Pentomino();
@@ -97,7 +99,6 @@ public class GameRunner {
         MainMenuController menuC = new MainMenuController();
         
         MainMenuView mw = new MainMenuView(menuC);
-        
         
         //GameManager gm = new GameManager(level);
         

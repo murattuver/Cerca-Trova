@@ -5,7 +5,6 @@
  */
 package game_management;
 
-import java.awt.Component;
 import java.awt.Graphics;
 
 /**

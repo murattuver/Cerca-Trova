@@ -7,30 +7,35 @@ package game_management;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 /**
  *
  * @author Murat
  */
 public class Board extends GameObject {
+    private boolean isOpponent;
     private Theme theme;
     private BoardLocation[][] locations;
     private int maxCol;
+    
+    //Empty cell color.
     private Color color = Color.white;
     private int prevRow;
     private int prevCol;
     private Pentomino prevPento;
     
-    public Board(int col) {
+    public Board(int col, boolean isOpponent) {
+        this.isOpponent = isOpponent;
         setDeltaX(35);
         setDeltaY(35);
-        
         maxCol = col;
         locations = new BoardLocation[5][col];
         
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < maxCol; j++){
                 locations[i][j] = new BoardLocation();
+                locations[i][j].setColor(0);
             }
         }
     }
@@ -163,6 +168,25 @@ public class Board extends GameObject {
         return prevCol;
     }
     
+    //Used in multiplayer
+    public void setFromDB(ArrayList<Boolean> newShape, ArrayList<Long> newColor){
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < maxCol; j++){
+                locations[i][j].setLocation(newShape.get(5 * i + j));
+                locations[i][j].setColor(newColor.get(5 * i + j));
+            }
+        }
+    }
+    
+    public boolean getShape(int row, int col){
+        
+        return locations[row][col].isOccupied(); 
+    }
+    
+    public Integer getColor(int row, int col){
+        return locations[row][col].getColor().getRGB();
+    }
+    
     //FOR TESTING PURPOSE!!!
     public void print(){
         for(int i = 0; i < 5; i++){
@@ -207,10 +231,15 @@ public class Board extends GameObject {
                     g.fillRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
                     g.setColor(Color.black);
                     g.drawRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
-
+                    
                 }
                 else {
-                    g.setColor(getPentomino(i, j).getColor());
+                    if(!isOpponent){
+                       g.setColor(getPentomino(i, j).getColor());
+                    }
+                    else {
+                        g.setColor(locations[i][j].getColor());
+                    }
                     g.fillRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
                     g.setColor(Color.black);
                     g.drawRect(getX() + j * getDeltaX(), getY() + i * getDeltaY(), getDeltaX(), getDeltaY());
