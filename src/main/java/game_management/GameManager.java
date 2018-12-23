@@ -74,7 +74,7 @@ public class GameManager{
         objectsOnScreen.add(myBoard);
         
                 
-        for(int i =0; i < 5; i++){
+        for(int i =0; i < pentos.size(); i++){
             Pentomino p = pentos.get(i);
             
             objectsOnScreen.add(p);
@@ -370,6 +370,10 @@ public class GameManager{
         }
         network.sendBoardData(dataToSet);
         
+    }
+    public boolean isBoardFull()
+    {
+        return myBoard.isBoardFull();
     }
    
     
