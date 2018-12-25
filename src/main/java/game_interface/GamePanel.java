@@ -11,17 +11,12 @@ import java.awt.Graphics;
 import java.util.List;
 import javax.swing.JPanel;
 import game_management.GameObject;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import view.View;
 
 /**
  *
  * @author Murat
  */
-public class GamePanel extends JPanel implements View {
+public class GamePanel extends JPanel {
     private float interpolation;
     private List<GameObject> objectsOnScreen;
     private GameManager gameManager;

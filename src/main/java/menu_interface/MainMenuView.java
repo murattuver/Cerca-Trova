@@ -7,21 +7,14 @@ package menu_interface;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import menu_management.MainMenuController;
-import view.View;
 
 /**
  *
  * @author Cerca-Trova
  */
-public class MainMenuView extends javax.swing.JPanel implements View{
+public class MainMenuView extends javax.swing.JPanel{
 
     //Reference of the gameController.
     MainMenuController menuManager = null;

@@ -19,7 +19,6 @@ import javax.swing.SwingUtilities;
 import menu_interface.MainMenuView;
 import menu_management.MainMenuController;
 import network_management.NetworkManager;
-import view.*;
 
 /**
  *

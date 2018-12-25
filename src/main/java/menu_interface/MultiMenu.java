@@ -97,7 +97,7 @@ public class MultiMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_joinButtonActionPerformed
 
     private void signOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutButtonActionPerformed
-        // TODO add your handling code here:
+        menuController.showView("numberofplayer");
     }//GEN-LAST:event_signOutButtonActionPerformed
 
 

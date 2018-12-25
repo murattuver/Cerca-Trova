@@ -8,7 +8,9 @@ package game_management;
 
 import game_interface.GamePanel;
 import java.awt.BorderLayout;
-import java.awt.MouseInfo;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -17,8 +19,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import view.*;
-
 /**
  *
  * @author Cerca-Trova
@@ -40,13 +40,38 @@ public class GameEngine extends JFrame {
         
         gameManager = gm;
         this.gamePanel = gamePanel;
-        this.setLayout(new BorderLayout());
-        this.add(this.gamePanel,BorderLayout.CENTER);
+        JButton exitButton = new JButton("Exit");
+        
+        //this.setLayout(new BorderLayout());
+        //this.add(this.gamePanel,BorderLayout.CENTER);
+        
+
+        
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 1;
+        add(gamePanel, c);
+        
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipady = 0;       //reset to default
+        c.weighty = 1.0;   //request any extra vertical space
+        c.anchor = GridBagConstraints.PAGE_START; //bottom of space
+        c.insets = new Insets(50,500,0,50);  //top padding
+        c.gridx = 0;      //aligned with button 2
+        c.gridwidth = 2;   //2 columns wide
+        c.gridy = 0;       //third row
+        this.add(exitButton, c);
+
+
+
+
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
-        JButton exitButton = new JButton("Exit");
-        this.add(exitButton, BorderLayout.PAGE_START);
         
         
         exitButton.addActionListener(new java.awt.event.ActionListener() {
