@@ -72,7 +72,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11", "Level 12" }));
+        levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9" }));
 
         createLobbyButton.setText("Create Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +86,11 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         jLabel2.setText("Level:");
 
         lobbyName.setText("LobbyName");
+        lobbyName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lobbyNameFocusGained(evt);
+            }
+        });
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +165,10 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         menuController.showView("multimenu");
         
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void lobbyNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lobbyNameFocusGained
+        lobbyName.setText("");
+    }//GEN-LAST:event_lobbyNameFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

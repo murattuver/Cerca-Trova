@@ -41,6 +41,9 @@ public class Level {
     public void setUnlocked(boolean b){
         isLevelUnlocked = b;
     }
+    public boolean getUnlocked(){
+        return isLevelUnlocked;
+    }
     
     public PentominoesSet getPentominoes(){
         return pSet;
