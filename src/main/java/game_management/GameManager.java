@@ -19,6 +19,8 @@ import javax.swing.SwingUtilities;
 import menu_interface.MainMenuView;
 import menu_management.MainMenuController;
 import network_management.NetworkManager;
+import java.util.Timer;
+import org.apache.commons.lang.time.StopWatch;
 
 /**
  *
@@ -49,6 +51,7 @@ public class GameManager{
     private int gameWinner = 0;
     private String gameMode;
     private MainMenuController menuController;
+    StopWatch watch = new StopWatch();
 
     
     public GameManager(MainMenuController menuController, String gMode, Level level, boolean isMultiplayer, int playerNo) {
@@ -102,10 +105,16 @@ public class GameManager{
     public void startGameEngine(){
         gameEngine = new GameEngine(gamePanel, this);
         
-        if(!gameEngine.isGameRunning()){
+        if(!gameEngine.isGameRunning()&& gameMode.equals("arcade")){
+            watch.start();
             gameEngine.startGameEngine();
             isGameRunning = true;
         }
+        else{
+            gameEngine.startGameEngine();
+            isGameRunning = true;
+        }
+        
 
     }
     
@@ -246,7 +255,7 @@ public class GameManager{
                     sendMultiData();
                     announceWinner();
                     
-                } else {
+                } else  {
                     finishLevel();
                 }
                 
@@ -270,10 +279,22 @@ public class GameManager{
         options,  //the titles of buttons
         options[0]); //default button title
         
+        if(gameMode.equals("arcade"))
+        {
+            if(watch.getTime()==1000)
+            {
+                watch.stop();
+             gameEngine.stopGameEngine();
+            menuController.setLevelUnlocked(level.getDifficultyLevel() - 3);
+            menuController.initNextLevel(gameMode, level.getDifficultyLevel() - 3);
+            }
+        }
+        else{
         if(n == 0){
             gameEngine.stopGameEngine();
             menuController.setLevelUnlocked(level.getDifficultyLevel() - 3);
             menuController.initNextLevel(gameMode, level.getDifficultyLevel() - 3);
+        }
         }
         
     }

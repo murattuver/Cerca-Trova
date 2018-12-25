@@ -98,6 +98,7 @@ public class GameModeScreen extends javax.swing.JPanel {
 
     private void arcadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arcadeButtonActionPerformed
         menuController.setGameMode("arcade");
+        menuController.showView("level");
 
     }//GEN-LAST:event_arcadeButtonActionPerformed
 

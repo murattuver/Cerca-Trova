@@ -37,6 +37,7 @@ public class MainMenuController {
             pentomino5, pentomino6, pentomino7, pentomino8, pentomino9,
             pentomino10, pentomino11, pentomino12;
     private ArrayList<Level> levels;
+    private ArrayList<Level> levelsArcade;
     private int numberOfPlayers = 0;
     private String gameMode = "";
     private int levelNo = -1;
@@ -217,6 +218,7 @@ public class MainMenuController {
 
         PentominoesSet pSet1 = new PentominoesSet(list1);
         Level level1 = new Level(pSet1, true, -1, 5);
+        Level level1A = new Level(pSet1, true, 300, 5);
             
         List<Pentomino> list2 = new ArrayList<>();
         
@@ -230,6 +232,7 @@ public class MainMenuController {
         PentominoesSet pSet2 = new PentominoesSet(list2);
 
         Level level2 = new Level(pSet2, false, -1, 6);
+        Level level2A = new Level(pSet2, false, 300, 6);
 
         List<Pentomino> list3 = new ArrayList<>();
 
@@ -243,6 +246,7 @@ public class MainMenuController {
         PentominoesSet pSet3 = new PentominoesSet(list3);
 
         Level level3 = new Level(pSet3, false, -1, 7);
+         Level level3A = new Level(pSet3, false, 300, 7);
 
         List<Pentomino> list4 = new ArrayList<>();
 
@@ -258,6 +262,7 @@ public class MainMenuController {
         PentominoesSet pSet4 = new PentominoesSet(list4);
 
         Level level4 = new Level(pSet4, false, -1, 8);
+         Level level4A = new Level(pSet4, false, 300, 8);
 
         List<Pentomino> list5 = new ArrayList<>();
 
@@ -274,6 +279,7 @@ public class MainMenuController {
         PentominoesSet pSet5 = new PentominoesSet(list5);
 
         Level level5 = new Level(pSet5, false, -1, 9);
+         Level level5A = new Level(pSet5, false, 300, 9);
 
         List<Pentomino> list6 = new ArrayList<>();
 
@@ -291,6 +297,7 @@ public class MainMenuController {
         PentominoesSet pSet6 = new PentominoesSet(list6);
 
         Level level6 = new Level(pSet6, false, -1, 10);
+        Level level6A = new Level(pSet6, false, 300, 10);
 
         List<Pentomino> list7 = new ArrayList<>();
 
@@ -309,6 +316,7 @@ public class MainMenuController {
         PentominoesSet pSet7 = new PentominoesSet(list7);
 
         Level level7 = new Level(pSet7, false, -1, 11);
+        Level level7A = new Level(pSet7, false, 300, 11);
 
         List<Pentomino> list8 = new ArrayList<>();
 
@@ -327,6 +335,7 @@ public class MainMenuController {
         PentominoesSet pSet8 = new PentominoesSet(list8);
 
         Level level8 = new Level(pSet8, false, -1, 11);
+        Level level8A = new Level(pSet8, false, 300, 11);
 
         List<Pentomino> list9 = new ArrayList<>();
 
@@ -346,6 +355,7 @@ public class MainMenuController {
         PentominoesSet pSet9 = new PentominoesSet(list9);
 
         Level level9 = new Level(pSet9, false, -1, 12);
+        Level level9A = new Level(pSet9, false, 300, 12);
         
         levels.add(level1);
         levels.add(level2);
@@ -356,6 +366,16 @@ public class MainMenuController {
         levels.add(level7);
         levels.add(level8);
         levels.add(level9);
+        
+        levelsArcade.add(level1A);
+        levelsArcade.add(level2A);
+        levelsArcade.add(level3A);
+        levelsArcade.add(level4A);
+        levelsArcade.add(level5A);
+        levelsArcade.add(level6A);
+        levelsArcade.add(level7A);
+        levelsArcade.add(level8A);
+        levelsArcade.add(level9A);
    }
    
    public void backFromSingle(){
@@ -484,8 +504,14 @@ public class MainMenuController {
                 gm = new GameManager(this, "", levels.get(0), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(0), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(0), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(0), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
             
@@ -518,12 +544,19 @@ public class MainMenuController {
             
             menuFrame.setVisible(false);
             
-            if(numberOfPlayers == 2){
+             if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(1), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(1), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(1), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(1), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
         } else if (levelNo == 3 && (levels.get(2).getUnlocked() || numberOfPlayers == 2)) {
@@ -559,11 +592,18 @@ public class MainMenuController {
             menuFrame.setVisible(false);
             
             if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(2), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(2), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(2), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(2), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
            
         } else if (levelNo == 4 && (levels.get(3).getUnlocked() || numberOfPlayers == 2)) {
@@ -600,12 +640,19 @@ public class MainMenuController {
             pentomino10.setDefault(328, 441);
             menuFrame.setVisible(false);
             
-            if(numberOfPlayers == 2){
+             if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(3), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(3), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(3), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(3), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
         } else if (levelNo == 5 && (levels.get(4).getUnlocked() || numberOfPlayers == 2)) {
@@ -647,12 +694,19 @@ public class MainMenuController {
             
             menuFrame.setVisible(false);
             
-            if(numberOfPlayers == 2){
+           if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(4), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this,"classic", levels.get(4), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(4), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(4), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
         } else if (levelNo == 6 && (levels.get(5).getUnlocked() || numberOfPlayers == 2)) {
@@ -700,11 +754,18 @@ public class MainMenuController {
             menuFrame.setVisible(false);
             
             if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(5), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(5), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(5), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(5), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
            
         } else if (levelNo == 7 && (levels.get(6).getUnlocked() || numberOfPlayers == 2)) {
@@ -756,11 +817,18 @@ public class MainMenuController {
             menuFrame.setVisible(false);
             
             if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(6), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(6), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(6), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(6), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
         } else if (levelNo == 8 && (levels.get(7).getUnlocked() || numberOfPlayers == 2)) {
@@ -811,12 +879,19 @@ public class MainMenuController {
             
             menuFrame.setVisible(false);
             
-            if(numberOfPlayers == 2){
+           if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(7), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(7), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(7), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(7), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
             
@@ -873,12 +948,19 @@ public class MainMenuController {
            
             menuFrame.setVisible(false);
             
-            if(numberOfPlayers == 2){
+           if(numberOfPlayers == 2){
+                
                 gm = new GameManager(this, "", levels.get(8), true, playerNo);
                 gm.startGameEngine();
             } else{
-                gm = new GameManager(this, "classic", levels.get(8), false, playerNo);
+                if(gameMode.equals("arcade")){
+                gm = new GameManager(this, gameMode, levelsArcade.get(8), false, playerNo);
                 gm.startGameEngine();
+                }
+                else{
+                gm = new GameManager(this, gameMode, levels.get(8), false, playerNo);
+                gm.startGameEngine();    
+                }
             }
             
         }
