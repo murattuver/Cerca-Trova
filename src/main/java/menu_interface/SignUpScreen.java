@@ -21,8 +21,6 @@ public class SignUpScreen extends javax.swing.JPanel {
         this.menuController = menuController;
         initComponents();
         notMatchedField.setVisible(false);
-        
-        
     }
 
     /**
