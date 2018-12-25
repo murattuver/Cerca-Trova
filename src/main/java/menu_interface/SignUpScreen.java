@@ -21,8 +21,6 @@ public class SignUpScreen extends javax.swing.JPanel {
         this.menuController = menuController;
         initComponents();
         notMatchedField.setVisible(false);
-        
-        
     }
 
     /**
@@ -159,6 +157,7 @@ public class SignUpScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_mailAdressFieldActionPerformed
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
+        menuController.getSoundManager().playSound();
         String username = mailAdressField.getText();
         String p1 = new String( passwordField1.getPassword());
         String p2 = new String( passwordField2.getPassword());
@@ -207,7 +206,7 @@ public class SignUpScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_mailAdressFieldFocusGained
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-
+        menuController.getSoundManager().playSound();  
         menuController.showView("login");
     }//GEN-LAST:event_backButtonActionPerformed
 

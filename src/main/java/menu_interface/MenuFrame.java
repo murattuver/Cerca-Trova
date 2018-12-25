@@ -5,7 +5,6 @@
  */
 package menu_interface;
 
-import controller.MainController;
 import javax.swing.JFrame;
 
 /**

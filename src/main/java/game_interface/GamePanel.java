@@ -5,25 +5,27 @@
  */
 package game_interface;
 
+import game_management.GameManager;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.List;
 import javax.swing.JPanel;
 import game_management.GameObject;
-import view.View;
 
 /**
  *
  * @author Murat
  */
-public class GamePanel extends JPanel implements View {
+public class GamePanel extends JPanel {
     private float interpolation;
     private List<GameObject> objectsOnScreen;
+    private GameManager gameManager;
     
     
-    public GamePanel(List<GameObject> objectsList){
+    public GamePanel(List<GameObject> objectsList, GameManager gameManager){
         objectsOnScreen = objectsList;
-        
+        this.gameManager = gameManager;
+
         setSize(800, 600);
         setPreferredSize(new Dimension(800, 600));
         
@@ -36,6 +38,8 @@ public class GamePanel extends JPanel implements View {
         interpolation = interp;
     }
     
+
+    
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -43,6 +47,7 @@ public class GamePanel extends JPanel implements View {
         for(int i = 0; i < objectsOnScreen.size(); i++){
             objectsOnScreen.get(i).draw(g);
         }
+        
     }
     
     public void update(){

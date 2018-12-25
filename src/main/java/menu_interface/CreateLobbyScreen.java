@@ -5,11 +5,6 @@
  */
 package menu_interface;
 
-import java.awt.Frame;
-import java.awt.Window;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -75,9 +70,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
 
-        levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11", "Level 12" }));
-        add(levelBox);
-        levelBox.setBounds(294, 220, 112, 26);
+        levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9" }));
 
         createLobbyButton.setText("Create Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -97,8 +90,11 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         jLabel2.setBounds(206, 220, 70, 16);
 
         lobbyName.setText("LobbyName");
-        add(lobbyName);
-        lobbyName.setBounds(294, 165, 112, 26);
+        lobbyName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lobbyNameFocusGained(evt);
+            }
+        });
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +113,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed
+        menuController.getSoundManager().playSound();
         String lobbyName = this.lobbyName.getText();
         String level = levelBox.getSelectedItem().toString();
         int levelNo = Integer.parseInt(level.substring(level.length() - 1));
@@ -139,9 +136,14 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_createLobbyButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.showView("multimenu");
         
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void lobbyNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lobbyNameFocusGained
+        lobbyName.setText("");
+    }//GEN-LAST:event_lobbyNameFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

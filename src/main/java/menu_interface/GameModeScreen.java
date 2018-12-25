@@ -94,16 +94,19 @@ public class GameModeScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void classicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classicButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setGameMode("classic");
         menuController.showView("level");
     }//GEN-LAST:event_classicButtonActionPerformed
 
     private void arcadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arcadeButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setGameMode("arcade");
 
     }//GEN-LAST:event_arcadeButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setGameMode("");
         menuController.showView("numberofplayer");
     }//GEN-LAST:event_backButtonActionPerformed

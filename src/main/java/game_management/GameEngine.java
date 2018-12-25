@@ -8,14 +8,17 @@ package game_management;
 
 import game_interface.GamePanel;
 import java.awt.BorderLayout;
-import java.awt.MouseInfo;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import view.*;
-
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 /**
  *
  * @author Cerca-Trova
@@ -37,9 +40,48 @@ public class GameEngine extends JFrame {
         
         gameManager = gm;
         this.gamePanel = gamePanel;
-        this.setLayout(new BorderLayout());
-        this.add(this.gamePanel,BorderLayout.CENTER);
+        JButton exitButton = new JButton("Exit");
+        
+        //this.setLayout(new BorderLayout());
+        //this.add(this.gamePanel,BorderLayout.CENTER);
+        
+
+        
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 1;
+        add(gamePanel, c);
+        
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipady = 0;       //reset to default
+        c.weighty = 1.0;   //request any extra vertical space
+        c.anchor = GridBagConstraints.PAGE_START; //bottom of space
+        c.insets = new Insets(50,500,0,50);  //top padding
+        c.gridx = 0;      //aligned with button 2
+        c.gridwidth = 2;   //2 columns wide
+        c.gridy = 0;       //third row
+        this.add(exitButton, c);
+
+
+
+
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        
+        
+        
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
+
+       
         
         setUndecorated(true);
         
@@ -55,16 +97,23 @@ public class GameEngine extends JFrame {
             
             @Override
             public void mousePressed(MouseEvent e){
+               
+                gamePanel.requestFocusInWindow();
+                
+            
                 gameManager.setInitialPoints(e.getX(), e.getY());
                 gameManager.setSelected(true, e.getX(), e.getY());
                 System.out.println("x from e: " + e.getX());
                 System.out.println("y from e: " + e.getY());
+                
             }
             
             @Override
             public void mouseReleased(MouseEvent e){
+              
                 gameManager.checkOnBoard(e.getX(), e.getY());
                 gameManager.setSelected(false, e.getX(), e.getY());
+                
             }
         };
         
@@ -74,22 +123,45 @@ public class GameEngine extends JFrame {
                 if(e.getKeyCode() == KeyEvent.VK_R && gameManager.getSelected()){
                     System.out.println("R pressed.");
                     gameManager.rotateSelected();
+                } else if(e.getKeyCode() == KeyEvent.VK_T && gameManager.getSelected()){
+                    gameManager.symSelected();
+                    System.out.println("T Pressed.");
                 }
             }
         };
-        
-        addMouseListener(mAdap);
-        addMouseMotionListener(mAdap);
-        addKeyListener(kAdap);
+
         
         this.setSize(width, height);
         pack();
         setVisible(true);
         
         this.setResizable(false);
+        
+        gamePanel.setFocusable(true);
+        gamePanel.requestFocusInWindow();
+        
+        gamePanel.addMouseListener(mAdap);
+        gamePanel.addMouseMotionListener(mAdap);
+        gamePanel.addKeyListener(kAdap);
         repaint();
         
  
+    }
+    
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        Object[] options = {"I Quit", "I Can Do This"};
+        int n = JOptionPane.showOptionDialog((JFrame)SwingUtilities.windowForComponent(this),
+        "Do you really want to quit? ",
+        "Are You Sure?",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,     //do not use a custom Icon
+        options,  //the titles of buttons
+        options[1]); //default button title
+        
+        if(n == 0){
+            gameManager.terminateSingleGame();
+        }
     }
 
     public void startGameEngine(){

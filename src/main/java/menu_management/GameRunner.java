@@ -10,7 +10,6 @@ import game_management.PentominoesSet;
 import game_management.Pentomino;
 import menu_interface.MainMenuView;
 import java.awt.Color;
-import view.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -96,7 +95,7 @@ public class GameRunner {
         
         Level level = new Level(pSet, true, 60, 5);
         
-        MainMenuController menuC = new MainMenuController(true);
+        MainMenuController menuC = new MainMenuController();
         
         MainMenuView mw = new MainMenuView(menuC);
         

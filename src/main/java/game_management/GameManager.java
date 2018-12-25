@@ -6,7 +6,6 @@
 package game_management;
 
 import game_interface.GamePanel;
-import java.awt.Color;
 import menu_interface.OptionsView;
 import menu_interface.MenuFrame;
 import java.util.ArrayList;
@@ -16,10 +15,8 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import menu_interface.MainMenuView;
 import menu_management.MainMenuController;
 import network_management.NetworkManager;
-import view.*;
 
 /**
  *
@@ -49,10 +46,12 @@ public class GameManager{
     private int playerNo = 1;
     private int gameWinner = 0;
     private String gameMode;
+    private MainMenuController menuController;
 
     
-    public GameManager(String gMode, Level level, boolean isMultiplayer, int playerNo) {
+    public GameManager(MainMenuController menuController, String gMode, Level level, boolean isMultiplayer, int playerNo) {
         
+        this.menuController = menuController;
         this.gameMode = gMode;
         this.playerNo = playerNo;
         this.isMultiplayer = isMultiplayer;
@@ -65,53 +64,48 @@ public class GameManager{
         
         if(isMultiplayer){
             myBoard.setX(40);
-            myBoard.setY(230);
+            myBoard.setY(55);
         }
         else{
             myBoard.setX(40);
             myBoard.setY(55);
         }
-        objectsOnScreen.add(myBoard);
         
+        objectsOnScreen.add(myBoard);
                 
-        for(int i =0; i < 5; i++){
+        for(int i =0; i < pentos.size(); i++){
             Pentomino p = pentos.get(i);
             
             objectsOnScreen.add(p);
 
         }
-        
-        
         //Logic related to multiplater game creation.
         if(isMultiplayer){
             yourBoard = new Board(level.getDifficultyLevel(), true);
             
-            yourBoard.setX(40);
+            yourBoard.setX(370);
             yourBoard.setY(55);
             objectsOnScreen.add(yourBoard);
             
         }
-
-        /* Actual code to be used.
-        for(int i = 0; i < pentos.size(); i++){
-            objectsOnScreen.add(pentos.get(i));
-        }
-        */
         
-        gamePanel = new GamePanel(objectsOnScreen);
+        gamePanel = new GamePanel(objectsOnScreen, this);
         
     }
     
     public void startGameEngine(){
-        //gameFrame.removeAll();
-        //gameFrame.dispose();
         gameEngine = new GameEngine(gamePanel, this);
+        
         if(!gameEngine.isGameRunning()){
             gameEngine.startGameEngine();
             isGameRunning = true;
-
         }
 
+    }
+    
+    public void stopGameEngine(){
+        boolean gameRunning = false;
+        gameEngine.stopGameEngine();
     }
     
     private void initPentominoes(){
@@ -122,17 +116,13 @@ public class GameManager{
         }
     }
     
-    public void stopGameEngine(){
-        boolean gameRunning = false;
+    public void terminateSingleGame(){
         gameEngine.stopGameEngine();
+        menuController.menuFrameVisible();
     }
     
     public boolean isGameRunning(){
         return isGameRunning;
-    }
-    
-    public void createView(View view){
-        
     }
     
     public Pentomino getGameObject(int x, int y){
@@ -200,7 +190,10 @@ public class GameManager{
     
     public void rotateSelected(){
         pentoDragged.rotate();
-        System.out.println(pentoDragged.getX());
+    }
+    
+    public void symSelected(){
+        pentoDragged.takeSym();
     }
     
     public void checkOnBoard(int x, int y){
@@ -273,8 +266,8 @@ public class GameManager{
         
         if(n == 0){
             gameEngine.stopGameEngine();
-            MainMenuController menuCont = new MainMenuController(false);
-            menuCont.initNextLevel(gameMode, level.getDifficultyLevel());
+            menuController.setLevelUnlocked(level.getDifficultyLevel() - 3);
+            menuController.initNextLevel(gameMode, level.getDifficultyLevel() - 3);
         }
         
     }
@@ -291,13 +284,10 @@ public class GameManager{
             newLocations = (ArrayList<Boolean>)data.get("p1Board");
             newColors = (ArrayList<Long>)data.get("p1Colors");
         }
-        
-        System.out.println(data.get("winner").getClass().getName());
-        
-        gameWinner = ((Long)data.get("winner")).intValue();
+        gameWinner = ((Long) data.get("winner")).intValue();
         yourBoard.setFromDB(newLocations, newColors);
         
-        if(gameWinner != playerNo  && gameWinner != 0){
+        if((gameWinner != playerNo)  && (gameWinner != 0)){
             announceWinner();
         }
     }
@@ -331,11 +321,11 @@ public class GameManager{
         
         if(n == 0){
             network.destroyOnlineGame();
-            
+            menuController.getSoundManager().playSound();
             gameEngine.stopGameEngine();
             //network.stopDatabaseListener();
-            MainMenuController menuCont = new MainMenuController(true);
-            menuCont.backFromMulti(network);
+            menuController.menuFrameVisible();
+            menuController.backFromMulti(network);
         }
             
     }
@@ -370,6 +360,10 @@ public class GameManager{
         }
         network.sendBoardData(dataToSet);
         
+    }
+    public boolean isBoardFull()
+    {
+        return myBoard.isBoardFull();
     }
    
     
