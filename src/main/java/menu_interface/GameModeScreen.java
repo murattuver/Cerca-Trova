@@ -34,6 +34,8 @@ public class GameModeScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         classicButton = new javax.swing.JButton();
         arcadeButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(102, 102, 255));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -48,10 +50,11 @@ public class GameModeScreen extends javax.swing.JPanel {
         add(backButton);
         backButton.setBounds(11, 11, 100, 50);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("                      GAME MODES");
         add(jLabel1);
-        jLabel1.setBounds(190, 100, 340, 50);
+        jLabel1.setBounds(-20, 110, 590, 50);
 
         classicButton.setText("Classic");
         classicButton.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +72,26 @@ public class GameModeScreen extends javax.swing.JPanel {
             }
         });
         add(arcadeButton);
-        arcadeButton.setBounds(300, 376, 200, 100);
+        arcadeButton.setBounds(300, 360, 200, 100);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/back.jpg")); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3);
+        jLabel3.setBounds(0, 0, 1409, 877);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        add(jPanel2);
+        jPanel2.setBounds(700, 0, 100, 100);
     }// </editor-fold>//GEN-END:initComponents
 
     private void classicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classicButtonActionPerformed
@@ -93,5 +115,7 @@ public class GameModeScreen extends javax.swing.JPanel {
     private javax.swing.JButton backButton;
     private javax.swing.JButton classicButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

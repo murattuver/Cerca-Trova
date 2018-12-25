@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package menu_interface;
-
 import menu_management.MainMenuController;
 import view.View;
 
@@ -43,6 +42,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
         exitButton = new javax.swing.JButton();
         exitButton1 = new javax.swing.JButton();
         optionsButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 255, 204));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -101,6 +102,33 @@ public class MainMenuView extends javax.swing.JPanel implements View{
         });
         add(optionsButton1);
         optionsButton1.setBounds(300, 318, 200, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/back.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1409, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 877, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        add(jPanel1);
+        jPanel1.setBounds(0, 0, 1409, 877);
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
@@ -132,6 +160,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
     private javax.swing.JButton exitButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton leaderBoardButton;
     private javax.swing.JButton optionsButton;
     private javax.swing.JButton optionsButton1;

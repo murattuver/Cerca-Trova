@@ -121,7 +121,7 @@ public class OptionsView extends javax.swing.JPanel {
 
         jCheckBox5.setText("ME");
         add(jCheckBox5);
-        jCheckBox5.setBounds(460, 439, 41, 22);
+        jCheckBox5.setBounds(490, 440, 50, 22);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("                           Theme");
@@ -136,7 +136,7 @@ public class OptionsView extends javax.swing.JPanel {
             }
         });
         add(jCheckBox6);
-        jCheckBox6.setBounds(300, 439, 55, 22);
+        jCheckBox6.setBounds(270, 440, 70, 22);
 
         jCheckBox7.setText("CS");
         jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
@@ -145,13 +145,14 @@ public class OptionsView extends javax.swing.JPanel {
             }
         });
         add(jCheckBox7);
-        jCheckBox7.setBounds(360, 439, 41, 22);
+        jCheckBox7.setBounds(351, 439, 60, 22);
 
         jCheckBox8.setText("MAN");
         add(jCheckBox8);
-        jCheckBox8.setBounds(406, 439, 49, 22);
+        jCheckBox8.setBounds(420, 440, 60, 22);
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
 
     }//GEN-LAST:event_formKeyPressed
