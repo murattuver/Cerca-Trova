@@ -19,7 +19,6 @@ import java.util.LinkedList;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import view.*;
 
 /**
  *
@@ -102,7 +101,7 @@ public class MainController {
     }
     
     public void setFullScreen(boolean toFullScreen) {
-        menuFrame.setFullScreen(toFullScreen);
+        //menuFrame.setFullScreen(toFullScreen);
         menuFrame.updateFrame();
     }
     

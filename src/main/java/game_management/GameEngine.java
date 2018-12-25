@@ -44,7 +44,7 @@ public class GameEngine extends JFrame {
         this.add(this.gamePanel,BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        /*
+        
         JButton exitButton = new JButton("Exit");
         this.add(exitButton, BorderLayout.PAGE_START);
         
@@ -54,7 +54,7 @@ public class GameEngine extends JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-*/
+
 
        
         
@@ -72,17 +72,23 @@ public class GameEngine extends JFrame {
             
             @Override
             public void mousePressed(MouseEvent e){
-                System.out.println("sictik");
+               
+                gamePanel.requestFocusInWindow();
+                
+            
                 gameManager.setInitialPoints(e.getX(), e.getY());
                 gameManager.setSelected(true, e.getX(), e.getY());
                 System.out.println("x from e: " + e.getX());
                 System.out.println("y from e: " + e.getY());
+                
             }
             
             @Override
             public void mouseReleased(MouseEvent e){
+              
                 gameManager.checkOnBoard(e.getX(), e.getY());
                 gameManager.setSelected(false, e.getX(), e.getY());
+                
             }
         };
         
@@ -94,19 +100,24 @@ public class GameEngine extends JFrame {
                     gameManager.rotateSelected();
                 } else if(e.getKeyCode() == KeyEvent.VK_T && gameManager.getSelected()){
                     gameManager.symSelected();
+                    System.out.println("T Pressed.");
                 }
             }
         };
-        
-        addMouseListener(mAdap);
-        addMouseMotionListener(mAdap);
-        addKeyListener(kAdap);
+
         
         this.setSize(width, height);
         pack();
         setVisible(true);
         
         this.setResizable(false);
+        
+        gamePanel.setFocusable(true);
+        gamePanel.requestFocusInWindow();
+        
+        gamePanel.addMouseListener(mAdap);
+        gamePanel.addMouseMotionListener(mAdap);
+        gamePanel.addKeyListener(kAdap);
         repaint();
         
  

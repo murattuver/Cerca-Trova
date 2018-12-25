@@ -5,6 +5,7 @@
  */
 package menu_interface;
 
+import java.awt.Graphics;
 import menu_management.MainMenuController;
 
 /**
@@ -21,7 +22,9 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
     public NumberOfPlayerView(MainMenuController menuManager) {
         this.menuManager = menuManager;
         initComponents();
+        
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +80,7 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
                             .addComponent(multiPlayerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(singlePlayerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +113,6 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
         menuManager.initNetwork();
         //menuManager.initLevel();
     }//GEN-LAST:event_multiPlayerButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

@@ -19,8 +19,6 @@ import game_management.Level;
 import game_management.Pentomino;
 import game_management.PentominoesSet;
 import java.util.HashMap;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import menu_interface.CreateLobbyScreen;
 import menu_interface.JoinLobbyScreen;
 import menu_interface.LoginScreen;

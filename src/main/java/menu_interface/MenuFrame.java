@@ -6,7 +6,9 @@
 package menu_interface;
 
 import controller.MainController;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
