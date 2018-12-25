@@ -100,7 +100,7 @@ public class LoginScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
+        menuController.getSoundManager().playSound();
         String mailAdress = mailAddressField.getText();
         String password  = new String (passwordField.getPassword());
         
@@ -114,10 +114,12 @@ public class LoginScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.showView("signup");
     }//GEN-LAST:event_signUpButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.breakNetwork();
         menuController.setNumberOfPlayers(0);
         menuController.showView("numberofplayer");

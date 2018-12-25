@@ -147,27 +147,33 @@ public class MainMenuView extends javax.swing.JPanel implements View{
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
+        menuManager.getSoundManager().playSound();
         menuManager.showView("numberofplayer");
     }//GEN-LAST:event_playButtonActionPerformed
 
     private void optionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButtonActionPerformed
-        //gameController.getInstance().showGameOptions();
+        menuManager.getSoundManager().playSound();        
+//gameController.getInstance().showGameOptions();
     }//GEN-LAST:event_optionsButtonActionPerformed
 
     private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButtonActionPerformed
-        // TODO add your handling code here:
+        menuManager.getSoundManager().playSound();
+// TODO add your handling code here:
     }//GEN-LAST:event_leaderBoardButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        //Controller closes the game.
+        menuManager.getSoundManager().playSound();
+//Controller closes the game.
         //gameController.getInstance().closeGame();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void exitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButton1ActionPerformed
+        menuManager.getSoundManager().playSound();
         menuManager.closeGame();
     }//GEN-LAST:event_exitButton1ActionPerformed
 
     private void optionsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButton1ActionPerformed
+        menuManager.getSoundManager().playSound();
         menuManager.showView("options");
     }//GEN-LAST:event_optionsButton1ActionPerformed
     @Override

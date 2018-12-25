@@ -175,52 +175,62 @@ public class LevelScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(-1);
         menuController.showView("gamemode");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void level1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level1ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(1);
         menuController.initLevel();
     }//GEN-LAST:event_level1ButtonActionPerformed
 
     private void level2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level2ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(2);
         menuController.initLevel();
 
     }//GEN-LAST:event_level2ButtonActionPerformed
 
     private void level3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level3ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(3);
         menuController.initLevel();
     }//GEN-LAST:event_level3ButtonActionPerformed
 
     private void Level4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level4ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(4);
         menuController.initLevel();
     }//GEN-LAST:event_Level4ButtonActionPerformed
 
     private void level5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level5ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(5);
         menuController.initLevel();
     }//GEN-LAST:event_level5ButtonActionPerformed
 
     private void level6ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level6ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(6);
         menuController.initLevel();
     }//GEN-LAST:event_level6ButtonActionPerformed
 
     private void level7ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level7ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(7);
         menuController.initLevel();
     }//GEN-LAST:event_level7ButtonActionPerformed
 
     private void level8ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level8ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(8);
         menuController.initLevel();
     }//GEN-LAST:event_level8ButtonActionPerformed
 
     private void level9ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level9ButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.setLevelNo(9);
         menuController.initLevel();
     }//GEN-LAST:event_level9ButtonActionPerformed

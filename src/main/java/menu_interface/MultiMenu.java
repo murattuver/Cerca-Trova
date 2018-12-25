@@ -89,15 +89,18 @@ public class MultiMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.showView("createlobby");
     }//GEN-LAST:event_createLobbyButtonActionPerformed
 
     private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.showView("joinlobby");
     }//GEN-LAST:event_joinButtonActionPerformed
 
     private void signOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutButtonActionPerformed
-        // TODO add your handling code here:
+        menuController.getSoundManager().playSound();
+// TODO add your handling code here:
     }//GEN-LAST:event_signOutButtonActionPerformed
 
 

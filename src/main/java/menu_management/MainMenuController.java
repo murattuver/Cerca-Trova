@@ -5,6 +5,7 @@
  */
 package menu_management;
 
+import game_management.SoundManager;
 import game_management.GameManager;
 import menu_interface.MainMenuView;
 import menu_interface.LevelScreen;
@@ -33,6 +34,7 @@ import network_management.NetworkManager;
 public class MainMenuController {
     
     private MenuFrame menuFrame;
+    private SoundManager soundManager;
     private Pentomino pentomino1, pentomino2, pentomino3, pentomino4,
             pentomino5, pentomino6, pentomino7, pentomino8, pentomino9,
             pentomino10, pentomino11, pentomino12;
@@ -48,7 +50,7 @@ public class MainMenuController {
         this.showFrame = showFrame;
         createPentos();
         createLevels();
-        
+        soundManager = new SoundManager();
         menuFrame = new MenuFrame();
         menuFrame.add(new MainMenuView(this));
         menuFrame.updateFrame();
@@ -890,4 +892,7 @@ public class MainMenuController {
        System.exit(0);
     }
     
+    public SoundManager getSoundManager() {
+        return soundManager;
+    }
 }

@@ -118,6 +118,7 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        menuController.getSoundManager().playSound();
         HashMap lobbyData = menuController.fetchLobbies();
 
         Iterator it = lobbyData.entrySet().iterator();
@@ -140,11 +141,13 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.showView("multimenu");
         
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
+        menuController.getSoundManager().playSound();
         int rowNo = lobbies.getSelectedRow();
         
         if(rowNo != -1){

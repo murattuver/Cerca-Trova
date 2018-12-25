@@ -98,16 +98,19 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuManager.getSoundManager().playSound();
         menuManager.setNumberOfPlayers(0);
         menuManager.showView("mainmenu");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void singlePlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singlePlayerButtonActionPerformed
+        menuManager.getSoundManager().playSound();
         menuManager.setNumberOfPlayers(1);
         menuManager.showView("gamemode");
     }//GEN-LAST:event_singlePlayerButtonActionPerformed
 
     private void multiPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiPlayerButtonActionPerformed
+        menuManager.getSoundManager().playSound();
         menuManager.setNumberOfPlayers(2);
         menuManager.showView("login");
         menuManager.initNetwork();
