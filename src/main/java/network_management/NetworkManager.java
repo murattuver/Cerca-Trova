@@ -77,7 +77,7 @@ public class NetworkManager {
         
     }
     
-    public void createOnlineGame(String lobbyName, int difficultyLevel){
+    public void createOnlineGame(String lobbyName, int columnNumber){
 
         // Add document data with auto-generated id.
         Map<String, Object> data = new HashMap<>();
@@ -86,7 +86,7 @@ public class NetworkManager {
         ArrayList<Boolean> p2Board = new ArrayList<>();
         ArrayList<Long> colors = new ArrayList<>();
         
-        for(int i = 0; i < difficultyLevel * 5; i++){
+        for(int i = 0; i < columnNumber * 5; i++){
             p1Board.add(Boolean.FALSE);
             p2Board.add(Boolean.FALSE);
             colors.add(Long.parseLong("0"));
@@ -96,7 +96,7 @@ public class NetworkManager {
         data.put("p2Board", p2Board);
         data.put("p1Colors", colors);
         data.put("p2Colors", colors);
-        data.put("level", difficultyLevel);
+        data.put("level", columnNumber - 4);
         data.put("lobbyName", lobbyName);
         data.put("isMatched", Boolean.FALSE);
         data.put("winner", 0);

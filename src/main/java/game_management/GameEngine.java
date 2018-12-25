@@ -13,7 +13,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import view.*;
 
 /**
@@ -41,6 +44,20 @@ public class GameEngine extends JFrame {
         this.add(this.gamePanel,BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        /*
+        JButton exitButton = new JButton("Exit");
+        this.add(exitButton, BorderLayout.PAGE_START);
+        
+        
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+*/
+
+       
+        
         setUndecorated(true);
         
         MouseAdapter mAdap = new MouseAdapter() { 
@@ -55,6 +72,7 @@ public class GameEngine extends JFrame {
             
             @Override
             public void mousePressed(MouseEvent e){
+                System.out.println("sictik");
                 gameManager.setInitialPoints(e.getX(), e.getY());
                 gameManager.setSelected(true, e.getX(), e.getY());
                 System.out.println("x from e: " + e.getX());
@@ -74,6 +92,8 @@ public class GameEngine extends JFrame {
                 if(e.getKeyCode() == KeyEvent.VK_R && gameManager.getSelected()){
                     System.out.println("R pressed.");
                     gameManager.rotateSelected();
+                } else if(e.getKeyCode() == KeyEvent.VK_T && gameManager.getSelected()){
+                    gameManager.symSelected();
                 }
             }
         };
@@ -90,6 +110,22 @@ public class GameEngine extends JFrame {
         repaint();
         
  
+    }
+    
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        Object[] options = {"I Quit", "I Can Do This"};
+        int n = JOptionPane.showOptionDialog((JFrame)SwingUtilities.windowForComponent(this),
+        "Do you really want to quit? ",
+        "Are You Sure?",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE,
+        null,     //do not use a custom Icon
+        options,  //the titles of buttons
+        options[1]); //default button title
+        
+        if(n == 0){
+            gameManager.terminateSingleGame();
+        }
     }
 
     public void startGameEngine(){

@@ -149,7 +149,6 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
         
         if(rowNo != -1){
             menuController.setLevelNo( Integer.parseInt( "" + lobbies.getValueAt(rowNo, 1)));
-            System.out.println(lobbies.getValueAt(rowNo, 1).getClass().getName());
             
             menuController.setGameId( (String) lobbies.getValueAt(rowNo, 2));
             menuController.setPlayerNo(2);

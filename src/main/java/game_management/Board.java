@@ -174,8 +174,8 @@ public class Board extends GameObject {
     public void setFromDB(ArrayList<Boolean> newShape, ArrayList<Long> newColor){
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < maxCol; j++){
-                locations[i][j].setLocation(newShape.get(5 * i + j));
-                locations[i][j].setColor(newColor.get(5 * i + j));
+                locations[i][j].setLocation(newShape.get(maxCol * i + j));
+                locations[i][j].setColor(newColor.get(maxCol * i + j));
             }
         }
     }
