@@ -6,7 +6,6 @@
 package game_management;
 
 import game_interface.GamePanel;
-import java.awt.Color;
 import menu_interface.OptionsView;
 import menu_interface.MenuFrame;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import menu_interface.MainMenuView;
 import menu_management.MainMenuController;
 import network_management.NetworkManager;
 
@@ -93,10 +91,6 @@ public class GameManager{
         
         gamePanel = new GamePanel(objectsOnScreen, this);
         
-    }
-
-    public GameManager() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void startGameEngine(){
@@ -290,10 +284,10 @@ public class GameManager{
             newLocations = (ArrayList<Boolean>)data.get("p1Board");
             newColors = (ArrayList<Long>)data.get("p1Colors");
         }
-
+        gameWinner = ((Long) data.get("winner")).intValue();
         yourBoard.setFromDB(newLocations, newColors);
         
-        if(gameWinner != playerNo  && gameWinner != 0){
+        if((gameWinner != playerNo)  && (gameWinner != 0)){
             announceWinner();
         }
     }
@@ -326,11 +320,11 @@ public class GameManager{
         }
         
         if(n == 0){
-            network.destroyOnlineGame();
+            //network.destroyOnlineGame();
             
             gameEngine.stopGameEngine();
             //network.stopDatabaseListener();
-            
+            menuController.menuFrameVisible();
             menuController.backFromMulti(network);
         }
             
