@@ -7,7 +7,6 @@ package game_management;
 
 
 import game_interface.GamePanel;
-import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -37,15 +36,10 @@ public class GameEngine extends JFrame {
     
     public GameEngine(GamePanel gamePanel, GameManager gm){
         super("Katamino");
-        
         gameManager = gm;
         this.gamePanel = gamePanel;
         JButton exitButton = new JButton("Exit");
         
-        //this.setLayout(new BorderLayout());
-        //this.add(this.gamePanel,BorderLayout.CENTER);
-        
-
         
         this.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -65,15 +59,9 @@ public class GameEngine extends JFrame {
         c.gridy = 0;       //third row
         this.add(exitButton, c);
 
-
-
-
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        
-        
+
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
@@ -81,8 +69,6 @@ public class GameEngine extends JFrame {
         });
 
 
-       
-        
         setUndecorated(true);
         
         MouseAdapter mAdap = new MouseAdapter() { 

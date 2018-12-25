@@ -20,6 +20,8 @@ public class LoginScreen extends javax.swing.JPanel {
     public LoginScreen(MainMenuController menuController) {
         this.menuController = menuController;
         initComponents();
+        
+
     }
 
     /**

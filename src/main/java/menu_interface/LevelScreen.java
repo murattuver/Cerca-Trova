@@ -5,6 +5,9 @@
  */
 package menu_interface;
 
+import game_management.Level;
+import java.awt.Color;
+import java.util.ArrayList;
 import menu_management.MainMenuController;
 
 /**
@@ -19,6 +22,10 @@ public class LevelScreen extends javax.swing.JPanel {
     public LevelScreen(MainMenuController menuController) {
         this.menuController = menuController;
         initComponents();
+        ArrayList<Level> levels = new ArrayList<>();
+        
+        levels = menuController.getLevels();
+
     }
 
     /**
@@ -153,7 +160,6 @@ public class LevelScreen extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jLabel2.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
         add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 590);
     }// </editor-fold>//GEN-END:initComponents

@@ -66,6 +66,10 @@ public class MainMenuController {
 
     }
     
+    public ArrayList<Level> getLevels(){
+        return levels;
+    }
+    
     public SoundManager getSoundManager(){
         return soundManager;
     }

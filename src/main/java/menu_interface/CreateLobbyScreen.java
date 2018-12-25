@@ -42,6 +42,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         lobbyName = new javax.swing.JFormattedTextField();
         backButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -70,7 +71,9 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
 
-        levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9" }));
+        levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11", "Level 12" }));
+        add(levelBox);
+        levelBox.setBounds(294, 220, 112, 26);
 
         createLobbyButton.setText("Create Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,20 +84,21 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         add(createLobbyButton);
         createLobbyButton.setBounds(206, 273, 112, 32);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("LobbyName:");
         add(jLabel1);
         jLabel1.setBounds(206, 167, 78, 16);
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Level:");
         add(jLabel2);
         jLabel2.setBounds(206, 220, 70, 16);
 
         lobbyName.setText("LobbyName");
-        lobbyName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                lobbyNameFocusGained(evt);
-            }
-        });
+        add(lobbyName);
+        lobbyName.setBounds(294, 165, 112, 26);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -105,9 +109,15 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         add(backButton);
         backButton.setBounds(320, 273, 86, 32);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel4);
+        jLabel4.setBounds(170, 130, 280, 220);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jLabel3.setSize(new java.awt.Dimension(800, 600));
+        jLabel3.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
         add(jLabel3);
         jLabel3.setBounds(0, 0, 810, 610);
     }// </editor-fold>//GEN-END:initComponents
@@ -154,6 +164,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JComboBox<String> levelBox;
     private javax.swing.JFormattedTextField lobbyName;
     // End of variables declaration//GEN-END:variables
