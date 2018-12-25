@@ -42,7 +42,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
         exitButton = new javax.swing.JButton();
         exitButton1 = new javax.swing.JButton();
         optionsButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 255, 204));
@@ -56,7 +57,7 @@ public class MainMenuView extends javax.swing.JPanel implements View{
             }
         });
         add(playButton);
-        playButton.setBounds(300, 42, 200, 50);
+        playButton.setBounds(300, 180, 200, 50);
 
         optionsButton.setText("Tutorial");
         optionsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +66,7 @@ public class MainMenuView extends javax.swing.JPanel implements View{
             }
         });
         add(optionsButton);
-        optionsButton.setBounds(300, 134, 200, 50);
+        optionsButton.setBounds(300, 250, 200, 50);
 
         leaderBoardButton.setText("Leaderboard");
         leaderBoardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +75,7 @@ public class MainMenuView extends javax.swing.JPanel implements View{
             }
         });
         add(leaderBoardButton);
-        leaderBoardButton.setBounds(300, 226, 200, 50);
+        leaderBoardButton.setBounds(300, 320, 200, 50);
 
         exitButton.setText("Credits");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +84,7 @@ public class MainMenuView extends javax.swing.JPanel implements View{
             }
         });
         add(exitButton);
-        exitButton.setBounds(300, 502, 200, 50);
+        exitButton.setBounds(300, 540, 200, 50);
 
         exitButton1.setText("Exit");
         exitButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +93,7 @@ public class MainMenuView extends javax.swing.JPanel implements View{
             }
         });
         add(exitButton1);
-        exitButton1.setBounds(300, 410, 200, 50);
+        exitButton1.setBounds(300, 470, 200, 50);
 
         optionsButton1.setText("Options");
         optionsButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,34 +102,26 @@ public class MainMenuView extends javax.swing.JPanel implements View{
             }
         });
         add(optionsButton1);
-        optionsButton1.setBounds(300, 318, 200, 50);
+        optionsButton1.setBounds(300, 400, 200, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/back.jpg")); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel2.setText("KATAMINO");
+        add(jLabel2);
+        jLabel2.setBounds(270, 60, 260, 56);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel3);
+        jLabel3.setBounds(190, 40, 410, 100);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1409, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 877, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        add(jPanel1);
-        jPanel1.setBounds(0, 0, 1409, 877);
+        jLabel1.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
+        add(jLabel1);
+        jLabel1.setBounds(-5, -4, 820, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
@@ -161,7 +154,8 @@ public class MainMenuView extends javax.swing.JPanel implements View{
     private javax.swing.JButton exitButton;
     private javax.swing.JButton exitButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton leaderBoardButton;
     private javax.swing.JButton optionsButton;
     private javax.swing.JButton optionsButton1;

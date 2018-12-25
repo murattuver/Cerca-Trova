@@ -35,6 +35,8 @@ public class MultiMenu extends javax.swing.JPanel {
         createLobbyButton = new javax.swing.JButton();
         joinButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(null);
@@ -46,7 +48,7 @@ public class MultiMenu extends javax.swing.JPanel {
             }
         });
         add(signOutButton);
-        signOutButton.setBounds(333, 257, 177, 49);
+        signOutButton.setBounds(300, 350, 177, 49);
 
         createLobbyButton.setText("Create a Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +57,7 @@ public class MultiMenu extends javax.swing.JPanel {
             }
         });
         add(createLobbyButton);
-        createLobbyButton.setBounds(333, 130, 177, 49);
+        createLobbyButton.setBounds(300, 230, 177, 49);
 
         joinButton.setText("Join a Game");
         joinButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,13 +66,26 @@ public class MultiMenu extends javax.swing.JPanel {
             }
         });
         add(joinButton);
-        joinButton.setBounds(333, 190, 177, 49);
+        joinButton.setBounds(300, 290, 177, 49);
 
         jLabel1.setBackground(new java.awt.Color(0, 51, 51));
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 2, 20)); // NOI18N
-        jLabel1.setText("Katamino-Online");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("KATAMINO-ONLINE");
         add(jLabel1);
-        jLabel1.setBounds(333, 70, 177, 48);
+        jLabel1.setBounds(270, 110, 250, 48);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel3);
+        jLabel3.setBounds(200, 80, 380, 100);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed
@@ -89,6 +104,8 @@ public class MultiMenu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createLobbyButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton joinButton;
     private javax.swing.JButton signOutButton;
     // End of variables declaration//GEN-END:variables

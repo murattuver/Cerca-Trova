@@ -28,9 +28,10 @@ public class GameFinishedScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
@@ -39,12 +40,7 @@ public class GameFinishedScreen extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Level Completed!");
         add(jLabel3);
-        jLabel3.setBounds(220, 180, 280, 60);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/1white.jpeg")); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(170, 140, 350, 130);
+        jLabel3.setBounds(270, 190, 280, 60);
 
         jButton1.setText("Next!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,12 +49,23 @@ public class GameFinishedScreen extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(560, 90, 81, 24);
+        jButton1.setBounds(560, 90, 81, 32);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/BilkentCourses/Fall2018/CS319/BackGroundMainPage.jpeg")); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1);
-        jLabel1.setBounds(-110, 40, 1409, 877);
+        jLabel1.setBounds(-110, 40, 45, 16);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel5);
+        jLabel5.setBounds(220, 170, 330, 110);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setSize(new java.awt.Dimension(800, 600));
+        add(jLabel4);
+        jLabel4.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -69,7 +76,8 @@ public class GameFinishedScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

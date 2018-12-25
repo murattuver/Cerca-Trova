@@ -36,6 +36,8 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
         title = new javax.swing.JLabel();
         multiPlayerButton = new javax.swing.JButton();
         singlePlayerButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -50,9 +52,11 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
         add(backButton);
         backButton.setBounds(11, 11, 100, 50);
 
-        title.setText("                 Select Player");
+        title.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        title.setForeground(new java.awt.Color(0, 0, 0));
+        title.setText("SELECT PLAYER");
         add(title);
-        title.setBounds(300, 99, 200, 50);
+        title.setBounds(300, 70, 210, 50);
 
         multiPlayerButton.setText("Multiplayer");
         multiPlayerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +75,19 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
         });
         add(singlePlayerButton);
         singlePlayerButton.setBounds(300, 206, 200, 100);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        jLabel1.setLocation(new java.awt.Point(190, 40));
+        jLabel1.setSize(new java.awt.Dimension(410, 100));
+        add(jLabel1);
+        jLabel1.setBounds(220, 40, 380, 120);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 849, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -93,6 +110,8 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton multiPlayerButton;
     private javax.swing.JButton singlePlayerButton;
     private javax.swing.JLabel title;

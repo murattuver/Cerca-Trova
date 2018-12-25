@@ -47,6 +47,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         lobbyName = new javax.swing.JFormattedTextField();
         backButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -76,7 +77,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
 
         levelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Level 7", "Level 8", "Level 9", "Level 10", "Level 11", "Level 12" }));
         add(levelBox);
-        levelBox.setBounds(294, 220, 112, 23);
+        levelBox.setBounds(294, 220, 112, 26);
 
         createLobbyButton.setText("Create Lobby");
         createLobbyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,19 +86,19 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
             }
         });
         add(createLobbyButton);
-        createLobbyButton.setBounds(206, 273, 109, 24);
+        createLobbyButton.setBounds(206, 273, 112, 32);
 
         jLabel1.setText("LobbyName:");
         add(jLabel1);
-        jLabel1.setBounds(206, 167, 70, 14);
+        jLabel1.setBounds(206, 167, 78, 16);
 
         jLabel2.setText("Level:");
         add(jLabel2);
-        jLabel2.setBounds(206, 220, 70, 14);
+        jLabel2.setBounds(206, 220, 70, 16);
 
         lobbyName.setText("LobbyName");
         add(lobbyName);
-        lobbyName.setBounds(294, 165, 112, 18);
+        lobbyName.setBounds(294, 165, 112, 26);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +107,13 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
             }
         });
         add(backButton);
-        backButton.setBounds(320, 273, 86, 24);
+        backButton.setBounds(320, 273, 86, 32);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setSize(new java.awt.Dimension(800, 600));
+        add(jLabel3);
+        jLabel3.setBounds(0, 0, 810, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed
@@ -144,6 +151,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JComboBox<String> levelBox;
     private javax.swing.JFormattedTextField lobbyName;
     // End of variables declaration//GEN-END:variables

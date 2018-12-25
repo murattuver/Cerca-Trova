@@ -36,17 +36,18 @@ public class LoginScreen extends javax.swing.JPanel {
         loginButton = new javax.swing.JButton();
         signUpButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 153, 255));
         setLayout(null);
 
         passwordField.setText("pasdasdasdas");
         add(passwordField);
-        passwordField.setBounds(316, 202, 179, 18);
+        passwordField.setBounds(316, 202, 179, 22);
 
         mailAddressField.setText("MailAdress");
         add(mailAddressField);
-        mailAddressField.setBounds(316, 166, 179, 18);
+        mailAddressField.setBounds(316, 166, 179, 26);
 
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +56,7 @@ public class LoginScreen extends javax.swing.JPanel {
             }
         });
         add(loginButton);
-        loginButton.setBounds(316, 238, 64, 24);
+        loginButton.setBounds(316, 238, 65, 32);
 
         signUpButton.setText("SignUp");
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +65,7 @@ public class LoginScreen extends javax.swing.JPanel {
             }
         });
         add(signUpButton);
-        signUpButton.setBounds(421, 238, 74, 24);
+        signUpButton.setBounds(421, 238, 74, 32);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +75,12 @@ public class LoginScreen extends javax.swing.JPanel {
         });
         add(backButton);
         backButton.setBounds(11, 11, 100, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setSize(new java.awt.Dimension(800, 600));
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -103,6 +110,7 @@ public class LoginScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JFormattedTextField mailAddressField;
     private javax.swing.JPasswordField passwordField;

@@ -52,6 +52,9 @@ public class OptionsView extends javax.swing.JPanel {
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 204, 255));
         setAutoscrolls(true);
@@ -72,12 +75,15 @@ public class OptionsView extends javax.swing.JPanel {
         add(backButton);
         backButton.setBounds(11, 11, 100, 50);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setText("                          OPTIONS");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("OPTIONS");
+        jLabel1.setLocation(new java.awt.Point(310, 70));
         add(jLabel1);
-        jLabel1.setBounds(-10, 100, 580, 50);
+        jLabel1.setBounds(330, 70, 180, 50);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("                           Sound");
         add(jLabel2);
         jLabel2.setBounds(220, 160, 240, 50);
@@ -90,13 +96,13 @@ public class OptionsView extends javax.swing.JPanel {
             }
         });
         add(jCheckBox1);
-        jCheckBox1.setBounds(280, 210, 70, 30);
+        jCheckBox1.setBounds(280, 210, 70, 22);
 
         jCheckBox2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jCheckBox2.setSelected(true);
         jCheckBox2.setText("OFF");
         add(jCheckBox2);
-        jCheckBox2.setBounds(480, 210, 64, 30);
+        jCheckBox2.setBounds(480, 210, 59, 22);
 
         jCheckBox3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jCheckBox3.setText("OFF");
@@ -104,6 +110,7 @@ public class OptionsView extends javax.swing.JPanel {
         jCheckBox3.setBounds(470, 330, 70, 30);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("                           Music");
         add(jLabel3);
         jLabel3.setBounds(220, 250, 290, 50);
@@ -121,9 +128,10 @@ public class OptionsView extends javax.swing.JPanel {
 
         jCheckBox5.setText("ME");
         add(jCheckBox5);
-        jCheckBox5.setBounds(490, 440, 50, 22);
+        jCheckBox5.setBounds(490, 440, 50, 20);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("                           Theme");
         add(jLabel4);
         jLabel4.setBounds(210, 370, 250, 50);
@@ -136,7 +144,7 @@ public class OptionsView extends javax.swing.JPanel {
             }
         });
         add(jCheckBox6);
-        jCheckBox6.setBounds(270, 440, 70, 22);
+        jCheckBox6.setBounds(270, 440, 70, 20);
 
         jCheckBox7.setText("CS");
         jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
@@ -145,11 +153,30 @@ public class OptionsView extends javax.swing.JPanel {
             }
         });
         add(jCheckBox7);
-        jCheckBox7.setBounds(351, 439, 60, 22);
+        jCheckBox7.setBounds(351, 439, 60, 20);
 
         jCheckBox8.setText("MAN");
         add(jCheckBox8);
-        jCheckBox8.setBounds(420, 440, 60, 22);
+        jCheckBox8.setBounds(420, 440, 60, 20);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        jLabel6.setLocation(new java.awt.Point(190, 40));
+        jLabel6.setSize(new java.awt.Dimension(410, 100));
+        add(jLabel6);
+        jLabel6.setBounds(230, 50, 350, 90);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel7);
+        jLabel7.setBounds(235, 156, 340, 370);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5);
+        jLabel5.setBounds(0, 0, 810, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -193,5 +220,8 @@ public class OptionsView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

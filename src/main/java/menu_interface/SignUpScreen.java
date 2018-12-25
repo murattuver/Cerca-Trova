@@ -46,6 +46,7 @@ public class SignUpScreen extends javax.swing.JPanel {
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 153, 255));
         setLayout(null);
@@ -59,7 +60,7 @@ public class SignUpScreen extends javax.swing.JPanel {
             }
         });
         add(passwordField1);
-        passwordField1.setBounds(333, 131, 155, 18);
+        passwordField1.setBounds(333, 131, 155, 22);
 
         passwordField2.setText("jPasswordField2");
         passwordField2.setMaximumSize(new java.awt.Dimension(134, 22));
@@ -70,7 +71,7 @@ public class SignUpScreen extends javax.swing.JPanel {
             }
         });
         add(passwordField2);
-        passwordField2.setBounds(333, 191, 155, 18);
+        passwordField2.setBounds(333, 191, 155, 22);
 
         mailAdressField.setText("example@mail.com");
         mailAdressField.setMaximumSize(new java.awt.Dimension(72, 26));
@@ -86,7 +87,7 @@ public class SignUpScreen extends javax.swing.JPanel {
             }
         });
         add(mailAdressField);
-        mailAdressField.setBounds(333, 95, 155, 18);
+        mailAdressField.setBounds(333, 95, 155, 26);
 
         signupButton.setText("Sign Up");
         signupButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +96,7 @@ public class SignUpScreen extends javax.swing.JPanel {
             }
         });
         add(signupButton);
-        signupButton.setBounds(333, 281, 78, 24);
+        signupButton.setBounds(333, 281, 78, 32);
 
         notMatchedField.setEditable(false);
         notMatchedField.setText("Passwords do not match.");
@@ -107,15 +108,15 @@ public class SignUpScreen extends javax.swing.JPanel {
             }
         });
         add(notMatchedField);
-        notMatchedField.setBounds(231, 316, 317, 18);
+        notMatchedField.setBounds(231, 316, 317, 24);
 
         nickNameField.setText("NickName");
         add(nickNameField);
-        nickNameField.setBounds(333, 237, 155, 18);
+        nickNameField.setBounds(333, 237, 155, 24);
 
         jTextField5.setText("At least 6 characters long.");
         add(jTextField5);
-        jTextField5.setBounds(333, 155, 155, 18);
+        jTextField5.setBounds(333, 155, 179, 24);
 
         backButton.setText("BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -129,22 +130,28 @@ public class SignUpScreen extends javax.swing.JPanel {
         jFormattedTextField1.setEditable(false);
         jFormattedTextField1.setText("Password:");
         add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(207, 131, 120, 18);
+        jFormattedTextField1.setBounds(207, 131, 120, 26);
 
         jFormattedTextField2.setEditable(false);
         jFormattedTextField2.setText("Email Address:");
         add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(207, 95, 120, 18);
+        jFormattedTextField2.setBounds(207, 95, 120, 26);
 
         jFormattedTextField3.setEditable(false);
         jFormattedTextField3.setText("re-Password:");
         add(jFormattedTextField3);
-        jFormattedTextField3.setBounds(207, 191, 120, 18);
+        jFormattedTextField3.setBounds(207, 191, 120, 26);
 
         jFormattedTextField4.setEditable(false);
         jFormattedTextField4.setText("NickName:");
         add(jFormattedTextField4);
-        jFormattedTextField4.setBounds(207, 237, 120, 18);
+        jFormattedTextField4.setBounds(207, 237, 120, 26);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setSize(new java.awt.Dimension(800, 600));
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mailAdressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailAdressFieldActionPerformed
@@ -211,6 +218,7 @@ public class SignUpScreen extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JFormattedTextField jFormattedTextField4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JFormattedTextField mailAdressField;
     private javax.swing.JTextField nickNameField;

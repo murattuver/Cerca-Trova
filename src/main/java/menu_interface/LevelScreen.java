@@ -41,6 +41,8 @@ public class LevelScreen extends javax.swing.JPanel {
         level8Button = new javax.swing.JButton();
         level1Button = new javax.swing.JButton();
         level9Button = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 102));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -55,9 +57,11 @@ public class LevelScreen extends javax.swing.JPanel {
         add(backButton);
         backButton.setBounds(11, 11, 100, 50);
 
-        jLabel1.setText("           LEVELS");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("LEVELS");
         add(jLabel1);
-        jLabel1.setBounds(350, 99, 100, 50);
+        jLabel1.setBounds(320, 60, 170, 50);
 
         level2Button.setText("Level 2");
         level2Button.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +143,19 @@ public class LevelScreen extends javax.swing.JPanel {
         });
         add(level9Button);
         level9Button.setBounds(550, 430, 200, 50);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        jLabel3.setSize(new java.awt.Dimension(410, 100));
+        add(jLabel3);
+        jLabel3.setBounds(190, 40, 410, 100);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 800, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -189,6 +206,8 @@ public class LevelScreen extends javax.swing.JPanel {
     private javax.swing.JButton Level4Button;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton level1Button;
     private javax.swing.JButton level2Button;
     private javax.swing.JButton level3Button;
