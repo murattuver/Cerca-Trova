@@ -537,7 +537,7 @@ public class MainMenuController {
             pentomino5.setX(172);
             pentomino5.setY(283);
             pentomino5.setDefault(172, 283);
-
+            
             pentomino6.setX(328);
             pentomino6.setY(283);
             pentomino6.setDefault(328, 283);
@@ -658,6 +658,7 @@ public class MainMenuController {
             }
             
         } else if (levelNo == 6 && (levels.get(5).getUnlocked() || numberOfPlayers == 2)) {
+
             pentomino2.setX(16);
             pentomino2.setY(283);
             pentomino2.setDefault(16, 283);

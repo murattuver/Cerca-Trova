@@ -95,6 +95,10 @@ public class GameManager{
         gamePanel = new GamePanel(objectsOnScreen, this);
         
     }
+
+    public GameManager() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void startGameEngine(){
         gameEngine = new GameEngine(gamePanel, this);
