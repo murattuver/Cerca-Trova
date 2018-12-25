@@ -135,6 +135,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createLobbyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createLobbyButtonActionPerformed
+        menuController.getSoundManager().playSound();
         String lobbyName = this.lobbyName.getText();
         String level = levelBox.getSelectedItem().toString();
         int levelNo = Integer.parseInt(level.substring(level.length() - 1));
@@ -157,6 +158,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_createLobbyButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        menuController.getSoundManager().playSound();
         menuController.showView("multimenu");
         
     }//GEN-LAST:event_backButtonActionPerformed

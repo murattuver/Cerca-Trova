@@ -18,6 +18,7 @@ import java.util.List;
 import game_management.Level;
 import game_management.Pentomino;
 import game_management.PentominoesSet;
+import game_management.SoundManager;
 import java.util.HashMap;
 import menu_interface.CreateLobbyScreen;
 import menu_interface.JoinLobbyScreen;
@@ -43,9 +44,12 @@ public class MainMenuController {
     private NetworkManager network = null;
     private int playerNo;
     private boolean showFrame;
+    private SoundManager soundManager;
     
     public MainMenuController(){
         this.showFrame = showFrame;
+        
+        soundManager = new SoundManager();
         createPentos();
         createLevels();
         
@@ -53,11 +57,17 @@ public class MainMenuController {
         menuFrame.add(new MainMenuView(this));
         menuFrame.updateFrame();
         
+        soundManager.play();
+        
     }
     
     public void menuFrameVisible(){
         menuFrame.setVisible(true);
 
+    }
+    
+    public SoundManager getSoundManager(){
+        return soundManager;
     }
     
    public void showView(String type){
