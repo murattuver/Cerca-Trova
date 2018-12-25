@@ -380,10 +380,13 @@ public class MainMenuController {
    }
    
    public void initNetwork(){
-       network = new NetworkManager(this);
+       if(network == null){
+          network = new NetworkManager(this);
+       }
    }
    
    public void breakNetwork(){
+       network.stopDatabaseListener();
        network = null;
    }
    

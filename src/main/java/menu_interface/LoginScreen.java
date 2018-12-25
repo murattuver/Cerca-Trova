@@ -120,7 +120,7 @@ public class LoginScreen extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         menuController.getSoundManager().playSound();
-        menuController.breakNetwork();
+        //menuController.breakNetwork();
         menuController.setNumberOfPlayers(0);
         menuController.showView("numberofplayer");
     }//GEN-LAST:event_backButtonActionPerformed

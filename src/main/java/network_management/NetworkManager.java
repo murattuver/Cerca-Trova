@@ -225,7 +225,7 @@ public class NetworkManager {
     
   public void stopDatabaseListener() {
     
-    Query query = db.collection("cities");
+    Query query = db.collection("games");
     ListenerRegistration registration = query.addSnapshotListener(
         new EventListener<QuerySnapshot>() {
 

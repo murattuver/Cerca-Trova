@@ -320,8 +320,8 @@ public class GameManager{
         }
         
         if(n == 0){
-            //network.destroyOnlineGame();
-            
+            network.destroyOnlineGame();
+            menuController.getSoundManager().playSound();
             gameEngine.stopGameEngine();
             //network.stopDatabaseListener();
             menuController.menuFrameVisible();

@@ -114,7 +114,6 @@ public class NumberOfPlayerView extends javax.swing.JPanel {
         menuManager.setNumberOfPlayers(2);
         menuManager.showView("login");
         menuManager.initNetwork();
-        //menuManager.initLevel();
     }//GEN-LAST:event_multiPlayerButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
