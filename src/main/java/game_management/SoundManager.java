@@ -24,9 +24,13 @@ public class SoundManager {
     protected Sound sound;
     protected long clipTime;
     private boolean soundIsOff;
+    private boolean musicIsOff;
+    private boolean themeIsOff;
     
     public SoundManager() {
         soundIsOff = false;
+        musicIsOff = false;
+        themeIsOff = true;
         music = new Music();
         sound = new Sound();
         try {
@@ -34,24 +38,27 @@ public class SoundManager {
             audioIn = AudioSystem.getAudioInputStream(audio.toURI().toURL());
             clip = AudioSystem.getClip();
             clip.open(audioIn);
-       }
-       catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-           e.printStackTrace();
-       }
+        }
+        catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
     
     public void play(Theme theme) {
-       try {
-            File audio = theme.getAudioFile();
-            themeIn = AudioSystem.getAudioInputStream(audio.toURI().toURL());
-            clipTheme = AudioSystem.getClip();
-            clipTheme.open(themeIn);
-            clipTheme.start();
-            clipTheme.loop(Clip.LOOP_CONTINUOUSLY);
-       }
-       catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-           e.printStackTrace();
-       }
+       if(theme != null) {
+           try {
+               File audio = theme.getAudioFile();
+               themeIn = AudioSystem.getAudioInputStream(audio.toURI().toURL());
+               clipTheme = AudioSystem.getClip();
+               clipTheme.open(themeIn);
+               clipTheme.start();
+               clipTheme.loop(Clip.LOOP_CONTINUOUSLY);
+               
+           } 
+           catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+               e.printStackTrace();
+           }
+       } 
     }
     
     public void play() {
@@ -84,10 +91,18 @@ public class SoundManager {
     }
     
     public void closeMusic() {
+        musicIsOff = true;
         clip.stop();
     }
     
+    public void resetMusic() {
+        clip.flush();
+        clip.setFramePosition(0);
+        clip.start();
+    } 
+    
     public void closeThemeMusic() {
+        themeIsOff = true;
         clipTheme.stop();
     }
     
@@ -97,5 +112,21 @@ public class SoundManager {
     
     public void setClosed(boolean isSound) {
         soundIsOff = isSound;
+    }
+    
+    public void setMusicClosed(boolean isMusic) {
+        musicIsOff = isMusic;
+    }
+    
+    public void setThemeMusicClosed(boolean isTheme) {
+        themeIsOff = isTheme;
+    }
+    
+    public boolean getMusicClosed() {
+        return musicIsOff;
+    }
+    
+    public boolean getThemeMusicClosed() {
+        return themeIsOff;
     }
 }

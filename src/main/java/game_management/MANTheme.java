@@ -10,13 +10,20 @@ package game_management;
  * @author highcsavci
  */
 import game_management.Theme;
+import java.awt.Image;
 import java.io.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 public class MANTheme extends Theme {
     public MANTheme(){
-        ImageIcon img = new ImageIcon("assets/manimage.jpg");
-        File audio = new File("assets/man_sound.wav");
-        image = img;
-        audioFile = audio;
+        try {
+            Image img = ImageIO.read(new File("assets/manTheme.png"));
+            File audio = new File("assets/man_sound.wav");
+            image = img;
+            audioFile = audio;
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -33,6 +33,7 @@ public class GameModeScreen extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         classicButton = new javax.swing.JButton();
         arcadeButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -42,7 +43,7 @@ public class GameModeScreen extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
 
-        backButton.setText("BACK");
+        backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -58,7 +59,7 @@ public class GameModeScreen extends javax.swing.JPanel {
             }
         });
         add(classicButton);
-        classicButton.setBounds(300, 210, 200, 100);
+        classicButton.setBounds(300, 230, 200, 100);
 
         arcadeButton.setText("Arcade");
         arcadeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +68,13 @@ public class GameModeScreen extends javax.swing.JPanel {
             }
         });
         add(arcadeButton);
-        arcadeButton.setBounds(300, 360, 200, 100);
+        arcadeButton.setBounds(300, 380, 200, 100);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel4);
+        jLabel4.setBounds(270, 190, 260, 330);
 
         jPanel2.setLayout(null);
 
@@ -83,9 +90,8 @@ public class GameModeScreen extends javax.swing.JPanel {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(200, 70, 390, 100);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jLabel3.setSize(new java.awt.Dimension(800, 600));
         jPanel2.add(jLabel3);
         jLabel3.setBounds(0, 0, 800, 600);
 
@@ -119,6 +125,7 @@ public class GameModeScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

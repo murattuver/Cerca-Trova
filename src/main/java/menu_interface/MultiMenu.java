@@ -36,6 +36,7 @@ public class MultiMenu extends javax.swing.JPanel {
         joinButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
@@ -81,9 +82,14 @@ public class MultiMenu extends javax.swing.JPanel {
         add(jLabel3);
         jLabel3.setBounds(200, 80, 380, 100);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel4);
+        jLabel4.setBounds(220, 200, 340, 260);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jLabel2.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
         add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
@@ -109,6 +115,7 @@ public class MultiMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton joinButton;
     private javax.swing.JButton signOutButton;
     // End of variables declaration//GEN-END:variables

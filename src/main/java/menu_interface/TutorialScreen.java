@@ -4,18 +4,14 @@
  * and open the template in the editor.
  */
 package menu_interface;
-/*
+import menu_management.MainMenuController;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.media.Manager;
-import javax.media.MediaLocator;
-import javax.media.Player;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-*/
+
 /**
  *
  * @author peg
@@ -25,7 +21,9 @@ public class TutorialScreen extends javax.swing.JPanel {
     /**
      * Creates new form TutorialScreen
      */
-    public TutorialScreen() {
+    MainMenuController menuController;
+    public TutorialScreen(MainMenuController menuController) {
+        this.menuController = menuController;
         initComponents();
     }
 
@@ -39,8 +37,11 @@ public class TutorialScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -50,28 +51,68 @@ public class TutorialScreen extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("How To Play Katamino?");
         add(jLabel2);
-        jLabel2.setBounds(240, 80, 320, 80);
+        jLabel2.setBounds(270, 40, 290, 90);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/1white.jpeg")); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(220, 60, 360, 120);
+        BackButton.setText("Back");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+        add(BackButton);
+        BackButton.setBounds(80, 60, 81, 32);
 
-        jButton1.setText("Back");
+        jButton1.setText("Next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1);
-        jButton1.setBounds(80, 60, 81, 24);
+        jButton1.setBounds(660, 60, 90, 32);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/peg/Desktop/BilkentCourses/Fall2018/CS319/BackGroundMainPage.jpeg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel4);
+        jLabel4.setBounds(250, 50, 320, 70);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel3);
+        jLabel3.setBounds(70, 50, 100, 50);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel5);
+        jLabel5.setBounds(650, 50, 110, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setPreferredSize(new java.awt.Dimension(800, 600));
         add(jLabel1);
-        jLabel1.setBounds(50, 0, 800, 600);
+        jLabel1.setBounds(1, -4, 800, 610);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        menuController.getSoundManager().playSound();
+        menuController.showView("mainmenu");
+    }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

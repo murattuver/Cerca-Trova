@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 public class MenuFrame extends JFrame {
     
     int width = 800;
-    int height = 600;
+    int height = 630;
     
     public MenuFrame() {
         
@@ -27,6 +27,8 @@ public class MenuFrame extends JFrame {
         setLocationRelativeTo(null);
         
         setVisible(true);
+        
+        updateFrame();
         
     }
     

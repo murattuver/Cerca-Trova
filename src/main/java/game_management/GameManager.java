@@ -24,7 +24,6 @@ import network_management.NetworkManager;
  */
 public class GameManager{
     
-    private SoundManager soundManager;
     private Board myBoard;
     private Board yourBoard;
     private List<Pentomino> pentos;
@@ -32,7 +31,7 @@ public class GameManager{
     private Level level;
     private OptionsView settingsView;
     private MenuFrame menuFrame;
-    private GameEngine gameEngine ;
+    private GameEngine gameEngine;
     private boolean isGameRunning = false;
     private GamePanel gamePanel;
     private int initialX;
@@ -47,6 +46,7 @@ public class GameManager{
     private int gameWinner = 0;
     private String gameMode;
     private MainMenuController menuController;
+    private Theme theme;
 
     
     public GameManager(MainMenuController menuController, String gMode, Level level, boolean isMultiplayer, int playerNo) {
@@ -58,7 +58,13 @@ public class GameManager{
         pentos = new ArrayList<>();
         objectsOnScreen = new ArrayList<GameObject>();
         this.level = level;
-        
+        theme = determineTheme(menuController.getSettingsManager().loadSettings().get("Theme"));
+        System.out.println(theme);
+        if(theme != null && menuController.getSoundManager().getThemeMusicClosed()) {
+            menuController.getSoundManager().setThemeMusicClosed(false);
+            menuController.getSoundManager().play(theme);
+        }    
+                   
         initPentominoes();
         myBoard = new Board(level.getDifficultyLevel(), false);
         
@@ -265,6 +271,7 @@ public class GameManager{
         options[0]); //default button title
         
         if(n == 0){
+            menuController.getSoundManager().playSound();
             gameEngine.stopGameEngine();
             menuController.setLevelUnlocked(level.getDifficultyLevel() - 3);
             menuController.initNextLevel(gameMode, level.getDifficultyLevel() - 3);
@@ -366,5 +373,33 @@ public class GameManager{
         return myBoard.isBoardFull();
     }
    
+    public MainMenuController getMenuController() {
+        return menuController;
+    }
     
+    public Theme determineTheme(String theme) {
+        if(theme.equals("ARCH")) {
+            return new ARCHTheme();
+        }
+        else if(theme.equals("CS")) {
+            return new CSTheme();
+        }
+        else if(theme.equals("MAN")) {
+            return new MANTheme();
+        }
+        else if(theme.equals("ME")) {
+            return new METheme();
+        }
+        else {
+            return null;
+        }
+    }
+    
+    public Theme getTheme() {
+        return theme;
+    }
+    
+    public boolean isMultiplayer() {
+        return isMultiplayer;
+    }
 }

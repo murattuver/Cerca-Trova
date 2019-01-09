@@ -130,7 +130,7 @@ public class MainMenuView extends javax.swing.JPanel{
 
     private void optionsButtonActionPerformed(java.awt.event.ActionEvent evt) {   
         menuManager.getSoundManager().playSound();
-        //gameController.getInstance().showGameOptions();
+        menuManager.showView("tutorial");
     }                                             
 
     private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {   
@@ -140,8 +140,7 @@ public class MainMenuView extends javax.swing.JPanel{
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         menuManager.getSoundManager().playSound();
-        //Controller closes the game.
-        //gameController.getInstance().closeGame();
+        menuManager.showView("credits");
     }                                          
 
     private void exitButton1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +151,7 @@ public class MainMenuView extends javax.swing.JPanel{
     private void optionsButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         menuManager.getSoundManager().playSound();
         menuManager.showView("options");
+        menuManager.getSettingsManager().loadConfig();
     }                                              
 
 

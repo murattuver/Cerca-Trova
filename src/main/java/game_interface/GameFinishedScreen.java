@@ -31,6 +31,7 @@ public class GameFinishedScreen extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -49,11 +50,11 @@ public class GameFinishedScreen extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(560, 90, 81, 32);
+        jButton1.setBounds(650, 60, 81, 32);
 
         jLabel1.setText("jLabel1");
         add(jLabel1);
-        jLabel1.setBounds(-110, 40, 45, 16);
+        jLabel1.setBounds(-110, 40, 41, 16);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -61,9 +62,14 @@ public class GameFinishedScreen extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(220, 170, 330, 110);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel2);
+        jLabel2.setBounds(640, 50, 100, 50);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        jLabel4.setSize(new java.awt.Dimension(800, 600));
         add(jLabel4);
         jLabel4.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
@@ -76,6 +82,7 @@ public class GameFinishedScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

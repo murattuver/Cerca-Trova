@@ -41,6 +41,7 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         lobbies = new javax.swing.JTable();
         joinButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 102, 51));
@@ -51,7 +52,7 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
         jFormattedTextField1.setText("Active Lobbies:");
         jFormattedTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(56, 34, 186, 40);
+        jFormattedTextField1.setBounds(56, 34, 165, 36);
 
         refreshButton.setText("Refresh");
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +84,7 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
         jScrollPane1.setViewportView(lobbies);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(31, 79, 454, 404);
+        jScrollPane1.setBounds(31, 79, 453, 403);
 
         joinButton.setText("Join");
         joinButton.addActionListener(new java.awt.event.ActionListener() {
@@ -94,9 +95,14 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
         add(joinButton);
         joinButton.setBounds(496, 104, 148, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel2);
+        jLabel2.setBounds(11, 16, 660, 520);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jLabel1.setSize(new java.awt.Dimension(800, 600));
         add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
@@ -151,6 +157,7 @@ public class JoinLobbyScreen extends javax.swing.JPanel {
     private javax.swing.JButton backButton;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton joinButton;
     private javax.swing.JTable lobbies;

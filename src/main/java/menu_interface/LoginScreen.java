@@ -38,6 +38,7 @@ public class LoginScreen extends javax.swing.JPanel {
         loginButton = new javax.swing.JButton();
         signUpButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 153, 255));
@@ -49,7 +50,7 @@ public class LoginScreen extends javax.swing.JPanel {
 
         mailAddressField.setText("MailAdress");
         add(mailAddressField);
-        mailAddressField.setBounds(316, 166, 179, 26);
+        mailAddressField.setBounds(316, 166, 179, 20);
 
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +59,7 @@ public class LoginScreen extends javax.swing.JPanel {
             }
         });
         add(loginButton);
-        loginButton.setBounds(316, 238, 65, 32);
+        loginButton.setBounds(307, 238, 90, 32);
 
         signUpButton.setText("SignUp");
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -67,9 +68,9 @@ public class LoginScreen extends javax.swing.JPanel {
             }
         });
         add(signUpButton);
-        signUpButton.setBounds(421, 238, 74, 32);
+        signUpButton.setBounds(421, 238, 90, 32);
 
-        backButton.setText("BACK");
+        backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -78,9 +79,14 @@ public class LoginScreen extends javax.swing.JPanel {
         add(backButton);
         backButton.setBounds(11, 11, 100, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 3, true));
+        add(jLabel2);
+        jLabel2.setBounds(290, 140, 230, 200);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jLabel1.setSize(new java.awt.Dimension(800, 600));
         add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
@@ -115,6 +121,7 @@ public class LoginScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton loginButton;
     private javax.swing.JFormattedTextField mailAddressField;
     private javax.swing.JPasswordField passwordField;

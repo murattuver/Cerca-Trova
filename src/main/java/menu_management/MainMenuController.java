@@ -18,13 +18,16 @@ import java.util.List;
 import game_management.Level;
 import game_management.Pentomino;
 import game_management.PentominoesSet;
+import game_management.SettingsManager;
 import game_management.SoundManager;
 import java.util.HashMap;
 import menu_interface.CreateLobbyScreen;
+import menu_interface.Credits;
 import menu_interface.JoinLobbyScreen;
 import menu_interface.LoginScreen;
 import menu_interface.MultiMenu;
 import menu_interface.SignUpScreen;
+import menu_interface.TutorialScreen;
 import network_management.NetworkManager;
 
 /**
@@ -44,12 +47,12 @@ public class MainMenuController {
     private NetworkManager network = null;
     private int playerNo;
     private boolean showFrame;
-    private SoundManager soundManager;
+    private static SoundManager soundManager = new SoundManager();
+    private SettingsManager settingsManager;
     
     public MainMenuController(){
         this.showFrame = showFrame;
-        
-        soundManager = new SoundManager();
+        settingsManager = new SettingsManager();
         createPentos();
         createLevels();
         
@@ -62,8 +65,13 @@ public class MainMenuController {
     }
     
     public void menuFrameVisible(){
-        menuFrame.setVisible(true);
-
+        menuFrame = new MenuFrame();
+        if(numberOfPlayers == 1) {
+            menuFrame.getContentPane().add(new LevelScreen(this));
+        } 
+        else {
+            menuFrame.getContentPane().add(new MultiMenu(this));
+        }
     }
     
     public ArrayList<Level> getLevels(){
@@ -107,7 +115,12 @@ public class MainMenuController {
        else if(type.equals("joinlobby")){
            menuFrame.getContentPane().add(new JoinLobbyScreen(this));
        }
-       
+       else if(type.equals("credits")) {
+           menuFrame.getContentPane().add(new Credits(this));
+       }
+       else if(type.equals("tutorial")) {
+           menuFrame.getContentPane().add(new TutorialScreen(this));
+       }
        menuFrame.updateFrame();
    }
    
@@ -465,12 +478,14 @@ public class MainMenuController {
        levels.get(levelNoToUnlock -1).setUnlocked(true);
    }
    
+   public SettingsManager getSettingsManager() {
+       return settingsManager;
+   }
    
    public GameManager initLevel(){
        
         GameManager gm = null;
-        
-        
+        soundManager.setMusicClosed(true);
         if (levelNo==1 ) {
             
             //Level1

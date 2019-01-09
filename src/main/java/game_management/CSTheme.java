@@ -11,13 +11,19 @@ package game_management;
  * @author highcsavci
  */
 import game_management.Theme;
+import java.awt.Image;
 import java.io.*;
-import javax.swing.*;
+import javax.imageio.ImageIO;
 public class CSTheme extends Theme {
     public CSTheme(){
-        ImageIcon img = new ImageIcon("assets/csimage.jpg");
-        File audio = new File("assets/cs_sound.wav");
-        image = img;
-        audioFile = audio;
+        try {
+            Image img = ImageIO.read(new File("assets/csTheme.png"));
+            File audio = new File("assets/cs_sound.wav");
+            image = img;
+            audioFile = audio;
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }

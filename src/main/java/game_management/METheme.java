@@ -10,13 +10,19 @@ package game_management;
  * @author highcsavci
  */
 import game_management.Theme;
+import java.awt.Image;
 import java.io.*;
-import javax.swing.*;
+import javax.imageio.ImageIO;
 public class METheme extends Theme {
     public METheme(){
-        ImageIcon img = new ImageIcon("assets/meimage.jpg");
-        File audio = new File("assets/me_sound.wav");
-        image = img;
-        audioFile = audio;
+        try {
+            Image img = ImageIO.read(new File("assets/meTheme.png"));
+            File audio = new File("assets/me_sound.wav");
+            image = img;
+            audioFile = audio;
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }

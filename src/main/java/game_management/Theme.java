@@ -5,15 +5,15 @@ package game_management;
  * @author highcsavci
  */
 import java.io.*;
-import javax.swing.*;
+import java.awt.*;
 public class Theme {
-    protected ImageIcon image;
+    protected Image image;
     protected File audioFile;
    
     public File getAudioFile() {
         return audioFile;
     }
-    public ImageIcon getImageIcon() {
+    public Image getImageIcon() {
         return image;
     }
 }

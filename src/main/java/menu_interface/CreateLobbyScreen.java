@@ -82,23 +82,23 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
             }
         });
         add(createLobbyButton);
-        createLobbyButton.setBounds(206, 273, 112, 32);
+        createLobbyButton.setBounds(191, 273, 120, 32);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("LobbyName:");
         add(jLabel1);
-        jLabel1.setBounds(206, 167, 78, 16);
+        jLabel1.setBounds(206, 167, 80, 15);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Level:");
         add(jLabel2);
-        jLabel2.setBounds(206, 220, 70, 16);
+        jLabel2.setBounds(206, 220, 70, 15);
 
         lobbyName.setText("LobbyName");
         add(lobbyName);
-        lobbyName.setBounds(294, 165, 112, 26);
+        lobbyName.setBounds(294, 165, 112, 20);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
             }
         });
         add(backButton);
-        backButton.setBounds(320, 273, 86, 32);
+        backButton.setBounds(320, 273, 110, 32);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/whitte.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -115,9 +115,8 @@ public class CreateLobbyScreen extends javax.swing.JPanel {
         add(jLabel4);
         jLabel4.setBounds(170, 130, 280, 220);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backG.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WhatsApp Image 2018-12-28 at 01.13.32.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jLabel3.setBounds(new java.awt.Rectangle(0, 0, 800, 600));
         add(jLabel3);
         jLabel3.setBounds(0, 0, 810, 610);
     }// </editor-fold>//GEN-END:initComponents

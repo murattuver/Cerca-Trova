@@ -4,14 +4,20 @@ package game_management;
  *
  * @author hp
  */
-import game_management.Theme;
 import java.io.*;
-import javax.swing.*;
+import java.awt.Image;
+import javax.imageio.ImageIO;
+
 public class ARCHTheme extends Theme {
     public ARCHTheme(){
-        ImageIcon img = new ImageIcon("assets/archimage.jpg");
-        File audio = new File("assets/arch_sound.wav");
-        image = img;
-        audioFile = audio;
+        try {
+            Image img = ImageIO.read(new File("assets/archTheme.png"));
+            File audio = new File("assets/arch_sound.wav");
+            image = img;
+            audioFile = audio;
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }

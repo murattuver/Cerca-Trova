@@ -69,7 +69,7 @@ public class GameEngine extends JFrame {
         });
 
 
-        setUndecorated(true);
+        //setUndecorated(true);
         
         MouseAdapter mAdap = new MouseAdapter() { 
             
@@ -83,7 +83,8 @@ public class GameEngine extends JFrame {
             
             @Override
             public void mousePressed(MouseEvent e){
-               
+               System.out.println("x" + e.getX());
+               System.out.println("y" + e.getY());
                 gamePanel.requestFocusInWindow();
                 
             
@@ -121,7 +122,7 @@ public class GameEngine extends JFrame {
         pack();
         setVisible(true);
         
-        this.setResizable(false);
+        //this.setResizable(false);
         
         gamePanel.setFocusable(true);
         gamePanel.requestFocusInWindow();
@@ -135,6 +136,7 @@ public class GameEngine extends JFrame {
     }
     
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        gameManager.getMenuController().getSoundManager().playSound();
         Object[] options = {"I Quit", "I Can Do This"};
         int n = JOptionPane.showOptionDialog((JFrame)SwingUtilities.windowForComponent(this),
         "Do you really want to quit? ",
@@ -146,7 +148,17 @@ public class GameEngine extends JFrame {
         options[1]); //default button title
         
         if(n == 0){
+            gameManager.getMenuController().getSoundManager().setMusicClosed(false);
+            gameManager.getMenuController().getSoundManager().playSound();
             gameManager.terminateSingleGame();
+            if(gameManager.getTheme() != null) {
+                System.out.println(gameManager.getTheme());
+                gameManager.getMenuController().getSoundManager().closeThemeMusic();
+                gameManager.getMenuController().getSoundManager().resetMusic();
+            }
+        }
+        else {
+            gameManager.getMenuController().getSoundManager().playSound();
         }
     }
 
